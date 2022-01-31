@@ -53,14 +53,14 @@ class MainActivity : AppCompatActivity() {
 
             when(item.itemId){
                 R.id.navigation_scanner ->{
-                    callFragment(0,fragmentScanner)
+                    callFragment(0,fragmentProfil)
                 }
                 R.id.navigation_support ->{
-                    callFragment(1,fragmentSupport)
+                    callFragment(1,fragmentScanner)
                 }
                 R.id.navigation_profil ->{
                     if (s.getStatusLogin()){
-                        callFragment(2,fragmentProfil)
+                        callFragment(2,fragmentSupport)
                     }else{
                         startActivity(Intent(this, MasukActivity::class.java))
                     }
