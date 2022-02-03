@@ -4,6 +4,7 @@ import com.anyarscaner.model.ResponModel
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -25,5 +26,11 @@ interface ApiService {
     fun login(
         @Field("email") email:String,
         @Field("password") password:String
+    ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @GET("sn")
+    fun cari_sn(
+        @Field("sn") sn:String
     ) : Call<ResponModel>
 }

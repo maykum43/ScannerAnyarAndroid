@@ -5,10 +5,10 @@
         android:icon="@drawable/ic_profil"
         android:title="Profil" />
 
-    <item
-        android:id="@+id/navigation_scanner"
-        android:icon="@drawable/ic_icn_barcode_scan_off"
-        android:title="Scanner" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_scanner"-->
+<!--        android:icon="@drawable/ic_icn_barcode_scan_off"-->
+<!--        android:title="Scanner" />-->
 
     <item
         android:id="@+id/navigation_support"

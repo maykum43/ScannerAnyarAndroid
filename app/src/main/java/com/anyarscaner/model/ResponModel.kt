@@ -4,4 +4,5 @@ class ResponModel {
     var success = 1
     lateinit var message:String
     var user = User()
+    var sn = SnModel()
 }
