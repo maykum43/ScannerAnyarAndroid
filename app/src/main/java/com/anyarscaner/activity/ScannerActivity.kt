@@ -4,14 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.SearchView
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.helper.SharedPref
 
-class ScannerActivity : AppCompatActivity() {
+class ScannerActivity : AppCompatActivity()  {
     lateinit var s: SharedPref
+    lateinit var txt_sn: TextView
+//    public class ViewActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +24,10 @@ class ScannerActivity : AppCompatActivity() {
 
         s = SharedPref(this)
 
+
         mainButton()
+
+
     }
 
     fun mainButton(){
@@ -34,5 +41,9 @@ class ScannerActivity : AppCompatActivity() {
             finish()
         }
 //        val btn_cari_sn = findViewById<Button>(R.id.)
+    }
+
+    fun setData(){
+        txt_sn.text = s.getString(s.sn)
     }
 }

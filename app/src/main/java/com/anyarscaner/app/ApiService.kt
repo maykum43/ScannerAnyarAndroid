@@ -29,7 +29,7 @@ interface ApiService {
     ) : Call<ResponModel>
 
     @FormUrlEncoded
-    @GET("sn")
+    @GET("cari_sn")
     fun cari_sn(
         @Field("sn") sn:String
     ) : Call<ResponModel>

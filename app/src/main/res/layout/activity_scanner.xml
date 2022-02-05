@@ -16,28 +16,43 @@
             android:layout_height="60dp"
             android:src="@drawable/ic_baseline_chevron_left_24"
             />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:elevation="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:layout_toLeftOf="@id/btn_cariSN">
+
+                <EditText
+                    android:id="@+id/edt_sn"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:elevation="10dp"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp">
+                    android:hint="Masukan Kode atau SN"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
 
-                    <EditText
-                        android:id="@+id/tv_sn"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:hint="Masukan Kode atau SN"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/btn_cariSN"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Cari SN"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"/>
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/btn_scan_sn"
@@ -45,7 +60,8 @@
             android:layout_height="60dp"
             android:text="SCAN BARCODE"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            />
 
 <!--        <LinearLayout-->
 <!--            android:layout_width="match_parent"-->
@@ -68,12 +84,19 @@
 <!--                android:text="SCAN BARCODE"/>-->
 <!--        </LinearLayout>-->
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lv_sn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:scrollbars="none"/>
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_search"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
 
 </RelativeLayout>
