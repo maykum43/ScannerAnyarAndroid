@@ -107,7 +107,7 @@ class ScannerActivity : AppCompatActivity()  {
 
                 if(respon.success == 1){
 //                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
-                    listSn = respon.sn
+                    listSn = respon.sns
                      displayData()
                 //finish()
                 }else{

@@ -28,4 +28,5 @@ class AdapterCariSn (var data:ArrayList<SnModel>): RecyclerView.Adapter<AdapterC
     override fun getItemCount(): Int {
         return data.size
     }
+
 }

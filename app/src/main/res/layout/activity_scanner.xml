@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageView
@@ -62,35 +62,12 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             />
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginHorizontal="20dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:gravity="center">-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_sn_manual"-->
-<!--                android:layout_width="160dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:text="MASUKAN SN MANUAL"/>-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_scan_sn"-->
-<!--                android:layout_width="160dp"-->
-<!--                android:layout_height="60dp"-->
-<!--                android:text="SCAN BARCODE"/>-->
-<!--        </LinearLayout>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_sn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="20dp"
-                android:scrollbars="none"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"/>
 
     </LinearLayout>
 
