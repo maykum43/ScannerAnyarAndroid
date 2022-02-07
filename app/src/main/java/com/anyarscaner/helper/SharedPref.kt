@@ -8,6 +8,8 @@ import com.google.gson.Gson
 
 class SharedPref(activity: Activity) {
     val login = "login"
+    val cari_sn = "cari_sn"
+
     val nama = "nama"
     val email = "email"
 

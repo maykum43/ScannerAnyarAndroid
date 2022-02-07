@@ -33,7 +33,7 @@
                 android:layout_toLeftOf="@id/btn_cariSN">
 
                 <EditText
-                    android:id="@+id/edt_sn"
+                    android:id="@+id/tv_sn"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:hint="Masukan Kode atau SN"
@@ -84,12 +84,14 @@
 <!--                android:text="SCAN BARCODE"/>-->
 <!--        </LinearLayout>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lv_sn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:scrollbars="none"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_sn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:scrollbars="none"/>
+
     </LinearLayout>
 
     <ProgressBar
