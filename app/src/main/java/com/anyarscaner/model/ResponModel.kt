@@ -5,4 +5,5 @@ class ResponModel {
     lateinit var message:String
     var user = User()
     var sns : ArrayList<SnModel> = ArrayList()
+    var riws: ArrayList<RiwayatModel> = ArrayList()
 }

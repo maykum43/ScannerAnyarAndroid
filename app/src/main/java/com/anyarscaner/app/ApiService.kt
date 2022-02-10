@@ -33,4 +33,10 @@ interface ApiService {
     fun cari_sn(
         @Field("cari_sn") sn:String
     ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("rwt_sn")
+    fun his_sn(
+        @Field("his_sn") id:String
+    ) : Call<ResponModel>
 }

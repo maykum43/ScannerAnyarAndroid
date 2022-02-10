@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutItem_riwayat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="5dp">
+
+        <TextView
+            android:id="@+id/tv_createdat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12-Juni-1999"
+            android:textStyle="normal"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_sn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SN: xxxxxx"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reward : 100K"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Belum Selesai"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

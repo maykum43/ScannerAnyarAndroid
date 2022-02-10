@@ -12,7 +12,6 @@ import com.anyarscaner.R
 import com.anyarscaner.adapter.AdapterCariSn
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.app.ApiService
-import com.anyarscaner.databinding.ActivityMainBinding
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.SnModel
@@ -25,14 +24,11 @@ class ScannerActivity : AppCompatActivity()  {
     lateinit var s: SharedPref
 //    private val api by Lazy { ApiRetrofit().login}
 
-    lateinit var binding : ActivityMainBinding
-
-
     lateinit var list_sn: List<SnModel>
     lateinit var adapter: Adapter
     lateinit var apiInterface: ApiService
 
-    lateinit var pb:ProgressBar
+//    lateinit var pb:ProgressBar
     lateinit var rv_sn: RecyclerView
     lateinit var txt_sn: TextView
 
@@ -59,7 +55,7 @@ class ScannerActivity : AppCompatActivity()  {
         rv_sn = findViewById(R.id.rv_sn)
         rv_sn.layoutManager = layoutManager
 
-        rv_sn.adapter = AdapterCariSn(listSn)
+        rv_sn.adapter = AdapterCariSn(this, listSn)
         rv_sn.layoutManager = layoutManager
     }
 
@@ -96,7 +92,9 @@ class ScannerActivity : AppCompatActivity()  {
             return
         }
 
-        val pb = findViewById<ProgressBar>(R.id.pb_cariSN)
+//        val pb = findViewById<ProgressBar>(R.id.pb_cariSN)
+
+//        pb.visibility = View.VISIBLE
 
         ApiConfig.instanceRetrofit.cari_sn(edt_sn.text.toString()).enqueue(object :
             Callback<ResponModel>{
@@ -106,7 +104,8 @@ class ScannerActivity : AppCompatActivity()  {
                 val respon = response.body()!!
 
                 if(respon.success == 1){
-//                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
+//                    pb.visibility = View.GONE
+                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
                     listSn = respon.sns
                      displayData()
                 //finish()
@@ -118,7 +117,7 @@ class ScannerActivity : AppCompatActivity()  {
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Response Gagal
-                pb.visibility = View.GONE
+//                pb.visibility = View.GONE
             }
 
         })
