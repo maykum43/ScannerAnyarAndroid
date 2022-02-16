@@ -25,6 +25,8 @@
         <activity android:name=".activity.CariSNActivity" />
         <activity android:name=".activity.ScannerActivity" />
         <activity android:name=".activity.RiwayatSnActivity" />
+        <activity android:name=".activity.CreateHisActivity" />
+        <activity android:name=".activity.RiwayatActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

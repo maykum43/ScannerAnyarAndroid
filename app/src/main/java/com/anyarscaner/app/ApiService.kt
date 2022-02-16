@@ -37,6 +37,13 @@ interface ApiService {
     @FormUrlEncoded
     @POST("rwt_sn")
     fun his_sn(
-        @Field("his_sn") id:String
+        @Field("his_sn") user: String
+    ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("create_his")
+    fun create_his(
+        @Field("sn") sn:String,
+        @Field("user") user:String
     ) : Call<ResponModel>
 }

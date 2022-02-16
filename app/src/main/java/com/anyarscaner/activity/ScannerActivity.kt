@@ -15,6 +15,7 @@ import com.anyarscaner.app.ApiService
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.SnModel
+import org.jetbrains.annotations.NotNull
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,6 +32,10 @@ class ScannerActivity : AppCompatActivity()  {
 //    lateinit var pb:ProgressBar
     lateinit var rv_sn: RecyclerView
     lateinit var txt_sn: TextView
+    lateinit var tv_user:TextView
+
+//    lateinit var tv_sn:TextView
+//    lateinit var tv_user:TextView
 
     private var recyclerDataSnArrayList: ArrayList<SnModel>? = null
 
@@ -42,6 +47,7 @@ class ScannerActivity : AppCompatActivity()  {
         s = SharedPref(this)
 
         mainButton()
+        setData()
 
         return
     }
@@ -78,7 +84,10 @@ class ScannerActivity : AppCompatActivity()  {
     }
 
     fun setData(){
-        txt_sn.text = s.getString(s.sn)
+//        txt_sn.text = s.getString(s.sn)
+        tv_user = findViewById(R.id.tv_user)
+
+        tv_user.text =s.getString(s.nama)
     }
 
 
@@ -105,7 +114,7 @@ class ScannerActivity : AppCompatActivity()  {
 
                 if(respon.success == 1){
 //                    pb.visibility = View.GONE
-                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
                     listSn = respon.sns
                      displayData()
                 //finish()
@@ -121,5 +130,7 @@ class ScannerActivity : AppCompatActivity()  {
             }
 
         })
+
+//        saveriwayat()
     }
 }
