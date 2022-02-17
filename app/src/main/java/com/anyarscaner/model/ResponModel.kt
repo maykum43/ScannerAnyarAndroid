@@ -6,5 +6,5 @@ class ResponModel {
 
     var user = User()
     var sns : ArrayList<SnModel> = ArrayList()
-    var riws: ArrayList<RiwayatModel> = ArrayList()
+    var riws : ArrayList<RiwayatModel> = ArrayList()
 }

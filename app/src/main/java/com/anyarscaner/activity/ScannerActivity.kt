@@ -2,7 +2,6 @@ package com.anyarscaner.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +14,6 @@ import com.anyarscaner.app.ApiService
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.SnModel
-import org.jetbrains.annotations.NotNull
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -80,7 +78,13 @@ class ScannerActivity : AppCompatActivity()  {
         btn_carisn.setOnClickListener {
             cari_sn()
         }
-//        val btn_cari_sn = findViewById<Button>(R.id.)
+
+        btn_scan.setOnClickListener {
+            val intent = Intent(this@ScannerActivity, ScanBarcodeActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun setData(){

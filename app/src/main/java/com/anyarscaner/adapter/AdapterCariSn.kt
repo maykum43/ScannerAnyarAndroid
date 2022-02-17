@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
 import com.anyarscaner.activity.CreateHisActivity
 import com.anyarscaner.helper.SharedPref
+import com.anyarscaner.model.RiwayatModel
 import com.anyarscaner.model.SnModel
 
 class AdapterCariSn(var activity: Activity, var data: ArrayList<SnModel>): RecyclerView.Adapter<AdapterCariSn.Holder>() {
