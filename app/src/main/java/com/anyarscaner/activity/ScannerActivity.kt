@@ -2,6 +2,7 @@ package com.anyarscaner.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -105,15 +106,15 @@ class ScannerActivity : AppCompatActivity()  {
             return
         }
 
-//        val pb = findViewById<ProgressBar>(R.id.pb_cariSN)
+        val pb = findViewById<ProgressBar>(R.id.pb_search)
 
-//        pb.visibility = View.VISIBLE
+        pb.visibility = View.VISIBLE
 
         ApiConfig.instanceRetrofit.cari_sn(edt_sn.text.toString()).enqueue(object :
             Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 //Response Berhasil
-//                pb.visibility = View.GONE
+                pb.visibility = View.GONE
                 val respon = response.body()!!
 
                 if(respon.success == 1){
@@ -130,7 +131,8 @@ class ScannerActivity : AppCompatActivity()  {
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Response Gagal
-//                pb.visibility = View.GONE
+                pb.visibility = View.GONE
+                Toast.makeText(this@ScannerActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
             }
 
         })

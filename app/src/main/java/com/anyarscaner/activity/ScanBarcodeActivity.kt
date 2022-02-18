@@ -1,19 +1,29 @@
 package com.anyarscaner.activity
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.anyarscaner.R
+import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.model.ResponModel
 import com.budiyev.android.codescanner.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ScanBarcodeActivity : AppCompatActivity() {
 
     lateinit var codeScanner : CodeScanner
+//    lateinit var sn :TextView
+    lateinit var btnProses : Button
+//    var btnCekSN = findViewById<Button>(R.id.btn_cariBarcode)
 //    var scn = findViewById<CodeScanner>(R.id.scn)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +36,8 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
     fun codeScanner(){
 //        val scn = findViewById<CodeScanner>(R.id.scn)
+
+        btnProses =  findViewById<Button>(R.id.btn_cariBarcode)
 
 
         val scn = findViewById<CodeScannerView>(R.id.scn)
@@ -61,6 +73,43 @@ class ScanBarcodeActivity : AppCompatActivity() {
             }
 
         }
+
+        btnProses.setOnClickListener {
+            apiCari()
+        }
+    }
+
+    private fun apiCari() {
+        val tvHasil = findViewById<TextView>(R.id.tv_hasil)
+
+
+        ApiConfig.instanceRetrofit.cari_sn(tvHasil.text.toString()).enqueue(object :
+            Callback<ResponModel> {
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                //Response Berhasil
+//                pb.visibility = View.GONE
+                val respon = response.body()!!
+
+                if(respon.success == 1){
+//                    pb.visibility = View.GONE
+                    Toast.makeText(this@ScanBarcodeActivity, "Voucher Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@ScanBarcodeActivity, CreateHisActivity::class.java)
+                    intent.putExtra("sn",tvHasil.text)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    //gagal
+                    Toast.makeText(this@ScanBarcodeActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                //Response Gagal
+//                pb.visibility = View.GONE
+                Toast.makeText(this@ScanBarcodeActivity, "Voucher Sudah digunakan atau SN Bukan dari kami. ", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     override fun onResume() {

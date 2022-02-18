@@ -28,10 +28,6 @@ class CreateHisActivity : AppCompatActivity(){
 
         getData()
 
-
-
-
-
 //
 //        tv_sn = findViewById(R.id.tv_sn)
 //
@@ -51,10 +47,14 @@ class CreateHisActivity : AppCompatActivity(){
         tv_sn.text = sn
 
         btn_proses.setOnClickListener{
+            val pb = findViewById<ProgressBar>(R.id.pb_createHis)
+
+            pb.visibility = View.VISIBLE
             ApiConfig.instanceRetrofit.create_his(tv_sn.text.toString(),tv_id.text.toString()).enqueue(object :
                 Callback<ResponModel> {
                 override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
 
+                    pb.visibility = View.GONE
                     val respon = response.body()!!
 
                     if(respon.success == 1){
@@ -72,6 +72,7 @@ class CreateHisActivity : AppCompatActivity(){
                 override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                     val intent = Intent(this@CreateHisActivity, ScannerActivity::class.java)
                     startActivity(intent)
+                    pb.visibility = View.GONE
 //                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
                     Toast.makeText(this@CreateHisActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
                 }

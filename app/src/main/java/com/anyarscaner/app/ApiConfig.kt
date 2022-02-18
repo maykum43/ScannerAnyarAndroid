@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
 //    private const val BASE_URL = "http://192.168.1.127/WebAdminScanner2/public/api/"
-    private const val BASE_URL = "http://192.168.1.7/WebAdminScanner2/public/api/"
+    private const val BASE_URL = "http://192.168.1.235/WebAdminScanner2/public/api/"
     private val client: Retrofit
         get(){
             val gson = GsonBuilder().setLenient().create()
