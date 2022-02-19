@@ -21,7 +21,7 @@
             android:paddingLeft="10dp"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/Biru"
             />
         <!--     Field Email -->
         <LinearLayout
@@ -115,7 +115,7 @@
                 android:text="Daftar"
                 android:textStyle="bold"
                 android:textSize="16dp"
-                android:textColor="@color/purple_700"/>
+                android:textColor="@color/Biru"/>
 
         </LinearLayout>
 

@@ -32,8 +32,8 @@
         android:layout_above="@+id/nav_view"
         android:layout_centerInParent="true"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/purple_200"
-        android:src="@drawable/ic_icn_barcode_scan_off"
+        android:backgroundTint="@color/Biru"
+        android:src="@drawable/ic_baseline_qr_code_scanner"
         app:fabSize="normal" />
 
 </RelativeLayout>
