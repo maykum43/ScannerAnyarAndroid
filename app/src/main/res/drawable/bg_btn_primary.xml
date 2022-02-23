@@ -4,7 +4,10 @@
     <item>
         <shape>
             <corners android:radius="26dp"/>
-            <solid android:color="@color/Biru"/>
+<!--            <solid android:color="@color/Biru"/>-->
+            <gradient
+                android:startColor="#1a60bc"
+                android:endColor="#0d305e"/>
 <!--            <stroke android:width="5dp" android:color="@color/Blue"/>-->
         </shape>
     </item>

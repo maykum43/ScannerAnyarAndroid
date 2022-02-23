@@ -22,12 +22,12 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.MasukActivity" />
-        <activity android:name=".activity.CariSNActivity" />
         <activity android:name=".activity.ScannerActivity" />
         <activity android:name=".activity.CreateHisActivity" />
         <activity android:name=".activity.RiwayatActivity" />
         <activity android:name=".activity.ScanBarcodeActivity" />
         <activity android:name=".activity.EditProfilActivity" />
+        <activity android:name=".activity.BantuanActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

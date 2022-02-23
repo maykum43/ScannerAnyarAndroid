@@ -4,23 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_btn_primary.xml" value="0.1" />
+        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_btn_regist.xml" value="0.16" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_btn_secondary.xml" value="0.1" />
+        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_edit_text.xml" value="0.16" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/ic_icn_barcode_scan_off.xml" value="0.17" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/ic_key_24.xml" value="0.1255" />
+        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_bantuan.xml" value="0.22" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_carisn.xml" value="0.25" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_create_his.xml" value="0.22" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_editprofil.xml" value="0.33" />
-        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_masuk.xml" value="0.33" />
-        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_riwayat.xml" value="0.2" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_scan_barcode.xml" value="0.2" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activity_scanner.xml" value="0.18" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/activty_masuk.xml" value="0.2" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/fragment_profil.xml" value="0.25" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/fragment_scanner.xml" value="0.2" />
-        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/fragment_support.xml" value="0.2" />
+        <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/fragment_support.xml" value="0.25" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/item_riwayat.xml" value="0.4047244094488189" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/item_sn.xml" value="0.2" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/layout/list_sn.xml" value="0.2" />

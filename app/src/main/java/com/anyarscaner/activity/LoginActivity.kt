@@ -29,10 +29,21 @@ class LoginActivity : AppCompatActivity() {
 
         //Inisialisasi ID (Button)
         val btnLogin2 = findViewById<TextView>(R.id.btn_login)
+        val btnDaftar = findViewById<TextView>(R.id.btn_daftar)
 
         btnLogin2.setOnClickListener {
             login()
         }
+
+        btnDaftar.setOnClickListener {
+            regist()
+        }
+    }
+
+    fun regist() {
+        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 
     fun login() {

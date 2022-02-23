@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
-import com.anyarscaner.activity.CariSNActivity
 import com.budiyev.android.codescanner.CodeScanner
 
 class ScannerFragment: Fragment() {
