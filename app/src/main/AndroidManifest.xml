@@ -27,6 +27,7 @@
         <activity android:name=".activity.CreateHisActivity" />
         <activity android:name=".activity.RiwayatActivity" />
         <activity android:name=".activity.ScanBarcodeActivity" />
+        <activity android:name=".activity.EditProfilActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

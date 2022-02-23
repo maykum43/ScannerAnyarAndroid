@@ -19,7 +19,7 @@ import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var s: SharedPref
+        lateinit var s: SharedPref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +81,8 @@ class RegisterActivity : AppCompatActivity() {
         val pb = findViewById<ProgressBar>(R.id.pb_regist)
 
         pb.visibility = View.VISIBLE
-        ApiConfig.instanceRetrofit.register(edt_nama.text.toString(),
+        ApiConfig.instanceRetrofit.register(
+            edt_nama.text.toString(),
             edt_email.text.toString(),
             edt_notlp.text.toString(),
             edt_norek.text.toString(),

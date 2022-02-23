@@ -40,7 +40,7 @@
                     android:gravity="center"
                     android:text="Nama User"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView

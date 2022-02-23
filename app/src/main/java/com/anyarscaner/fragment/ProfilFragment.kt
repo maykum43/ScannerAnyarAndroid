@@ -9,6 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
+import com.anyarscaner.activity.EditProfilActivity
 import com.anyarscaner.activity.RiwayatActivity
 import com.anyarscaner.helper.SharedPref
 
@@ -48,6 +49,11 @@ class ProfilFragment : Fragment() {
 
         btn_riwayat.setOnClickListener {
             val inData = Intent(activity, RiwayatActivity::class.java)
+            startActivity(inData)
+        }
+
+        btn_editprofil.setOnClickListener {
+            val inData =Intent(activity, EditProfilActivity::class.java)
             startActivity(inData)
         }
     }

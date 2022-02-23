@@ -7,5 +7,6 @@ class User {
     lateinit var norek:String
     lateinit var nama_bank:String
     lateinit var atas_nama:String
+    lateinit var akun_ol:String
     var id = 0
 }

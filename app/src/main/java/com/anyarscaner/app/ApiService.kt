@@ -46,4 +46,16 @@ interface ApiService {
         @Field("sn") sn:String,
         @Field("user") user:String
     ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("edit_user")
+    fun edit_profil(
+        @Field("name") name:String,
+        @Field("email") email:String,
+        @Field("phone") nomortlp:String,
+        @Field("norek") norek:String,
+        @Field("nama_bank") bank:String,
+        @Field("atas_nama") atas_nama:String,
+        @Field("nama_akun_ol") akun_ol:String,
+    ) : Call<ResponModel>
 }
