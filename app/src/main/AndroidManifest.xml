@@ -28,6 +28,7 @@
         <activity android:name=".activity.ScanBarcodeActivity" />
         <activity android:name=".activity.EditProfilActivity" />
         <activity android:name=".activity.BantuanActivity" />
+        <activity android:name=".activity.AboutActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

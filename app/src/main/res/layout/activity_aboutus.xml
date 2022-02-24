@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/putih_teal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_back_aboutus"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_chevron_left_24"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
+            app:cardCornerRadius="20dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo_gpt"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CV. GLOBAL PRIMA TEKNOLOGI adalah Authorized distributor untuk semua merk CCTV ternama di dunia. Produk yang kami berikan adalah produk resmi dan bergaransi resmi.Kami memiliki team Sales dan Support yang siap melayani seluruh partner-partner yang ingin mendistribusikan produk dari kami."
+                    android:maxLines="20"
+                    android:layout_marginTop="40dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hubungi kami :"
+                    android:maxLines="20"
+                    android:layout_marginTop="40dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Whatsapp : +62 813 222 111 01"
+                    android:maxLines="20"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kami siap melayani anda."
+                    android:maxLines="20"
+                    android:layout_marginTop="30dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_icon_mail"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kirim email ke kami"
+            android:textColor="@color/abu_muda"
+            android:textSize="14sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="admin@cctvbandung.co.id"
+            android:textColor="@color/abu"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
