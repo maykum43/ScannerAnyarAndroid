@@ -10,6 +10,7 @@ import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
 import com.anyarscaner.activity.BantuanActivity
+import com.anyarscaner.activity.RiwayatActivity
 
 class SupportFragment : Fragment() {
     lateinit var  btnBantuan: RelativeLayout
@@ -21,22 +22,23 @@ class SupportFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_support, container, false)
-        init(view)
+//        init(view)
 
+        klikBantuan(view)
         return view
     }
 
     private fun init(view: View) {
         btnBantuan = view.findViewById(R.id.rl_bantuan)
 //        btnEmail = view.findViewById(R.id.txt_nama)
-
-        btnBantuan.setOnClickListener {
-            bantuan()
-        }
     }
 
-    private fun bantuan() {
-        val inData = Intent(activity, BantuanActivity::class.java)
-        startActivity(inData)
+    fun klikBantuan(view: View){
+        btnBantuan = view.findViewById(R.id.rl_bantuan)
+
+        btnBantuan.setOnClickListener {
+            val inData = Intent(activity, BantuanActivity::class.java)
+            startActivity(inData)
+        }
     }
 }
