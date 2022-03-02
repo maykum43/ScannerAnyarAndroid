@@ -45,7 +45,9 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                android:layout_toLeftOf="@id/btn_cariSN">
+                android:layout_toLeftOf="@id/btn_cariSN"
+                app:counterEnabled="true"
+                app:counterMaxLength="8">
 
                 <EditText
                     android:id="@+id/tv_sn"
@@ -69,6 +71,13 @@
 
         </RelativeLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sn"
+            android:layout_width="match_parent"
+            android:layout_height="460dp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="0dp"/>
+
         <Button
             android:id="@+id/btn_scan_sn"
             android:layout_width="160dp"
@@ -77,12 +86,6 @@
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_sn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="0dp"/>
 
     </LinearLayout>
 

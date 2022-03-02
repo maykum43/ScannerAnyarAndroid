@@ -10,6 +10,7 @@ import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
+import com.anyarscaner.model.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,13 +19,13 @@ class EditProfilActivity : AppCompatActivity() {
 
     lateinit var s: SharedPref
 
-    lateinit var name: TextView
-    lateinit var email: TextView
-    lateinit var phone: TextView
-    lateinit var norek: TextView
-    lateinit var nama_bank: TextView
-    lateinit var atas_nama: TextView
-    lateinit var akun_ol: TextView
+    private lateinit var name: TextView
+    private lateinit var email: TextView
+    private lateinit var phone: TextView
+    private lateinit var norek: TextView
+    private lateinit var nama_bank: TextView
+    private lateinit var atas_nama: TextView
+    private lateinit var akun_ol: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,10 @@ class EditProfilActivity : AppCompatActivity() {
     }
 
     fun setData(){
+
+        var user = User()
+
+
         name = findViewById<EditText>(R.id.tv_namaUser)
         phone = findViewById<EditText>(R.id.tv_notlp)
         email = findViewById<EditText>(R.id.tv_email)
@@ -57,6 +62,22 @@ class EditProfilActivity : AppCompatActivity() {
         nama_bank.text = s.getString(s.nama_bank)
         atas_nama.text = s.getString(s.atas_nama)
         akun_ol.text = s.getString(s.akun_ol)
+//
+//        val nama: String = user.name
+
+//        val nama: String = user.name
+//        val alamat: String = userProfile.alamat
+//        val notlp: String = userProfile.notlp
+//        val email: String = userProfile.email
+
+
+//        name.text = nama
+//        alamatTextView.setText(alamat)
+//        tlpTextView.setText(notlp)
+//        emailTextView.setText(email)
+
+
+//        phone.text = s.setString(s.phone,user.phone).toString()
     }
 
     fun simpanData() {

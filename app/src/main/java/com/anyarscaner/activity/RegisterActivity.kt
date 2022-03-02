@@ -44,6 +44,7 @@ class RegisterActivity : AppCompatActivity() {
         val edt_akun_ol = findViewById<EditText>(R.id.tv_nama_akun_ol)
         val edt_pass = findViewById<EditText>(R.id.tv_password)
 
+
         if(edt_nama.text.isEmpty()){
             edt_nama.error = "Kolom nama tidak boleh kosong!"
             edt_nama.requestFocus()

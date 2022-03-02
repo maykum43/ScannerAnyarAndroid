@@ -227,7 +227,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Daftar"/>
+            android:text="Simpan Data"/>
 
 
     </LinearLayout>

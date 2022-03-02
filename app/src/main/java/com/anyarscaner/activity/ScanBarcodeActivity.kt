@@ -39,7 +39,6 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
         btnProses =  findViewById<Button>(R.id.btn_cariBarcode)
 
-
         val scn = findViewById<CodeScannerView>(R.id.scn)
 
         codeScanner = CodeScanner(this,scn)
@@ -82,7 +81,6 @@ class ScanBarcodeActivity : AppCompatActivity() {
     private fun apiCari() {
         val tvHasil = findViewById<TextView>(R.id.tv_hasil)
 
-
         ApiConfig.instanceRetrofit.cari_sn(tvHasil.text.toString()).enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
@@ -92,7 +90,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
                 if(respon.success == 1){
 //                    pb.visibility = View.GONE
-                    Toast.makeText(this@ScanBarcodeActivity, "Voucher Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ScanBarcodeActivity, "Barcode Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@ScanBarcodeActivity, CreateHisActivity::class.java)
                     intent.putExtra("sn",tvHasil.text)
                     startActivity(intent)

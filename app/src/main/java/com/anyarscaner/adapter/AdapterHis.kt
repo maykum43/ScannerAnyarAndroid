@@ -33,6 +33,10 @@ class AdapterHis(var activity: Activity, var data: ArrayList<RiwayatModel>): Rec
         holder.tvJudul.text = data[position].judul
         holder.tvStatus.text = data[position].status
 
+        if (holder.tvStatus.text == "Belum Selesai"){
+
+        }
+
 
 //        holder.layout.setOnClickListener{
 //

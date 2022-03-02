@@ -1,6 +1,8 @@
 package com.anyarscaner.activity
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +23,7 @@ class RiwayatActivity : AppCompatActivity() {
 
     lateinit var s: SharedPref
     lateinit var tv_user :TextView
+    lateinit var tv_email : TextView
 
     lateinit var rvRiw : RecyclerView
 
@@ -30,12 +33,22 @@ class RiwayatActivity : AppCompatActivity() {
 
         s = SharedPref(this)
 
-        tv_user = findViewById(R.id.tv_user)
+        tv_user = findViewById(R.id.txt_nama)
         tv_user.text = s.getString(s.nama)
+
+        tv_email= findViewById(R.id.txt_email)
+        tv_email.text = s.getString(s.email)
+
+        val pb = findViewById<ProgressBar>(R.id.pb_riwayat)
+
+        pb.visibility = View.VISIBLE
+
 
         ApiConfig.instanceRetrofit.his_sn(tv_user.text.toString()).enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+
+                pb.visibility = View.GONE
                 val respon = response.body()!!
 
                 if(respon.success == 1){
@@ -51,7 +64,8 @@ class RiwayatActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-
+                pb.visibility = View.GONE
+                Toast.makeText(this@RiwayatActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
             }
 
         })

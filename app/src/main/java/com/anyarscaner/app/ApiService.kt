@@ -30,7 +30,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("cari_sn")
-    fun cari_sn(
+    fun  cari_sn(
         @Field("cari_sn") sn:String
     ) : Call<ResponModel>
 
@@ -48,7 +48,7 @@ interface ApiService {
     ) : Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("edit_user")
+    @POST("edit_user/{id}")
     fun edit_profil(
         @Field("name") name:String,
         @Field("email") email:String,

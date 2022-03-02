@@ -13,12 +13,20 @@ import com.anyarscaner.activity.AboutActivity
 import com.anyarscaner.activity.EditProfilActivity
 import com.anyarscaner.activity.RiwayatActivity
 import com.anyarscaner.helper.SharedPref
+import org.w3c.dom.Text
 
 class ProfilFragment : Fragment() {
     lateinit var s: SharedPref
     lateinit var btnLogout: TextView
+
     lateinit var txt_nama: TextView
     lateinit var txt_email: TextView
+//    lateinit var txt_phone: TextView
+//    lateinit var txt_norek:TextView
+//    lateinit var txt_namaBank: TextView
+//    lateinit var txt_atasNama: TextView
+//    lateinit var txt_akunOl: TextView
+
     lateinit var btn_editprofil : RelativeLayout
     lateinit var btn_riwayat : RelativeLayout
     lateinit var btn_about : RelativeLayout
@@ -68,10 +76,20 @@ class ProfilFragment : Fragment() {
         btnLogout = view.findViewById(R.id.btn_Logout)
         txt_nama = view.findViewById(R.id.txt_nama)
         txt_email = view.findViewById(R.id.txt_email)
+//        txt_phone= view.findViewById(R.id.txt_phone)
+//        txt_norek = view.findViewById(R.id.txt_norek)
+//        txt_namaBank = view.findViewById(R.id.txt_namaBank)
+//        txt_atasNama = view.findViewById(R.id.txt_atas_nama)
+//        txt_akunOl = view.findViewById(R.id.txt_akun_ol)
     }
 
     fun setData(){
         txt_nama.text = s.getString(s.nama)
         txt_email.text = s.getString(s.email)
+//        txt_phone.text = s.getString(s.phone)
+//        txt_norek.text = s.getString(s.norek)
+//        txt_namaBank.text = s.getString(s.nama_bank)
+//        txt_atasNama.text = s.getString(s.atas_nama)
+//        txt_akunOl.text = s.getString(s.akun_ol)
     }
 }

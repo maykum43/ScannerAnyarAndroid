@@ -17,18 +17,18 @@ import retrofit2.Response
 class CreateHisActivity : AppCompatActivity(){
 
     lateinit var s: SharedPref
-    lateinit var tv_sn : TextView
-    lateinit var tv_id : TextView
-    lateinit var btn_proses : Button
+    private lateinit var tv_sn : TextView
+    private lateinit var tv_id : TextView
+    private lateinit var tv_email : TextView
+    private lateinit var btn_proses : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_his)
         btn_proses = findViewById(R.id.btn_proses)
-
         getData()
 
-//
+
 //        tv_sn = findViewById(R.id.tv_sn)
 //
 //        //meletakan source yang dibawa
@@ -38,8 +38,11 @@ class CreateHisActivity : AppCompatActivity(){
     fun getData(){
         s = SharedPref(this)
 
-        tv_id = findViewById(R.id.tv_namaUser)
+        tv_id = findViewById(R.id.txt_nama)
         tv_id.text = s.getString(s.nama)
+
+        tv_email = findViewById(R.id.txt_email)
+        tv_email.text = s.getString(s.email)
 
 
         val sn = intent.getStringExtra("sn")
@@ -84,9 +87,9 @@ class CreateHisActivity : AppCompatActivity(){
     fun prosesData(){
 
         val edt_sn = findViewById<EditText>(R.id.tv_sn)
-        val edt_id = findViewById<EditText>(R.id.tv_namaUser)
+        val edt_email = findViewById<EditText>(R.id.tv_namaUser)
 
-        ApiConfig.instanceRetrofit.create_his(edt_sn.text.toString(),edt_id.text.toString()).enqueue(object :
+        ApiConfig.instanceRetrofit.create_his(edt_sn.text.toString(),edt_email.text.toString()).enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!

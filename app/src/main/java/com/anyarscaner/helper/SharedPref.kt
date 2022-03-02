@@ -46,7 +46,7 @@ class SharedPref(activity: Activity) {
         return  sp.getString(key, "")!!
     }
 
-    fun setUser(value: User) {
+    fun setUser(value: String) {
         val data: String = Gson().toJson(value, User::class.java)
         sp.edit().putString(user, data).apply()
     }

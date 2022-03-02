@@ -6,24 +6,12 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-<!--            <ImageView-->
-
-            <TextView
-                android:id="@+id/tv_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nama : User"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginHorizontal="20dp"
-                android:gravity="center"
-                android:layout_marginTop="30dp"/>
+            <include layout="@layout/lay_header_user"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_riwayat"
@@ -35,5 +23,12 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/pb_riwayat"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
 
 </RelativeLayout>
