@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.view.ContentInfoCompat
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
 import com.anyarscaner.activity.AboutActivity
 import com.anyarscaner.activity.EditProfilActivity
+import com.anyarscaner.activity.LoginActivity
 import com.anyarscaner.activity.RiwayatActivity
 import com.anyarscaner.helper.SharedPref
 import org.w3c.dom.Text
@@ -44,6 +47,11 @@ class ProfilFragment : Fragment() {
 
         btnLogout.setOnClickListener{
             s.setStatusLogin(false)
+            val inData = Intent(activity, LoginActivity::class.java)
+            inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            Toast.makeText(getActivity(),"Anda Logout dari akun anda",Toast.LENGTH_SHORT).show();
+            startActivity(inData)
+            onStop()
         }
 
         setData()

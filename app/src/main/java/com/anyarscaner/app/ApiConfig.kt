@@ -8,8 +8,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiConfig {
-//    private const val BASE_URL = "http://192.168.1.127/WebAdminScanner2/public/api/"
-    private const val BASE_URL = "http://192.168.1.235/WebAdminScanner2/public/api/"
+    private const val BASE_URL = "http://vouchercashback.cctvbandung.co.id/public/api/"
+//    private const val BASE_URL = "http://192.168.68.95/WebAdminScanner2/public/api/"
+//    private const val BASE_URL = "http://192.168.1.235/WebAdminScanner2/public/api/"
     private val client: Retrofit
         get(){
             val gson = GsonBuilder().setLenient().create()
