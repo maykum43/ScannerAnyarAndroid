@@ -46,7 +46,6 @@ class EditProfilActivity : AppCompatActivity() {
 
         var user = User()
 
-
         name = findViewById<EditText>(R.id.tv_namaUser)
         phone = findViewById<EditText>(R.id.tv_notlp)
         email = findViewById<EditText>(R.id.tv_email)

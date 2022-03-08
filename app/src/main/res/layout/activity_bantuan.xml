@@ -157,18 +157,20 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView"
+        <ImageButton
+            android:id="@+id/btn_wa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_icon_mail"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:onClick="openWa"
+            android:background="@drawable/ic_btn_wa"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kirim email ke kami"
+            android:text="Kirim Whatsapp support kami"
             android:textColor="@color/abu_muda"
             android:textSize="14sp"
             android:layout_gravity="center"/>
@@ -176,7 +178,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="support01@cctvbandung.co.id"
+            android:text="0811 22 9090 8"
             android:textColor="@color/abu"
             android:textSize="16sp"
             android:textStyle="bold"

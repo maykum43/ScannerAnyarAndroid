@@ -49,7 +49,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("edit_user/{id}")
-    fun edit_profil(
+    fun  edit_profil(
         @Field("name") name:String,
         @Field("email") email:String,
         @Field("phone") nomortlp:String,

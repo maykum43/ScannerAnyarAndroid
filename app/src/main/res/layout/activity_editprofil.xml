@@ -1,237 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".activity.RegisterActivity"
+    android:background="@color/putih_teal">
 
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_marginBottom="50dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Edit Profil"
-            android:textColor="@color/Biru"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            />
-
-        <!--     Field Nama -->
         <LinearLayout
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginVertical="20dp"
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:elevation="10dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_person_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="50dp"
+                android:paddingLeft="10dp"
+                android:text="Edit Profil"
+                android:textColor="@color/Biru"
+                android:textSize="40dp"
+                android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/tv_namaUser"
+            <!--     Field Nama -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Nama Lengkap"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_person_24"
+                    android:background="@color/putih_teal">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:id="@+id/tv_namaUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Nama Lengkap"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Email -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_email_24">
+
+                    <EditText
+                        android:id="@+id/tv_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Tlp -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_tlp_24"
+                    android:background="@color/putih_teal">
+
+                    <EditText
+                        android:id="@+id/tv_notlp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="No. Telepon"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Norek -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_baseline_monetization_on_24"
+                    android:background="@color/putih_teal">
+
+                    <EditText
+                        android:id="@+id/tv_norek"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="No. Rekening"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Nama Bank -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_baseline_account_balance_24"
+                    android:background="@color/putih_teal">
+
+                    <EditText
+                        android:id="@+id/tv_nama_bank"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Nama Bank"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Atas Nama -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_person_24"
+                    android:background="@color/putih_teal">
+
+                    <EditText
+                        android:id="@+id/tv_atas_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Atas Nama"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Nama Akun Ol -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_person_24"
+                    android:background="@color/putih_teal">
+
+                    <EditText
+                        android:id="@+id/tv_nama_akun_ol"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Nama Akun Online Shop"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_marginTop="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="SIMPAN DATA"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_btn_primary" />
 
         </LinearLayout>
-        <!--     Field Email -->
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_email_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:id="@+id/tv_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <!--     Field Tlp -->
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_tlp_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:id="@+id/tv_notlp"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="No. Telepon"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <!--     Field Norek -->
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_baseline_monetization_on_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:id="@+id/tv_norek"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="No. Rekening"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <!--     Field Nama Bank -->
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_baseline_account_balance_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:id="@+id/tv_nama_bank"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Nama Bank"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <!--     Field Atas Nama -->
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_person_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <EditText
-                    android:id="@+id/tv_atas_nama"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Atas Nama"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-        <!--     Field Nama Akun Ol -->
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:boxStrokeColor="@color/Biru"
-                app:boxStrokeWidth="2dp"
-                app:startIconDrawable="@drawable/ic_person_24"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
-
-                <EditText
-                    android:id="@+id/tv_nama_akun_ol"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:hint="Nama Akun Online Shop"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_marginTop="40dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Simpan Data"/>
-
-
-    </LinearLayout>
-
+    </androidx.core.widget.NestedScrollView>
     <ProgressBar
         android:id="@+id/pb_edit"
         android:layout_centerInParent="true"

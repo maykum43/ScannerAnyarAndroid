@@ -20,10 +20,17 @@
             android:textSize="16dp"
             android:layout_marginBottom="20dp"/>
 
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="170dp"
-            android:src="@drawable/logo_anyar_scanner2"/>
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:src="@drawable/logo_gpt_cashback"/>
+
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/btn_ProsesLogin"
