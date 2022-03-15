@@ -13,7 +13,9 @@ object ApiConfig {
 //    private const val BASE_URL = "http://192.168.1.235/WebAdminScanner2/public/api/"
     private val client: Retrofit
         get(){
-            val gson = GsonBuilder().setLenient().create()
+            val gson = GsonBuilder()
+                    .setLenient()
+                    .create()
             val interceptor = HttpLoggingInterceptor()
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             val client: OkHttpClient = OkHttpClient.Builder()

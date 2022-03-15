@@ -8,31 +8,30 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.ContentInfoCompat
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
-import com.anyarscaner.activity.AboutActivity
-import com.anyarscaner.activity.EditProfilActivity
-import com.anyarscaner.activity.LoginActivity
-import com.anyarscaner.activity.RiwayatActivity
+import com.anyarscaner.activity.*
+import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
-import org.w3c.dom.Text
+import com.anyarscaner.model.ResponModel
+import com.anyarscaner.model.User
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ProfilFragment : Fragment() {
     lateinit var s: SharedPref
-    lateinit var btnLogout: TextView
+
+    private lateinit var user : User
+
 
     lateinit var txt_nama: TextView
     lateinit var txt_email: TextView
-//    lateinit var txt_phone: TextView
-//    lateinit var txt_norek:TextView
-//    lateinit var txt_namaBank: TextView
-//    lateinit var txt_atasNama: TextView
-//    lateinit var txt_akunOl: TextView
 
     lateinit var btn_editprofil : RelativeLayout
     lateinit var btn_riwayat : RelativeLayout
     lateinit var btn_about : RelativeLayout
+    lateinit var btn_logout : RelativeLayout
 
 
     override fun onCreateView(
@@ -41,18 +40,10 @@ class ProfilFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_profil, container, false)
+
         init(view)
 
         s = SharedPref(requireActivity())
-
-        btnLogout.setOnClickListener{
-            s.setStatusLogin(false)
-            val inData = Intent(activity, LoginActivity::class.java)
-            inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            Toast.makeText(getActivity(),"Anda Logout dari akun anda",Toast.LENGTH_SHORT).show();
-            startActivity(inData)
-            onStop()
-        }
 
         setData()
         button(view)
@@ -63,6 +54,7 @@ class ProfilFragment : Fragment() {
         btn_editprofil = view.findViewById(R.id.rl_editprofil)
         btn_riwayat = view.findViewById(R.id.rl_riwayat)
         btn_about = view.findViewById(R.id.rl_aboutus)
+        btn_logout = view.findViewById(R.id.rl_logout)
 
         btn_riwayat.setOnClickListener {
             val inData = Intent(activity, RiwayatActivity::class.java)
@@ -72,32 +64,66 @@ class ProfilFragment : Fragment() {
         btn_editprofil.setOnClickListener {
             val inData =Intent(activity, EditProfilActivity::class.java)
             startActivity(inData)
+
+//            var id = user.getId()
+//            val tv_nama = user.name
+//            val tv_email = user.email
+//            val tv_phone = user.phone
+//            val tv_norek = user.norek
+//            val tv_bank = user.nama_bank
+//            val tv_atasnama = user.atas_nama
+//            val tv_akunOl = user.akun_ol
+//
+//            ApiConfig.instanceRetrofit.cari_pelangan(id).enqueue(object :
+//                Callback<ResponModel> {
+//                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                    val respon = response.body()!!
+//
+//                    if(respon.success == 1){
+//                        val intent = Intent(activity, NewEditProfilActivity::class.java)
+//                        intent.putExtra("name",tv_nama)
+//                        intent.putExtra("email",tv_email)
+//                        intent.putExtra("phone",tv_phone)
+//                        intent.putExtra("norek",tv_norek)
+//                        intent.putExtra("bank",tv_bank)
+//                        intent.putExtra("atasnama",tv_atasnama)
+//                        intent.putExtra("akunOl",tv_akunOl)
+//
+//                        startActivity(intent)
+//                    }else{
+//                        Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                    Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+//                }
+//
+//            })
         }
 
         btn_about.setOnClickListener {
             val inData =Intent(activity, AboutActivity::class.java)
             startActivity(inData)
         }
+
+        btn_logout.setOnClickListener{
+            s.setStatusLogin(false)
+            val inData = Intent(activity, LoginActivity::class.java)
+            inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            Toast.makeText(getActivity(),"Anda Logout dari akun anda",Toast.LENGTH_SHORT).show();
+            startActivity(inData)
+        }
+
     }
 
     private fun init(view: View) {
-        btnLogout = view.findViewById(R.id.btn_Logout)
         txt_nama = view.findViewById(R.id.txt_nama)
         txt_email = view.findViewById(R.id.txt_email)
-//        txt_phone= view.findViewById(R.id.txt_phone)
-//        txt_norek = view.findViewById(R.id.txt_norek)
-//        txt_namaBank = view.findViewById(R.id.txt_namaBank)
-//        txt_atasNama = view.findViewById(R.id.txt_atas_nama)
-//        txt_akunOl = view.findViewById(R.id.txt_akun_ol)
     }
 
     fun setData(){
         txt_nama.text = s.getString(s.nama)
         txt_email.text = s.getString(s.email)
-//        txt_phone.text = s.getString(s.phone)
-//        txt_norek.text = s.getString(s.norek)
-//        txt_namaBank.text = s.getString(s.nama_bank)
-//        txt_atasNama.text = s.getString(s.atas_nama)
-//        txt_akunOl.text = s.getString(s.akun_ol)
     }
 }

@@ -2,10 +2,7 @@ package com.anyarscaner.app
 
 import com.anyarscaner.model.ResponModel
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
@@ -48,14 +45,22 @@ interface ApiService {
     ) : Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("edit_user/{id}")
+    @PUT("update_user/{email}")
     fun  edit_profil(
-        @Field("name") name:String,
-        @Field("email") email:String,
-        @Field("phone") nomortlp:String,
-        @Field("norek") norek:String,
-        @Field("nama_bank") bank:String,
-        @Field("atas_nama") atas_nama:String,
-        @Field("nama_akun_ol") akun_ol:String,
+//        @Field("id") id:Int,
+        @Path("email") string: String,
+//        @Field("email") email:String,
+        @Field("name") name:String? = null,
+        @Field("phone") nomortlp:String? = null,
+        @Field("norek") norek:String? = null,
+        @Field("nama_bank") bank:String? = null,
+        @Field("atas_nama") atas_nama:String? = null,
+        @Field("nama_akun_ol") akun_ol:String? = null,
+    ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("cari_pelanggan")
+    fun  cari_pelangan(
+        @Field("id") id:Int,
     ) : Call<ResponModel>
 }

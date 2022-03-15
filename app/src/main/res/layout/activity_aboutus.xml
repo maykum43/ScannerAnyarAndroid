@@ -51,23 +51,6 @@
                     android:textSize="18sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hubungi kami :"
-                    android:maxLines="20"
-                    android:layout_marginTop="40dp"
-                    android:textAlignment="center"/>
-
-                <TextView
-                    android:textSize="18sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Whatsapp : +62 813 222 111 01"
-                    android:maxLines="20"
-                    android:textAlignment="center"/>
-
-                <TextView
-                    android:textSize="18sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Kami siap melayani anda."
                     android:maxLines="20"
                     android:layout_marginTop="30dp"
@@ -78,12 +61,14 @@
 
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView"
+        <ImageButton
+            android:id="@+id/btn_gmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_icon_mail"
-            android:layout_gravity="center"/>
+            android:background="@drawable/ic_icon_mail"
+            android:layout_gravity="center"
+            android:onClick="openGmail"
+            android:clickable="true"/>
 
         <TextView
             android:id="@+id/textView"
@@ -97,7 +82,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="admin@cctvbandung.co.id"
+            android:text="support01@cctvbandung.co.id"
             android:textColor="@color/abu"
             android:textSize="16sp"
             android:textStyle="bold"

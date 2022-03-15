@@ -91,7 +91,7 @@
                             android:textSize="18sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Voucher atau SN akan didapatkan saat dikasih oleh admin online shop kami, ( Tokopedia : Anyar CCTV, Vision Indonesia. Shoppe : Vision Indonesia )."
+                            android:text="Voucher atau SN akan diberikan oleh admin online shop atau toko fisik kami."
                             android:maxLines="15"/>
                     </LinearLayout>
                     <!--point 2-->
@@ -148,7 +148,26 @@
                             android:textSize="18sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Reward akan diproses oleh admin 2x24 jam."
+                            android:text="Reward akan diproses oleh admin Max 7x24 jam."
+                            android:maxLines="15"/>
+                    </LinearLayout>
+<!--                    point 5.-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5."
+                            android:textSize="18sp"/>
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:textSize="18sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mohon masukan data pribadi dengan benar. Jika tidak maka reward tidak akan di proses."
                             android:maxLines="15"/>
                     </LinearLayout>
 

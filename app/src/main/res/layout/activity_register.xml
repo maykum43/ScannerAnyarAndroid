@@ -111,6 +111,8 @@
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
+                    app:prefixText="+62 "
+                    app:prefixTextColor="@color/Biru"
                     app:startIconDrawable="@drawable/ic_tlp_24"
                     android:background="@color/putih_teal">
 
@@ -277,7 +279,8 @@
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_key_24"
-                    android:background="@color/putih_teal">
+                    android:background="@color/putih_teal"
+                    app:passwordToggleEnabled="true">
 
                     <EditText
                         android:id="@+id/tv_password"
@@ -286,7 +289,7 @@
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:singleLine="true" />
+                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

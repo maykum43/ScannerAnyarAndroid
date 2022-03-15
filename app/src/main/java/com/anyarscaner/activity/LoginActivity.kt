@@ -64,42 +64,40 @@ class LoginActivity : AppCompatActivity() {
 
         pb.visibility = View.VISIBLE
 
-        ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_pass.text.toString()).enqueue(object :
-            Callback<ResponModel> {
 
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                //Response Gagal
-                pb.visibility = View.GONE
-                Toast.makeText(this@LoginActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-
+        ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_pass.text.toString()).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
 
                 val respon = response.body()!!
-
                 if(respon.success == 1){
                     //berhasil
                     s.setStatusLogin(true)
 //                      s.setUser(respon.user)
+                    s.setInt(s.id, respon.user.id)
                     s.setString(s.nama, respon.user.name)
                     s.setString(s.email, respon.user.email)
-//                    s.setString(s.phone, respon.user.phone)
-//                    s.setString(s.norek, respon.user.norek)
-//                    s.setString(s.nama_bank, respon.user.nama_bank)
-//                    s.setString(s.atas_nama, respon.user.atas_nama)
-//                    s.setString(s.akun_ol, respon.user.akun_ol)
+                    s.setString(s.phone, respon.user.phone)
+                    s.setString(s.norek, respon.user.norek)
+                    s.setString(s.nama_bank, respon.user.nama_bank)
+                    s.setString(s.atas_nama, respon.user.atas_nama)
+                    s.setString(s.akun_ol, respon.user.nama_akun_ol)
 
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
-                    Toast.makeText(this@LoginActivity, "Success: "+respon.message +" Selamat Datang "+respon.user.name, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@LoginActivity, "Success: "+respon.message, Toast.LENGTH_LONG).show()
                 }else {
                     //gagal
                     Toast.makeText(this@LoginActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
                 }
             }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@LoginActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+
         })
     }
 }

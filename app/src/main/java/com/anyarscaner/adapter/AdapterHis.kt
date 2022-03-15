@@ -2,6 +2,7 @@ package com.anyarscaner.adapter
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,8 +34,12 @@ class AdapterHis(var activity: Activity, var data: ArrayList<RiwayatModel>): Rec
         holder.tvJudul.text = data[position].judul
         holder.tvStatus.text = data[position].status
 
-        if (holder.tvStatus.text == "Belum Selesai"){
-
+        if (holder.tvStatus.text == "Diproses"){
+            holder.tvStatus.setTextColor(Color.parseColor("#1A60BC"))
+        }else if (holder.tvStatus.text == "Selesai"){
+            holder.tvStatus.setTextColor(Color.parseColor("#00FF08"))
+        }else if(holder.tvStatus.text == "Belum Selesai"){
+            holder.tvStatus.setTextColor(Color.parseColor("#FF0000"))
         }
 
 

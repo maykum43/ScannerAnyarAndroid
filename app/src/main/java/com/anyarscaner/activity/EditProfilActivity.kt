@@ -10,7 +10,6 @@ import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
-import com.anyarscaner.model.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,6 +32,15 @@ class EditProfilActivity : AppCompatActivity() {
         setContentView(R.layout.activity_editprofil)
 
         s = SharedPref(this)
+
+        name = findViewById<EditText>(R.id.tv_namaUser)
+        phone = findViewById<EditText>(R.id.tv_notlp)
+        email = findViewById<EditText>(R.id.tv_email)
+        norek = findViewById<EditText>(R.id.tv_norek)
+        nama_bank = findViewById<EditText>(R.id.tv_nama_bank)
+        atas_nama = findViewById<EditText>(R.id.tv_atas_nama)
+        akun_ol = findViewById<EditText>(R.id.tv_nama_akun_ol)
+
         setData()
 
         val btnSave = findViewById<Button>(R.id.btn_save)
@@ -44,16 +52,6 @@ class EditProfilActivity : AppCompatActivity() {
 
     fun setData(){
 
-        var user = User()
-
-        name = findViewById<EditText>(R.id.tv_namaUser)
-        phone = findViewById<EditText>(R.id.tv_notlp)
-        email = findViewById<EditText>(R.id.tv_email)
-        norek = findViewById<EditText>(R.id.tv_norek)
-        nama_bank = findViewById<EditText>(R.id.tv_nama_bank)
-        atas_nama = findViewById<EditText>(R.id.tv_atas_nama)
-        akun_ol = findViewById<EditText>(R.id.tv_nama_akun_ol)
-
         name.text = s.getString(s.nama)
         email.text = s.getString(s.email)
         phone.text = s.getString(s.phone)
@@ -61,22 +59,6 @@ class EditProfilActivity : AppCompatActivity() {
         nama_bank.text = s.getString(s.nama_bank)
         atas_nama.text = s.getString(s.atas_nama)
         akun_ol.text = s.getString(s.akun_ol)
-//
-//        val nama: String = user.name
-
-//        val nama: String = user.name
-//        val alamat: String = userProfile.alamat
-//        val notlp: String = userProfile.notlp
-//        val email: String = userProfile.email
-
-
-//        name.text = nama
-//        alamatTextView.setText(alamat)
-//        tlpTextView.setText(notlp)
-//        emailTextView.setText(email)
-
-
-//        phone.text = s.setString(s.phone,user.phone).toString()
     }
 
     fun simpanData() {
@@ -112,12 +94,14 @@ class EditProfilActivity : AppCompatActivity() {
         }
 
         val pb = findViewById<ProgressBar>(R.id.pb_edit)
+//        var id = s.getInt(s.id)
 
         pb.visibility = View.VISIBLE
 
         ApiConfig.instanceRetrofit.edit_profil(
-            name.text.toString(),
+//            id,
             email.text.toString(),
+            name.text.toString(),
             phone.text.toString(),
             norek.text.toString(),
             nama_bank.text.toString(),

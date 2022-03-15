@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnyarScaner"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.MasukActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.MasukActivity">
         </activity>
         <activity android:name=".activity.ScannerActivity" />
         <activity android:name=".activity.CreateHisActivity" />
@@ -28,6 +28,7 @@
         <activity android:name=".activity.EditProfilActivity" />
         <activity android:name=".activity.BantuanActivity" />
         <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.NewEditProfilActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -10,13 +10,15 @@ class SharedPref(activity: Activity) {
     val login = "login"
     val cari_sn = "cari_sn"
 
+    var id = "id"
     val nama = "nama"
     val email = "email"
+
     val phone = "phone"
     val norek = "norek"
     val nama_bank = "nama_bank"
     val atas_nama = "atas_nama"
-    val akun_ol ="akun_ol"
+    val akun_ol ="nama_akun_ol"
 
     val sn = "sn"
 
@@ -46,12 +48,20 @@ class SharedPref(activity: Activity) {
         return  sp.getString(key, "")!!
     }
 
+    fun setInt(key: String, value: Int){
+        sp.edit().putInt(key, value)
+    }
+
+    fun getInt(key: String):Int{
+        return sp.getInt(key,0)
+    }
+
     fun setUser(value: String) {
         val data: String = Gson().toJson(value, User::class.java)
         sp.edit().putString(user, data).apply()
     }
+}
 
-    fun setString(key: String) {
-
-    }
+private fun Any.putInt(i: Int, value: Int): SharedPreferences.Editor? {
+    TODO("Not yet implemented")
 }
