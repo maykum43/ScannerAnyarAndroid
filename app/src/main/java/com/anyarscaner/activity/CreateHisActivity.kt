@@ -61,7 +61,7 @@ class CreateHisActivity : AppCompatActivity(){
                     val respon = response.body()!!
 
                     if(respon.success == 1){
-                        val intent = Intent(this@CreateHisActivity, ScannerActivity::class.java)
+                        val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
                         startActivity(intent)
 //                        finish()
                         Toast.makeText(this@CreateHisActivity, "Success: "+respon.message, Toast.LENGTH_LONG).show()
