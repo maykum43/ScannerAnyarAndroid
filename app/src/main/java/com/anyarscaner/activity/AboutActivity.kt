@@ -19,7 +19,8 @@ class AboutActivity: AppCompatActivity() {
         btnBack = findViewById(R.id.img_back_aboutus)
 
         btnBack.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+//            startActivity(Intent(this, MainActivity::class.java))
+            onBackPressed()
         }
     }
 

@@ -10,8 +10,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
 import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
+//import com.anyarscaner.databinding.ActivityScannerBinding
 import com.anyarscaner.model.ResponModel
 import com.budiyev.android.codescanner.*
 import retrofit2.Call
@@ -23,12 +25,24 @@ class ScanBarcodeActivity : AppCompatActivity() {
     lateinit var codeScanner : CodeScanner
 //    lateinit var sn :TextView
     lateinit var btnProses : Button
+//    lateinit var binding : com.anyarscaner.databinding.ActivityScannerBinding
 //    var btnCekSN = findViewById<Button>(R.id.btn_cariBarcode)
 //    var scn = findViewById<CodeScanner>(R.id.scn)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scan_barcode)
+//        binding = ActivityScannerBinding.inflate(layoutInflater)
+//        val view = binding.root
+//        setContentView(view)
+//
+//        binding.tvSn.doOnTextChanged { text, start, before, count ->
+//            if (text!!.length > 10){
+//                binding.tvSn.error = "Lebih dari 10 karakter"
+//            } else if (text!!.length < 10){
+//                binding.tvSn.error = "Kurang dari 10 karakter"
+//            }
+//        }
+//        setContentView(R.layout.activity_scan_barcode)
 
         setupPermissions()
         codeScanner()

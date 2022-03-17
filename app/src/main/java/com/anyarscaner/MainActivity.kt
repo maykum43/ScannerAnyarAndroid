@@ -1,6 +1,7 @@
 package com.anyarscaner
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.anyarscaner.activity.LoginActivity
 import com.anyarscaner.activity.MasukActivity
 import com.anyarscaner.activity.ScannerActivity
 import com.anyarscaner.fragment.ProfilFragment
@@ -40,6 +42,10 @@ class MainActivity : AppCompatActivity() {
 
         s = SharedPref(this)
 
+        if (!s.getStatusLogin()){
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
         fub()
 
         setUpBottomNav()
@@ -59,11 +65,12 @@ class MainActivity : AppCompatActivity() {
 
             when(item.itemId){
                 R.id.navigation_profil ->{
-                    if (s.getStatusLogin()){
-                        callFragment(0,fragmentProfil)
-                    }else{
-                        startActivity(Intent(this, MasukActivity::class.java))
-                    }
+                    callFragment(0,fragmentProfil)
+//                    if (s.getStatusLogin()){
+//
+//                    }else{
+//                        startActivity(Intent(this, LoginActivity::class.java))
+//                    }
                 }
 //                R.id.navigation_scanner ->{
 //                    callFragment(1,fragmentScanner)

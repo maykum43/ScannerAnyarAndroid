@@ -1,12 +1,10 @@
 package com.anyarscaner.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.anyarscaner.MainActivity
 import com.anyarscaner.R
@@ -21,11 +19,18 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var s: SharedPref
 
+    private lateinit var email: EditText
+    private lateinit var password:EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         s = SharedPref(this)
+        // getting the data which is stored in shared preferences.
+
+        // getting the data which is stored in shared preferences.
+
 
         //Inisialisasi ID (Button)
         val btnLogin2 = findViewById<TextView>(R.id.btn_login)
@@ -47,25 +52,24 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun login() {
-        val edt_email = findViewById<EditText>(R.id.tv_email)
-        val edt_pass = findViewById<EditText>(R.id.tv_password)
+        email = findViewById<EditText>(R.id.tv_email)
+        password = findViewById<EditText>(R.id.tv_password)
 
-        if (edt_email.text.isEmpty()) {
-            edt_email.error = "Kolom email tidak boleh kosong!"
-            edt_email.requestFocus()
+        if (email.text.isEmpty()) {
+            email.error = "Kolom email tidak boleh kosong!"
+            email.requestFocus()
             return
-        } else if (edt_pass.text.isEmpty()) {
-            edt_pass.error = "Kolom password tidak boleh kosong!"
-            edt_pass.requestFocus()
+        } else if (password.text.isEmpty()) {
+            password.error = "Kolom password tidak boleh kosong!"
+            password.requestFocus()
             return
         }
-
         val pb = findViewById<ProgressBar>(R.id.pb_login)
 
         pb.visibility = View.VISIBLE
 
 
-        ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_pass.text.toString()).enqueue(object : Callback<ResponModel>{
+        ApiConfig.instanceRetrofit.login(email.text.toString(),password.text.toString()).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
 

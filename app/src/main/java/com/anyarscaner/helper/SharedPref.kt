@@ -19,6 +19,7 @@ class SharedPref(activity: Activity) {
     val nama_bank = "nama_bank"
     val atas_nama = "atas_nama"
     val akun_ol ="nama_akun_ol"
+    val pasword = "password"
 
     val sn = "sn"
 

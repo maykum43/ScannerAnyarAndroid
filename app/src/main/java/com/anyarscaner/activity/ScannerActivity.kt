@@ -31,7 +31,7 @@ class ScannerActivity : AppCompatActivity() {
 //    private var _binding : ActivityScannerBinding? = null
 //    private val binding get() = _binding!!
 
-    private lateinit var binding: com.anyarscaner.activity.ActivityScannerBinding
+//    private lateinit var binding: com.anyarscaner.activity.ActivityScannerBinding
 
     lateinit var s: SharedPref
 //    private val api by Lazy { ApiRetrofit().login}
@@ -111,18 +111,19 @@ class ScannerActivity : AppCompatActivity() {
     fun cari_sn() {
         val edt_sn = findViewById<EditText>(R.id.tv_sn)
 
-//        binding.tvSn.doOnTextChanged{text, start, before, count ->
-//            if (text!!.length > 10){
-//                binding.tvSn.error = "Lebih dari 10 karakter"
-//            }else if (text!!.length < 10){
-//                binding.tvSn.error = "kurang dari 10 karakter"
-//            }
-
         if (edt_sn.text.isEmpty()) {
             edt_sn.error = "Kolom SN atau Kode unik tidak boleh kosong."
             edt_sn.requestFocus()
             return
-
+        }else if (edt_sn.text.length < 10){
+            edt_sn.error = "SN kurang dari 10 Karakter"
+            edt_sn.requestFocus()
+            return
+        }else if (edt_sn.text.length > 10){
+            edt_sn.error = "SN Lebih dari 10 Karakter"
+            edt_sn.requestFocus()
+            return
+        }else{
             val pb = findViewById<ProgressBar>(R.id.pb_search)
 
             pb.visibility = View.VISIBLE
@@ -165,8 +166,4 @@ class ScannerActivity : AppCompatActivity() {
 //        saveriwayat()
         }
     }
-}
-
-class ActivityScannerBinding {
-
 }
