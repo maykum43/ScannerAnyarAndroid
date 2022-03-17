@@ -43,7 +43,10 @@ class MainActivity : AppCompatActivity() {
         s = SharedPref(this)
 
         if (!s.getStatusLogin()){
-            startActivity(Intent(this, LoginActivity::class.java))
+            val inData = Intent(this, LoginActivity::class.java)
+            inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            inData.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(inData)
         }
 
         fub()

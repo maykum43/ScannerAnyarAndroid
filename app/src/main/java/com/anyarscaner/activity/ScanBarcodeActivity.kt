@@ -31,18 +31,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding = ActivityScannerBinding.inflate(layoutInflater)
-//        val view = binding.root
-//        setContentView(view)
-//
-//        binding.tvSn.doOnTextChanged { text, start, before, count ->
-//            if (text!!.length > 10){
-//                binding.tvSn.error = "Lebih dari 10 karakter"
-//            } else if (text!!.length < 10){
-//                binding.tvSn.error = "Kurang dari 10 karakter"
-//            }
-//        }
-//        setContentView(R.layout.activity_scan_barcode)
+        setContentView(R.layout.activity_scan_barcode)
 
         setupPermissions()
         codeScanner()
