@@ -5,7 +5,14 @@
     <color name="abu">#474747</color>
     <color name="abu_muda">#B1B1B1</color>
     <color name="ijo">#00FF08</color>
+    <color name="biru2">#006EFF</color>
+    <color name="pink2">#F303F3</color>
     <color name="putih_teal">#F9F9F9</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="putih_trans_50">#80FFFFFF</color>
+    <color name="putih_trans_40">#66FFFFFF</color>
+    <color name="putih_trans_30">#4DFFFFFF</color>
+    <color name="putih_trans_20">#33FFFFFF</color>
+
 </resources>

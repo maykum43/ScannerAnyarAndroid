@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,373 +8,391 @@
     android:gravity="center"
     android:background="@color/putih_teal">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="85dp"
-        android:scrollbars="none">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_profil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        android:scaleType="fitXY"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <!--foto profiel-->
+    <include
+        android:id="@+id/include2"
+        layout="@layout/lay_header_user" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_poin"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.75"
+        android:elevation="20dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3">
+
+        <TextView
+            android:id="@+id/tv_totalPoin"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:text="19091"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-            <!--foto profiel-->
-            <include layout="@layout/lay_header_user"/>
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:gravity="center"-->
-<!--                android:orientation="vertical">-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Poin"
+            android:textColor="@color/abu_muda"
+            android:textSize="20sp"
+            android:textStyle="normal" />
 
-<!--                <ImageView-->
-<!--                    android:layout_width="100dp"-->
-<!--                    android:layout_height="100dp"-->
-<!--                    android:src="@drawable/man" />-->
+    </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txt_nama"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Nama User"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="20dp"-->
-<!--                    android:textStyle="bold" />-->
+<!--    Scroll View Menu-->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0">
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txt_email"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Email"-->
-<!--                    android:textSize="16dp"-->
-<!--                    android:textStyle="normal" />-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            app:cardCornerRadius="30dp">
 
-<!--            </LinearLayout>-->
 
-            <androidx.cardview.widget.CardView
+            <!--            Menu -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/white"
-                app:cardCornerRadius="30dp">
+                android:orientation="vertical">
 
+                <!-- Menu 1-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="5dp">
+                    <!--edit Profil-->
 
-                    <!-- Menu 1-->
-                    <LinearLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="5dp">
-                        <!--edit Profil-->
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        android:layout_height="wrap_content">
 
-                            <LinearLayout
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_editprofil"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:layout_gravity="center"
+                                android:padding="10dp">
 
-                                <RelativeLayout
-                                    android:id="@+id/rl_editprofil"
+                                <!-- Edit Data Profil-->
+                                <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="10dp">
+                                    android:orientation="horizontal">
 
-                                    <!-- Edit Data Profil-->
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginHorizontal="2dp"
+                                        android:layout_marginVertical="2dp"
+                                        android:backgroundTint="#F8F8F8"
+                                        app:cardCornerRadius="10dp">
 
-                                        <androidx.cardview.widget.CardView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_marginHorizontal="2dp"
-                                            android:layout_marginVertical="2dp"
-                                            android:backgroundTint="#F8F8F8"
-                                            app:cardCornerRadius="10dp">
-
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:src="@drawable/ic_edit_profil" />
-
-                                        </androidx.cardview.widget.CardView>
-
-                                        <TextView
+                                        <ImageView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
-                                            android:layout_marginLeft="20dp"
-                                            android:text="Edit Profil"
-                                            android:textSize="20dp" />
+                                            android:src="@drawable/ic_edit_profil" />
 
-                                    </LinearLayout>
+                                    </androidx.cardview.widget.CardView>
 
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginTop="8dp"
-                                        android:src="@drawable/ic_baseline_chevron_right_24" />
-                                </RelativeLayout>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-                    <!-- Menu 2-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="5dp">
-                        <!--edit Profil-->
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:id="@+id/rl_riwayat"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="10dp">
-
-                                    <!-- Edit Data Profil-->
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
+                                    <TextView
+                                        android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="Edit Profil"
+                                        android:textSize="20dp" />
 
-                                        <androidx.cardview.widget.CardView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_marginHorizontal="2dp"
-                                            android:layout_marginVertical="2dp"
-                                            android:backgroundTint="#F8F8F8"
-                                            app:cardCornerRadius="10dp">
+                                </LinearLayout>
 
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:src="@drawable/ic_riwayat" />
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/ic_baseline_chevron_right_24" />
 
-                                        </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
 
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginLeft="20dp"
-                                            android:text="Riwayat Scan"
-                                            android:textSize="20dp" />
+                        </LinearLayout>
 
-                                    </LinearLayout>
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginTop="8dp"
-                                        android:src="@drawable/ic_baseline_chevron_right_24" />
-                                </RelativeLayout>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-                    <!-- Menu 3-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="5dp">
-                        <!--edit Profil-->
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:id="@+id/rl_aboutus"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="10dp">
-
-                                    <!-- Edit Data Profil-->
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <androidx.cardview.widget.CardView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_marginHorizontal="2dp"
-                                            android:layout_marginVertical="2dp"
-                                            android:backgroundTint="#F8F8F8"
-                                            app:cardCornerRadius="10dp">
-
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:src="@drawable/ic_about" />
-
-                                        </androidx.cardview.widget.CardView>
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginLeft="20dp"
-                                            android:text="Tentang Kami"
-                                            android:textSize="20dp" />
-
-                                    </LinearLayout>
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginTop="8dp"
-                                        android:src="@drawable/ic_baseline_chevron_right_24" />
-                                </RelativeLayout>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:visibility="visible"
-                        android:layout_height="1dp"
-                        android:background="@color/putih_teal"
-                        android:layout_marginHorizontal="40dp"
-                        />
-
-                    <!-- Menu 3-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="vertical"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="5dp">
-                        <!--edit Profil-->
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-
-                                <RelativeLayout
-                                    android:id="@+id/rl_logout"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:padding="10dp">
-
-                                    <!-- Edit Data Profil-->
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <androidx.cardview.widget.CardView
-                                            android:layout_width="50dp"
-                                            android:layout_height="50dp"
-                                            android:layout_marginHorizontal="2dp"
-                                            android:layout_marginVertical="2dp"
-                                            android:backgroundTint="#F8F8F8"
-                                            app:cardCornerRadius="10dp">
-
-                                            <ImageView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:src="@drawable/ic_logout" />
-
-                                        </androidx.cardview.widget.CardView>
-
-                                        <TextView
-                                            android:id="@+id/btn_Logout"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_marginLeft="20dp"
-                                            android:text="Logout"
-                                            android:textSize="20dp" />
-
-                                    </LinearLayout>
-
-                                    <ImageView
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:layout_alignParentRight="true"
-                                        android:layout_marginTop="8dp"
-                                        android:src="@drawable/ic_baseline_chevron_right_24" />
-                                </RelativeLayout>
-
-                            </LinearLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                    </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+                <!-- Menu 2-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="5dp">
+                    <!--edit Profil-->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Version 1.0.0.0"-->
-<!--                android:textSize="16dp" />-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
+                            <RelativeLayout
+                                android:id="@+id/rl_riwayat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="10dp">
 
-        </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
 
-    </ScrollView>
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginHorizontal="2dp"
+                                        android:layout_marginVertical="2dp"
+                                        android:backgroundTint="#F8F8F8"
+                                        app:cardCornerRadius="10dp">
 
-</RelativeLayout>
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/ic_riwayat" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="Riwayat Scan"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/ic_baseline_chevron_right_24" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Menu 3-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="5dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_aboutus"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginHorizontal="2dp"
+                                        android:layout_marginVertical="2dp"
+                                        android:backgroundTint="#F8F8F8"
+                                        app:cardCornerRadius="10dp">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/ic_about" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="Tentang Kami"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/ic_baseline_chevron_right_24" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="40dp"
+                    android:background="@color/putih_teal"
+                    android:visibility="visible" />
+
+                <!-- Menu 4-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="5dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_logout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:padding="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginHorizontal="2dp"
+                                        android:layout_marginVertical="2dp"
+                                        android:backgroundTint="#F8F8F8"
+                                        app:cardCornerRadius="10dp">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:src="@drawable/ic_logout" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                    <TextView
+                                        android:id="@+id/btn_Logout"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="20dp"
+                                        android:text="Logout"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginTop="8dp"
+                                    android:src="@drawable/ic_baseline_chevron_right_24" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
