@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
-import com.anyarscaner.adapter.AdapterCariSn
 import com.anyarscaner.adapter.AdapterHis
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref

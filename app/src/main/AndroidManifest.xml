@@ -29,6 +29,7 @@
         <activity android:name=".activity.BantuanActivity" />
         <activity android:name=".activity.AboutActivity" />
         <activity android:name=".activity.NewEditProfilActivity" />
+        <activity android:name=".activity.PoinMallActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

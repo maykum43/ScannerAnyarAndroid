@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/navigation_profil"
         android:icon="@drawable/ic_profil"
-        android:title="Profil" />
+        android:title="Profil"/>
+
+    <item
+        android:id="@+id/navigation_scanner"
+        android:icon="@drawable/ic_icn_barcode_scan_off"
+        android:title="Scanner"/>
 
 <!--    <item-->
-<!--        android:id="@+id/navigation_scanner"-->
-<!--        android:icon="@drawable/ic_icn_barcode_scan_off"-->
-<!--        android:title="Scanner" />-->
+<!--        android:id="@+id/placeholder"-->
+<!--        android:title=""-->
+<!--        />-->
 
     <item
         android:id="@+id/navigation_support"
         android:icon="@drawable/ic_support"
-        android:title="Bantuan" />
+        android:title="Bantuan"/>
 
 
 </menu>

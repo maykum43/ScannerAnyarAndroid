@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutItem_voucher"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="20dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginVertical="5dp">
+
+    <ImageView
+        android:id="@+id/iv_bgVoucher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_voucher" />
+
+<!--    Iv Voucher-->
+    <ImageView
+        android:id="@+id/iv_itemHadiah"
+        android:layout_width="90dp"
+        android:layout_height="107dp"
+        android:layout_alignStart="@id/iv_bgVoucher"
+        android:layout_alignTop="@id/iv_bgVoucher"
+        android:layout_alignEnd="@+id/iv_bgVoucher"
+        android:layout_alignBottom="@id/iv_bgVoucher"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/iphone_13" />
+
+<!--    Tv Tittle-->
+    <TextView
+        android:id="@+id/tv_titleVoucher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/iv_bgVoucher"
+        android:layout_alignEnd="@+id/iv_bgVoucher"
+        android:layout_alignBottom="@+id/iv_itemHadiah"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="100dp"
+        android:text="Title Voucher"
+        android:textColor="@color/abu"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+<!--    Tv Poin-->
+    <TextView
+        android:id="@+id/tv_poinVoucher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/iv_bgVoucher"
+        android:layout_alignEnd="@+id/iv_bgVoucher"
+        android:layout_alignBottom="@+id/iv_itemHadiah"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="50dp"
+        android:text="50000"
+        android:textColor="@color/abu"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+<!--    Tv keterangan-->
+    <TextView
+        android:id="@+id/tv_ket_voucher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/iv_bgVoucher"
+        android:layout_alignEnd="@+id/iv_bgVoucher"
+        android:layout_alignBottom="@+id/iv_itemHadiah"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="30dp"
+        android:text="Redem sebelum 31-12-2020"
+        android:textSize="12sp" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Poin"-->
+<!--        android:textColor="@color/abu"-->
+<!--        android:layout_alignStart="@+id/iv_bgVoucher"-->
+<!--        android:layout_alignEnd="@+id/iv_bgVoucher"-->
+<!--        android:layout_alignBottom="@+id/iv_itemHadiah"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="301dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:layout_marginEnd="40dp"-->
+<!--        android:layout_marginBottom="57dp"-->
+<!--        />-->
+
+</RelativeLayout>

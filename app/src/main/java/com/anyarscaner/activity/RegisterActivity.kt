@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref

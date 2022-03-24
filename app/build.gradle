@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk 31
+//    android.useAndroidX=true
 
 //    viewBinding {
 //        enabled = true
@@ -96,5 +97,8 @@ dependencies {
 
     //library circle PP
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //library chip navbar
+//    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
 
 }

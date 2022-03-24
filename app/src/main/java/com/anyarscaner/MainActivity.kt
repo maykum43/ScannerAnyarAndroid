@@ -1,17 +1,13 @@
 package com.anyarscaner
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.anyarscaner.activity.LoginActivity
-import com.anyarscaner.activity.MasukActivity
 import com.anyarscaner.activity.ScannerActivity
 import com.anyarscaner.fragment.ProfilFragment
 import com.anyarscaner.fragment.ScannerFragment
@@ -49,14 +45,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(inData)
         }
 
-        fub()
+//        fub()
 
         setUpBottomNav()
     }
 
     fun setUpBottomNav(){
         fm.beginTransaction().add(R.id.container, fragmentProfil).show(fragmentProfil).commit()
-//        fm.beginTransaction().add(R.id.container, fragmentScanner).hide(fragmentScanner).commit()
+        fm.beginTransaction().add(R.id.container, fragmentScanner).hide(fragmentScanner).commit()
         fm.beginTransaction().add(R.id.container, fragmentSupport).hide(fragmentSupport).commit()
 
         bottomNavigationView = findViewById(R.id.nav_view)
@@ -69,17 +65,21 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId){
                 R.id.navigation_profil ->{
                     callFragment(0,fragmentProfil)
-//                    if (s.getStatusLogin()){
-//
-//                    }else{
-//                        startActivity(Intent(this, LoginActivity::class.java))
-//                    }
+                    if (s.getStatusLogin()){
+
+                    }else{
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
                 }
 //                R.id.navigation_scanner ->{
 //                    callFragment(1,fragmentScanner)
 //                }
+                R.id.navigation_scanner ->{
+                    callFragment(1,fragmentScanner)
+                }
+
                 R.id.navigation_support ->{
-                    callFragment(1,fragmentSupport)
+                    callFragment(2,fragmentSupport)
                 }
 
             }
@@ -95,11 +95,11 @@ class MainActivity : AppCompatActivity() {
         active = fragment
     }
 
-    fun fub(){
-        val fab_scan = findViewById<FloatingActionButton>(R.id.fab_scan)
-
-        fab_scan.setOnClickListener{
-            startActivity(Intent(this,ScannerActivity::class.java))
-        }
-    }
+//    fun fub(){
+//        val fab_scan = findViewById<FloatingActionButton>(R.id.fab_scan)
+//
+//        fab_scan.setOnClickListener{
+//            startActivity(Intent(this,ScannerActivity::class.java))
+//        }
+//    }
 }

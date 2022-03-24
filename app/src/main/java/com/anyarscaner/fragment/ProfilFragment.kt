@@ -1,26 +1,19 @@
 package com.anyarscaner.fragment
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
 import com.anyarscaner.activity.*
-import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
-import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.User
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ProfilFragment : Fragment() {
     lateinit var s: SharedPref
@@ -31,8 +24,9 @@ class ProfilFragment : Fragment() {
     lateinit var txt_nama: TextView
     lateinit var txt_email: TextView
 
-    lateinit var btn_editprofil : RelativeLayout
+    lateinit var btn_editprofil : ImageView
     lateinit var btn_riwayat : RelativeLayout
+    lateinit var btn_poinMall : RelativeLayout
     lateinit var btn_about : RelativeLayout
     lateinit var btn_logout : RelativeLayout
 
@@ -54,13 +48,19 @@ class ProfilFragment : Fragment() {
     }
 
     private fun button(view: View) {
-        btn_editprofil = view.findViewById(R.id.rl_editprofil)
+        btn_editprofil = view.findViewById(R.id.iv_edit_profil)
         btn_riwayat = view.findViewById(R.id.rl_riwayat)
+        btn_poinMall = view.findViewById(R.id.rl_poinMall)
         btn_about = view.findViewById(R.id.rl_aboutus)
         btn_logout = view.findViewById(R.id.rl_logout)
 
         btn_riwayat.setOnClickListener {
             val inData = Intent(activity, RiwayatActivity::class.java)
+            startActivity(inData)
+        }
+
+        btn_poinMall.setOnClickListener {
+            val inData = Intent(activity, PoinMallActivity::class.java)
             startActivity(inData)
         }
 
