@@ -18,8 +18,8 @@ class AdapterHis(var activity: Activity, var data: ArrayList<RiwayatModel>): Rec
     class Holder(view: View):RecyclerView.ViewHolder(view) {
         val tvCreateAt = view.findViewById<TextView>(R.id.tv_createdat)
         val tvSN = view.findViewById<TextView>(R.id.tv_sn)
-        val tvJudul = view.findViewById<TextView>(R.id.tv_judul)
-        val tvStatus = view.findViewById<TextView>(R.id.tv_status)
+        val tvModel = view.findViewById<TextView>(R.id.tv_model)
+        val tvPoin = view.findViewById<TextView>(R.id.tv_poin)
         val layout = view.findViewById<CardView>(R.id.layoutItem_riwayat)
     }
 
@@ -31,16 +31,16 @@ class AdapterHis(var activity: Activity, var data: ArrayList<RiwayatModel>): Rec
     override fun onBindViewHolder(holder: AdapterHis.Holder, position: Int) {
         holder.tvCreateAt.text = data[position].created_at
         holder.tvSN.text = data[position].sn
-        holder.tvJudul.text = data[position].judul
-        holder.tvStatus.text = data[position].status
+        holder.tvModel.text = data[position].model
+        holder.tvPoin.text = data[position].poin
 
-        if (holder.tvStatus.text == "Diproses"){
-            holder.tvStatus.setTextColor(Color.parseColor("#1A60BC"))
-        }else if (holder.tvStatus.text == "Selesai"){
-            holder.tvStatus.setTextColor(Color.parseColor("#00FF08"))
-        }else if(holder.tvStatus.text == "Belum Selesai"){
-            holder.tvStatus.setTextColor(Color.parseColor("#FF0000"))
-        }
+//        if (holder.tvStatus.text == "Diproses"){
+//            holder.tvStatus.setTextColor(Color.parseColor("#1A60BC"))
+//        }else if (holder.tvStatus.text == "Selesai"){
+//            holder.tvStatus.setTextColor(Color.parseColor("#00FF08"))
+//        }else if(holder.tvStatus.text == "Belum Selesai"){
+//            holder.tvStatus.setTextColor(Color.parseColor("#FF0000"))
+//        }
 
 
 //        holder.layout.setOnClickListener{

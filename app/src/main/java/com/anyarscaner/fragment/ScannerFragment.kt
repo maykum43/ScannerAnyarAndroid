@@ -121,14 +121,14 @@ class ScannerFragment: Fragment() {
             edt_sn.error = "Kolom SN atau Kode unik tidak boleh kosong."
             edt_sn.requestFocus()
             return
-        }else if (edt_sn.text.length < 10){
-            edt_sn.error = "SN kurang dari 10 Karakter"
-            edt_sn.requestFocus()
-            return
-        }else if (edt_sn.text.length > 10){
-            edt_sn.error = "SN Lebih dari 10 Karakter"
-            edt_sn.requestFocus()
-            return
+//        }else if (edt_sn.text.length < 10){
+//            edt_sn.error = "SN kurang dari 10 Karakter"
+//            edt_sn.requestFocus()
+//            return
+//        }else if (edt_sn.text.length > 10){
+//            edt_sn.error = "SN Lebih dari 10 Karakter"
+//            edt_sn.requestFocus()
+//            return
         }else{
             val pb = view.findViewById<ProgressBar>(R.id.pb_search)
 

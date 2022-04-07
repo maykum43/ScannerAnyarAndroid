@@ -8,6 +8,7 @@ class User {
     lateinit var nama_bank:String
     lateinit var atas_nama:String
     lateinit var nama_akun_ol:String
+    var poin:Int = 0
     var id : Int = 0
 
     @JvmName("getId1")

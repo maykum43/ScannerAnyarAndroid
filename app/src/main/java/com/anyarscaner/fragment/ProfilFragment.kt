@@ -12,8 +12,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
 import com.anyarscaner.activity.*
+import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
+import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.User
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ProfilFragment : Fragment() {
     lateinit var s: SharedPref
@@ -23,6 +28,7 @@ class ProfilFragment : Fragment() {
 
     lateinit var txt_nama: TextView
     lateinit var txt_email: TextView
+    lateinit var txt_poin: TextView
 
     lateinit var btn_editprofil : ImageView
     lateinit var btn_riwayat : RelativeLayout
@@ -43,6 +49,7 @@ class ProfilFragment : Fragment() {
         s = SharedPref(requireActivity())
 
         setData()
+//        setPoin()
         button(view)
         return view
     }
@@ -124,10 +131,43 @@ class ProfilFragment : Fragment() {
     private fun init(view: View) {
         txt_nama = view.findViewById(R.id.txt_nama)
         txt_email = view.findViewById(R.id.txt_email)
+        txt_poin = view.findViewById(R.id.tv_totalPoin)
     }
 
     fun setData(){
         txt_nama.text = s.getString(s.nama)
         txt_email.text = s.getString(s.email)
+        txt_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                    if(respon.success == 1){
+                        txt_poin.setText(respon.TotalPoin)
+                    }else{
+                        Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                    }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+
+            }
+        })
+            .toString()
     }
+
+//    fun setPoin(){
+//        ApiConfig.instanceRetrofit.totalPoin(txt_nama.toString()).enqueue(object : Callback<ResponModel> {
+//                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                    val respon = response.body()!!
+//
+//                    if(respon.success == 1){
+//                        txt_poin.setText(respon.TotalPoin)
+//                    }else{
+//                        Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                    Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+//                }
+//        })
+//    }
 }

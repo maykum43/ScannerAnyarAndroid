@@ -21,6 +21,8 @@ class SharedPref(activity: Activity) {
     val akun_ol ="nama_akun_ol"
     val pasword = "password"
 
+    var poin = "poin"
+
     val sn = "sn"
 
     val mypref = "MAIN_PREF"

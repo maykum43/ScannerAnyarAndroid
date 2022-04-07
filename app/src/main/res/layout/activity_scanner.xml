@@ -36,19 +36,19 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="20dp"
-                style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+                android:layout_marginTop="20dp"
+                android:layout_toLeftOf="@id/btn_cariSN"
                 android:elevation="10dp"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
-                android:layout_toLeftOf="@id/btn_cariSN"
                 app:counterEnabled="true"
-                app:counterMaxLength="10">
+                app:counterMaxLength="20">
 
                 <EditText
                     android:id="@+id/tv_sn"
@@ -56,9 +56,9 @@
                     android:layout_height="60dp"
                     android:hint="Masukan Kode atau SN"
                     android:inputType="text"
+                    android:maxLength="20"
                     android:maxLines="1"
-                    android:maxLength="11"
-                    android:singleLine="true"/>
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

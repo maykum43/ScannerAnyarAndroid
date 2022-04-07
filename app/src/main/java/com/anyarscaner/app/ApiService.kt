@@ -63,4 +63,10 @@ interface ApiService {
     fun  cari_pelangan(
         @Field("id") id:Int,
     ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("totalPoin")
+    fun totalPoin(
+        @Field("email") email:String,
+    ) : Call<ResponModel>
 }

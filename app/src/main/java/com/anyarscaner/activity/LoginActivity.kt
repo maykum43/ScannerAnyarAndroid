@@ -85,6 +85,7 @@ class LoginActivity : AppCompatActivity() {
                     s.setString(s.nama_bank, respon.user.nama_bank)
                     s.setString(s.atas_nama, respon.user.atas_nama)
                     s.setString(s.akun_ol, respon.user.nama_akun_ol)
+//                    s.setInt(s.poin,respon.user.poin)
 
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
