@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
 import com.anyarscaner.activity.CreateHisActivity
+import com.anyarscaner.model.HadiahModel
 import com.anyarscaner.model.RiwayatModel
 
 class AdapterHis(var activity: Activity, var data: ArrayList<RiwayatModel>): RecyclerView.Adapter<AdapterHis.Holder>() {

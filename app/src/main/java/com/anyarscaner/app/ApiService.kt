@@ -69,4 +69,9 @@ interface ApiService {
     fun totalPoin(
         @Field("email") email:String,
     ) : Call<ResponModel>
+
+    @POST("hadiahs")
+    fun getHadiah() : Call<ResponModel>
+
+
 }

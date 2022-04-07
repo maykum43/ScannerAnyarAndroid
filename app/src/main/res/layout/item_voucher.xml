@@ -14,7 +14,8 @@
         android:id="@+id/iv_bgVoucher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_voucher" />
+        android:background="@drawable/bg_voucher"
+        android:elevation="2dp"/>
 
 <!--    Iv Voucher-->
     <ImageView
