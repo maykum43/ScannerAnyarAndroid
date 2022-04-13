@@ -30,6 +30,7 @@
         <activity android:name=".activity.AboutActivity" />
         <activity android:name=".activity.NewEditProfilActivity" />
         <activity android:name=".activity.PoinMallActivity" />
+        <activity android:name=".activity.DetailHadiahActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

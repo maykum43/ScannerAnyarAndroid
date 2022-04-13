@@ -2,18 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutItem_voucher"
+    android:id="@+id/layoutItem_voucher2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingHorizontal="20dp"
     android:elevation="6dp"
     app:cardCornerRadius="10dp"
-    android:layout_marginVertical="5dp">
+    android:layout_marginVertical="5dp" >
 
 <!--    bg Voucher-->
     <ImageView
-        android:id="@+id/iv_bgVoucher"
+        android:id="@+id/iv_bgVoucher2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_voucher"
@@ -27,17 +27,17 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_bgVoucher"
-        app:layout_constraintEnd_toEndOf="@+id/iv_bgVoucher"
-        app:layout_constraintStart_toStartOf="@+id/iv_bgVoucher"
-        app:layout_constraintTop_toTopOf="@+id/iv_bgVoucher"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_bgVoucher2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_bgVoucher2"
+        app:layout_constraintStart_toStartOf="@+id/iv_bgVoucher2"
+        app:layout_constraintTop_toTopOf="@+id/iv_bgVoucher2"
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
         android:clickable="true">
 
         <!--    Iv Voucher-->
         <ImageView
-            android:id="@+id/iv_itemHadiah"
+            android:id="@+id/iv_itemHadiah2"
             android:layout_width="115dp"
             android:layout_height="130dp"
             android:layout_weight=".5"
@@ -54,7 +54,7 @@
 
             <!--    Tv Tittle-->
             <TextView
-                android:id="@+id/tv_titleVoucher"
+                android:id="@+id/tv_titleVoucher2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
@@ -65,7 +65,7 @@
 
             <!--    Tv Poin-->
             <TextView
-                android:id="@+id/tv_poinVoucher"
+                android:id="@+id/tv_poinVoucher2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -74,36 +74,49 @@
                 android:textSize="40dp"
                 android:textStyle="bold"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Stok : "
+                    android:layout_weight="0.3"
+                    android:textSize="14dp"
+                    android:textColor="@color/abu_muda"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_stok"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="200"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
-                android:layout_height="18dp"/>
+                android:layout_height="3dp"/>
 
             <!--    Tv keterangan-->
             <TextView
-                android:id="@+id/tv_ket_voucher"
+                android:id="@+id/tv_ket_voucher2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Redem sebelum 31-12-2020"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:textColor="@color/abu_muda"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Poin"-->
-<!--        android:textColor="@color/abu"-->
-<!--        android:layout_alignStart="@+id/iv_bgVoucher"-->
-<!--        android:layout_alignEnd="@+id/iv_bgVoucher"-->
-<!--        android:layout_alignBottom="@+id/iv_itemHadiah"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginStart="301dp"-->
-<!--        android:layout_marginTop="80dp"-->
-<!--        android:layout_marginEnd="40dp"-->
-<!--        android:layout_marginBottom="57dp"-->
-<!--        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

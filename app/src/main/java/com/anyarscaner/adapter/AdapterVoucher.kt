@@ -1,31 +1,33 @@
 package com.anyarscaner.adapter
 
 import android.app.Activity
-import android.icu.number.IntegerWidth
+import android.content.Intent
+import android.icu.util.ULocale.getName
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
+import com.anyarscaner.activity.DetailHadiahActivity
+import com.anyarscaner.activity.PoinMallActivity
 import com.anyarscaner.model.HadiahModel
-import com.anyarscaner.model.RiwayatModel
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import java.text.DecimalFormat
-import java.text.NumberFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>): RecyclerView.Adapter<AdapterVoucher.Holder>() {
     class Holder(view: View):RecyclerView.ViewHolder(view) {
-        var ivHadiah = view.findViewById<ImageView>(R.id.iv_itemHadiah)
-        val tvTittle = view.findViewById<TextView>(R.id.tv_titleVoucher)
-        val tvPoin = view.findViewById<TextView>(R.id.tv_poinVoucher)
-        val layout = view.findViewById<ConstraintLayout>(R.id.layoutItem_voucher)
+        var ivHadiah = view.findViewById<ImageView>(R.id.iv_itemHadiah2)
+        val tvTittle = view.findViewById<TextView>(R.id.tv_titleVoucher2)
+        val tvPoin = view.findViewById<TextView>(R.id.tv_poinVoucher2)
+        val tvStok = view.findViewById<TextView>(R.id.tv_stok)
+        val layout = view.findViewById<ImageView>(R.id.iv_bgVoucher2)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterVoucher.Holder {
@@ -44,8 +46,51 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
 
         holder.tvTittle.text = data[position].name
         holder.tvPoin.text = data[position].req_poin
+        holder.tvStok.text = data[position].stok.toString()
         //format harga indo
     // NumberFormat.getCurrencyInstance(Locale("in", "ID")).format(Integer.valueOf(data[position].req_poin))
+
+        holder.ivHadiah.setOnClickListener {
+            val activiti = Intent(activity, DetailHadiahActivity::class.java)
+            activiti.putExtra("name", data[position].name)
+            activiti.putExtra("req_poin", data[position].req_poin)
+            activiti.putExtra("foto", data[position].foto)
+            activiti.putExtra("stok", data[position].stok.toString())
+            activity.startActivity(activiti)
+        }
+        holder.tvTittle.setOnClickListener {
+            val activiti = Intent(activity, DetailHadiahActivity::class.java)
+            activiti.putExtra("name", data[position].name)
+            activiti.putExtra("req_poin", data[position].req_poin)
+            activiti.putExtra("foto", data[position].foto)
+            activiti.putExtra("stok", data[position].stok.toString())
+            activity.startActivity(activiti)
+        }
+        holder.tvPoin.setOnClickListener {
+            val activiti = Intent(activity, DetailHadiahActivity::class.java)
+            activiti.putExtra("name", data[position].name)
+            activiti.putExtra("req_poin", data[position].req_poin)
+            activiti.putExtra("foto", data[position].foto)
+            activiti.putExtra("stok", data[position].stok.toString())
+            activity.startActivity(activiti)
+        }
+        holder.tvStok.setOnClickListener {
+            val activiti = Intent(activity, DetailHadiahActivity::class.java)
+            activiti.putExtra("name", data[position].name)
+            activiti.putExtra("req_poin", data[position].req_poin)
+            activiti.putExtra("foto", data[position].foto)
+            activiti.putExtra("stok", data[position].stok.toString())
+            activity.startActivity(activiti)
+        }
+        holder.layout.setOnClickListener {
+            val activiti = Intent(activity, DetailHadiahActivity::class.java)
+            activiti.putExtra("name", data[position].name)
+            activiti.putExtra("req_poin", data[position].req_poin)
+            activiti.putExtra("foto", data[position].foto)
+            activiti.putExtra("stok", data[position].stok.toString())
+            activity.startActivity(activiti)
+        }
+
     }
 
     override fun getItemCount(): Int {
