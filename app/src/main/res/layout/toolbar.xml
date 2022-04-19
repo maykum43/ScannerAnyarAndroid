@@ -10,6 +10,7 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:contentInsetStartWithNavigation="0dp"
+        android:background="@drawable/bg_gradient_biru"
         android:paddingEnd="5dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
 

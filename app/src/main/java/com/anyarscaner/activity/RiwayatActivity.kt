@@ -23,6 +23,7 @@ class RiwayatActivity : AppCompatActivity() {
     lateinit var s: SharedPref
     lateinit var tv_user :TextView
     lateinit var tv_email : TextView
+    lateinit var tv_poin_user : TextView
 
     lateinit var rvRiw : RecyclerView
 
@@ -34,9 +35,26 @@ class RiwayatActivity : AppCompatActivity() {
 
         tv_user = findViewById(R.id.txt_nama)
         tv_user.text = s.getString(s.nama)
+        tv_poin_user = findViewById(R.id.tv_totalPoin)
 
         tv_email= findViewById(R.id.txt_email)
         tv_email.text = s.getString(s.email)
+        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
+            Callback<ResponModel> {
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                if(respon.success == 1){
+                    tv_poin_user.setText(respon.TotalPoin)
+                }else{
+                    Toast.makeText(this@RiwayatActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@RiwayatActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        }).toString()
 
         val pb = findViewById<ProgressBar>(R.id.pb_riwayat)
 
@@ -69,7 +87,18 @@ class RiwayatActivity : AppCompatActivity() {
 
         })
 
+        //set Tollbar
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Riwayat Scanner"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
     private var listRiws: ArrayList<RiwayatModel> = ArrayList()
 
     fun displayData(){

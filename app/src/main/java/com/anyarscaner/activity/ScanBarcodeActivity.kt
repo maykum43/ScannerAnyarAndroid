@@ -4,13 +4,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
 //import com.anyarscaner.databinding.ActivityScannerBinding
@@ -23,11 +26,9 @@ import retrofit2.Response
 class ScanBarcodeActivity : AppCompatActivity() {
 
     lateinit var codeScanner : CodeScanner
-//    lateinit var sn :TextView
     lateinit var btnProses : Button
-//    lateinit var binding : com.anyarscaner.databinding.ActivityScannerBinding
-//    var btnCekSN = findViewById<Button>(R.id.btn_cariBarcode)
-//    var scn = findViewById<CodeScanner>(R.id.scn)
+
+    lateinit var pbScan : ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +36,12 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
         setupPermissions()
         codeScanner()
+
+        //set Tollbar
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Scan Barcode Serial Number"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     fun codeScanner(){
@@ -47,6 +54,8 @@ class ScanBarcodeActivity : AppCompatActivity() {
         codeScanner = CodeScanner(this,scn)
 
         val tvHasil = findViewById<TextView>(R.id.tv_hasil)
+        pbScan = findViewById(R.id.pb_scan)
+        pbScan.visibility = View.VISIBLE
 
         codeScanner.apply {
             camera = CodeScanner.CAMERA_BACK
@@ -60,6 +69,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
+                    pbScan.visibility = View.GONE
                     tvHasil.text = it.text
                 }
             }
@@ -158,5 +168,13 @@ class ScanBarcodeActivity : AppCompatActivity() {
             }
         }
 
+    }
+    override fun onSupportNavigateUp(): Boolean {
+//        onBackPressed()
+        val intent = Intent(this@ScanBarcodeActivity, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

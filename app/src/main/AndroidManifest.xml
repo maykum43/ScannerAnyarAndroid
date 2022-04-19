@@ -31,6 +31,7 @@
         <activity android:name=".activity.NewEditProfilActivity" />
         <activity android:name=".activity.PoinMallActivity" />
         <activity android:name=".activity.DetailHadiahActivity" />
+        <activity android:name=".activity.RiwayatRedeem" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

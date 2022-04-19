@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.anyarscaner.R
 import com.anyarscaner.activity.*
@@ -29,12 +26,16 @@ class ProfilFragment : Fragment() {
     lateinit var txt_nama: TextView
     lateinit var txt_email: TextView
     lateinit var txt_poin: TextView
+    lateinit var txt_jml_hadiah: TextView
 
     lateinit var btn_editprofil : ImageView
     lateinit var btn_riwayat : RelativeLayout
     lateinit var btn_poinMall : RelativeLayout
     lateinit var btn_about : RelativeLayout
     lateinit var btn_logout : RelativeLayout
+
+    lateinit var pbPoin : ProgressBar
+    lateinit var pbJmlRed :ProgressBar
 
 
     override fun onCreateView(
@@ -74,42 +75,6 @@ class ProfilFragment : Fragment() {
         btn_editprofil.setOnClickListener {
             val inData =Intent(activity, EditProfilActivity::class.java)
             startActivity(inData)
-
-//            var id = user.getId()
-//            val tv_nama = user.name
-//            val tv_email = user.email
-//            val tv_phone = user.phone
-//            val tv_norek = user.norek
-//            val tv_bank = user.nama_bank
-//            val tv_atasnama = user.atas_nama
-//            val tv_akunOl = user.akun_ol
-//
-//            ApiConfig.instanceRetrofit.cari_pelangan(id).enqueue(object :
-//                Callback<ResponModel> {
-//                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-//                    val respon = response.body()!!
-//
-//                    if(respon.success == 1){
-//                        val intent = Intent(activity, NewEditProfilActivity::class.java)
-//                        intent.putExtra("name",tv_nama)
-//                        intent.putExtra("email",tv_email)
-//                        intent.putExtra("phone",tv_phone)
-//                        intent.putExtra("norek",tv_norek)
-//                        intent.putExtra("bank",tv_bank)
-//                        intent.putExtra("atasnama",tv_atasnama)
-//                        intent.putExtra("akunOl",tv_akunOl)
-//
-//                        startActivity(intent)
-//                    }else{
-//                        Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-//                    Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-//                }
-//
-//            })
         }
 
         btn_about.setOnClickListener {
@@ -126,48 +91,81 @@ class ProfilFragment : Fragment() {
             startActivity(inData)
         }
 
+        txt_poin.setOnClickListener {
+            val inData = Intent(activity, RiwayatActivity::class.java)
+            startActivity(inData)
+        }
+
+        txt_jml_hadiah.setOnClickListener {
+            val inData = Intent(activity, RiwayatRedeem::class.java)
+            startActivity(inData)
+        }
+
     }
 
     private fun init(view: View) {
         txt_nama = view.findViewById(R.id.txt_nama)
         txt_email = view.findViewById(R.id.txt_email)
         txt_poin = view.findViewById(R.id.tv_totalPoin)
+        txt_jml_hadiah = view.findViewById(R.id.tv_jml_redem)
+        pbPoin = view.findViewById(R.id.pb_totalPoin)
+        pbJmlRed = view.findViewById(R.id.pb_jmlRedeem)
     }
 
     fun setData(){
         txt_nama.text = s.getString(s.nama)
         txt_email.text = s.getString(s.email)
-        txt_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+
+        pbPoin.visibility = View.VISIBLE
+        txt_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
-                    if(respon.success == 1){
-                        txt_poin.setText(respon.TotalPoin)
-                    }else{
-                        Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                    }
+                if (respon.success == 1){
+                    pbPoin.visibility = View.GONE
+                    txt_poin.setText(respon.TotalPoin)
+                }else{
+                    Toast.makeText(activity,"Error : "+respon.message, Toast.LENGTH_LONG).show()
+                }
             }
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-
+                Toast.makeText(activity,"Terjadi Kesalahan : "+t.message, Toast.LENGTH_LONG).show()
             }
-        })
-            .toString()
-    }
 
-//    fun setPoin(){
-//        ApiConfig.instanceRetrofit.totalPoin(txt_nama.toString()).enqueue(object : Callback<ResponModel> {
-//                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-//                    val respon = response.body()!!
+        }).toString()
+//        txt_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
+//            Callback<ResponModel> {
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                if(respon.success == 1){
+//                    txt_poin.setText(respon.TotalPoin)
+//                }else{
+//                    Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                }
+//            }
 //
-//                    if(respon.success == 1){
-//                        txt_poin.setText(respon.TotalPoin)
-//                    }else{
-//                        Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-//                    Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-//                }
-//        })
-//    }
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+//            }
+//
+//        }).toString()
+
+        pbJmlRed.visibility = View.VISIBLE
+        txt_jml_hadiah.text = ApiConfig.instanceRetrofit.jmlHadiah(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                pbJmlRed.visibility = View.GONE
+                if(respon.success == 1){
+                    txt_jml_hadiah.setText(respon.jmlRedPoin.toString())
+                }else{
+                    Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+        }).toString()
+
+    }
 }

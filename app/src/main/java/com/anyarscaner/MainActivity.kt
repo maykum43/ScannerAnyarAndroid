@@ -1,5 +1,6 @@
 package com.anyarscaner
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.anyarscaner.activity.LoginActivity
+import com.anyarscaner.activity.ScanBarcodeActivity
 import com.anyarscaner.activity.ScannerActivity
 import com.anyarscaner.fragment.ProfilFragment
 import com.anyarscaner.fragment.ScannerFragment
@@ -18,7 +20,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
-    private val fragmentScanner : Fragment = ScannerFragment()
+//    private val menuScan : Activity = ScannerFragment(
     private val fragmentSupport : Fragment = SupportFragment()
     private val fragmentProfil : Fragment = ProfilFragment()
     private val fm: FragmentManager = supportFragmentManager
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setUpBottomNav(){
         fm.beginTransaction().add(R.id.container, fragmentProfil).show(fragmentProfil).commit()
-        fm.beginTransaction().add(R.id.container, fragmentScanner).hide(fragmentScanner).commit()
+//        fm.beginTransaction().add(R.id.container, fragmentScanner).hide(fragmentScanner).commit()
         fm.beginTransaction().add(R.id.container, fragmentSupport).hide(fragmentSupport).commit()
 
         bottomNavigationView = findViewById(R.id.nav_view)
@@ -75,7 +77,10 @@ class MainActivity : AppCompatActivity() {
 //                    callFragment(1,fragmentScanner)
 //                }
                 R.id.navigation_scanner ->{
-                    callFragment(1,fragmentScanner)
+                    val intent = Intent(this@MainActivity, ScanBarcodeActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
                 }
 
                 R.id.navigation_support ->{

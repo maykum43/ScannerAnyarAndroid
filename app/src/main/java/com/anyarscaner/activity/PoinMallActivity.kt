@@ -1,6 +1,8 @@
 package com.anyarscaner.activity
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,9 @@ class PoinMallActivity : AppCompatActivity() {
     lateinit var tv_email : TextView
     lateinit var tv_poin : TextView
 
+    lateinit var pbJmlPoin : ProgressBar
+    lateinit var pbHadiah : ProgressBar
+
     lateinit var rvHadiah : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +35,6 @@ class PoinMallActivity : AppCompatActivity() {
         setContentView(R.layout.activity_poin_mall)
         s = SharedPref(this)
         init(this)
-
-
 
 //        val pb = findViewById<ProgressBar>(R.id.pb_hadiah)
 //
@@ -50,10 +53,12 @@ class PoinMallActivity : AppCompatActivity() {
     private var listHadiah: ArrayList<HadiahModel> = ArrayList()
 
     fun  getHadiah(){
+        pbHadiah.visibility = View.VISIBLE
         ApiConfig.instanceRetrofit.getHadiah().enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val res = response.body()!!
+                pbHadiah.visibility = View.GONE
                 if (res.success == 1){
                     listHadiah = res.hadiahs
                     displayHadiah()
@@ -69,6 +74,13 @@ class PoinMallActivity : AppCompatActivity() {
 
     fun init(view: PoinMallActivity){
         rvHadiah = findViewById(R.id.rv_voucher)
+        pbJmlPoin = findViewById(R.id.pb_totalPoin1)
+        pbHadiah = findViewById(R.id.pb_hadiah)
+
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Redeem Poin"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     fun setData(){
@@ -80,9 +92,11 @@ class PoinMallActivity : AppCompatActivity() {
 
         tv_poin = findViewById(R.id.tv_totalPoin)
 
+        pbJmlPoin.visibility = View.VISIBLE
         tv_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
+                pbJmlPoin.visibility = View.GONE
                 if(respon.success == 1){
                     tv_poin.setText(respon.TotalPoin)
                 }else{
@@ -94,5 +108,10 @@ class PoinMallActivity : AppCompatActivity() {
                 Toast.makeText(this@PoinMallActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
             }
         }).toString()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

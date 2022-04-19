@@ -14,14 +14,11 @@ class AboutActivity: AppCompatActivity() {
 
         setContentView(R.layout.activity_aboutus)
 
-        var btnBack : ImageView
-
-        btnBack = findViewById(R.id.img_back_aboutus)
-
-        btnBack.setOnClickListener {
-//            startActivity(Intent(this, MainActivity::class.java))
-            onBackPressed()
-        }
+        //set Tollbar
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Info Perusahaan"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     fun openGmail(view: View?){
@@ -38,5 +35,10 @@ class AboutActivity: AppCompatActivity() {
 
         i.type = "message/rfc822"
         this.startActivity(Intent.createChooser(i, "Pilih aplikasi Email"))
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

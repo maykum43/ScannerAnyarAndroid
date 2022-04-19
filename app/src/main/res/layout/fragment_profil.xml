@@ -19,6 +19,19 @@
         app:layout_constraintVertical_bias="0"
         android:scaleType="fitXY"/>
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bg_profil2"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        android:scaleType="fitXY"/>
+
     <!--foto profiel-->
     <include
         android:id="@+id/include2"
@@ -50,21 +63,27 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/putih_trans_50"
-            app:cardCornerRadius="30dp">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginHorizontal="20dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:background="@color/putih_trans_50"-->
+<!--            app:cardCornerRadius="30dp">-->
 
 
             <!--            Menu -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/bg_menu"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:elevation="2dp"
+                android:paddingVertical="20dp">
 
                 <!-- Menu 1-->
                 <LinearLayout
@@ -73,10 +92,13 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="5dp">
-                    <!--edit Profil-->
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -146,7 +168,10 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -217,7 +242,10 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -248,7 +276,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
-                                            android:src="@drawable/ic_feather_info" />
+                                            android:src="@drawable/ic_icon_feather_info" />
 
                                     </androidx.cardview.widget.CardView>
 
@@ -288,14 +316,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
                     android:orientation="vertical"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="2dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -345,7 +375,7 @@
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:layout_alignParentRight="true"
-                                    android:layout_marginTop="8dp"
+                                    android:layout_marginTop="12dp"
                                     android:src="@drawable/ic_baseline_chevron_right_24" />
 
                             </RelativeLayout>
@@ -358,7 +388,7 @@
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
 
     </androidx.core.widget.NestedScrollView>
 

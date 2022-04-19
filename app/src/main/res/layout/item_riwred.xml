@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutItem_riwred"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="20dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginVertical="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp">
+
+            <TextView
+                android:id="@+id/tv_createdat_riwred"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="12-Juni-1999"
+                android:textStyle="normal"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_nama_hadiah"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Nama Hadiah dhkajhskjdh"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Ezviz - C6N "
+                android:textSize="14sp"
+                android:paddingLeft="10dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_jml_poin"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:text="79"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingRight="10dp"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

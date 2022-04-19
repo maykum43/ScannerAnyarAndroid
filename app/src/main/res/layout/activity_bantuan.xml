@@ -1,207 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/putih_teal">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_profil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_profil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        android:rotation="180"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/img_back"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_chevron_left_24"/>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="20dp"
-            app:cardCornerRadius="20dp"
-            android:background="@color/white">
+            android:orientation="vertical">
 
-            <LinearLayout
+<!--            Item barcode-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardItemInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:background="@color/white"
+                app:cardCornerRadius="20dp">
 
-                <RelativeLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="10dp">
 
-                        <!-- Edit Data Profil-->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginHorizontal="2dp"
-                                android:layout_marginVertical="2dp"
-                                android:backgroundTint="#F8F8F8"
-                                app:cardCornerRadius="10dp">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
 
-                                <ImageView
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginHorizontal="2dp"
+                                    android:layout_marginVertical="2dp"
+                                    android:backgroundTint="#F8F8F8"
+                                    app:cardCornerRadius="10dp">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_baseline_graphic_barcode_24" />
+
+                                </androidx.cardview.widget.CardView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/ic_baseline_help_outline_24" />
+                                    android:layout_marginLeft="20dp"
+                                    android:text="Barcode mana yang di scan ?"
+                                    android:textSize="20dp" />
 
-                            </androidx.cardview.widget.CardView>
+                            </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <ImageView
+                                android:id="@+id/arrow_down1"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginLeft="20dp"
-                                android:text="Cara Kerja Aplikasi"
-                                android:textSize="20dp" />
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/arrow_up1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                                android:visibility="gone" />
 
                         </LinearLayout>
+
                     </RelativeLayout>
 
-<!--                Body-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp"
-                    android:paddingHorizontal="20dp"
-                    android:layout_marginBottom="20dp">
-<!--                    point 1-->
+                    <!--                Body-->
                     <LinearLayout
+                        android:id="@+id/item_info1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1."
-                            android:textSize="18sp"/>
-                        <TextView
-                            android:layout_marginLeft="10dp"
-                            android:textSize="18sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="20dp"
+                        android:visibility="gone">
+                        <!--                    point 1-->
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Voucher atau SN akan diberikan oleh admin online shop atau toko fisik kami."
-                            android:maxLines="15"/>
-                    </LinearLayout>
-                    <!--point 2-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2."
-                            android:textSize="18sp"/>
-                        <TextView
-                            android:layout_marginLeft="10dp"
-                            android:textSize="18sp"
+                            android:orientation="horizontal">
+                            <!--                        <TextView-->
+                            <!--                            android:layout_width="wrap_content"-->
+                            <!--                            android:layout_height="wrap_content"-->
+                            <!--                            android:text="1."-->
+                            <!--                            android:textSize="18sp"/>-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:maxLines="15"
+                                android:text="Berikut adalah barcode yang di scan yaitu barcode yang memiliki label SN dibawahnya."
+                                android:textSize="18sp" />
+                        </LinearLayout>
+                        <!--                    &lt;!&ndash;point 2&ndash;&gt;-->
+                        <!--                    <LinearLayout-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:orientation="horizontal"-->
+                        <!--                        android:layout_marginTop="10dp">-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="2."-->
+                        <!--                            android:textSize="18sp"/>-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:textSize="18sp"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Masukan SN atau Code Voucher di menu Scaner.."-->
+                        <!--                            android:maxLines="15"/>-->
+                        <!--                    </LinearLayout>-->
+                        <!--                    &lt;!&ndash;point 3&ndash;&gt;-->
+                        <!--                    <LinearLayout-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:orientation="horizontal"-->
+                        <!--                        android:layout_marginTop="10dp">-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="3."-->
+                        <!--                            android:textSize="18sp"/>-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:textSize="18sp"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Jika SN atau Code Voucher benar, Voucher akan masuk ke akun anda, dan dapat di cek di Riwayat Scan."-->
+                        <!--                            android:maxLines="15"/>-->
+                        <!--                    </LinearLayout>-->
+                        <!--                    &lt;!&ndash;point 4&ndash;&gt;-->
+                        <!--                    <LinearLayout-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:orientation="horizontal"-->
+                        <!--                        android:layout_marginTop="10dp">-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="4."-->
+                        <!--                            android:textSize="18sp"/>-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:textSize="18sp"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Reward akan diproses oleh admin Max 7x24 jam."-->
+                        <!--                            android:maxLines="15"/>-->
+                        <!--                    </LinearLayout>-->
+                        <!--&lt;!&ndash;                    point 5.&ndash;&gt;-->
+                        <!--                    <LinearLayout-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:orientation="horizontal"-->
+                        <!--                        android:layout_marginTop="10dp">-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="5."-->
+                        <!--                            android:textSize="18sp"/>-->
+                        <!--                        <TextView-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:textSize="18sp"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Mohon masukan data pribadi dengan benar. Jika tidak maka reward tidak akan di proses."-->
+                        <!--                            android:maxLines="15"/>-->
+                        <!--                    </LinearLayout>-->
+
+                        <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Masukan SN atau Code Voucher di menu Scaner.."
-                            android:maxLines="15"/>
-                    </LinearLayout>
-                    <!--point 3-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="3."
-                            android:textSize="18sp"/>
-                        <TextView
-                            android:layout_marginLeft="10dp"
-                            android:textSize="18sp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Jika SN atau Code Voucher benar, Voucher akan masuk ke akun anda, dan dapat di cek di Riwayat Scan."
-                            android:maxLines="15"/>
-                    </LinearLayout>
-                    <!--point 4-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="4."
-                            android:textSize="18sp"/>
-                        <TextView
-                            android:layout_marginLeft="10dp"
-                            android:textSize="18sp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Reward akan diproses oleh admin Max 7x24 jam."
-                            android:maxLines="15"/>
-                    </LinearLayout>
-<!--                    point 5.-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="5."
-                            android:textSize="18sp"/>
-                        <TextView
-                            android:layout_marginLeft="10dp"
-                            android:textSize="18sp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Mohon masukan data pribadi dengan benar. Jika tidak maka reward tidak akan di proses."
-                            android:maxLines="15"/>
+                            android:layout_height="200dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginVertical="10dp"
+                            android:src="@drawable/ext_label_sn" />
+
                     </LinearLayout>
 
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
+<!--            Item S&K-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardItemInfoSnK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:background="@color/white"
+                app:cardCornerRadius="20dp">
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginHorizontal="2dp"
+                                    android:layout_marginVertical="2dp"
+                                    android:backgroundTint="#F8F8F8"
+                                    app:cardCornerRadius="10dp">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_baseline_card_giftcard_24" />
+
+                                </androidx.cardview.widget.CardView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="20dp"
+                                    android:text="Syarat dan Ketentuan Redeem Poin"
+                                    android:textSize="20dp" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/arrow_down2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/arrow_up2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--                Body-->
+                    <LinearLayout
+                        android:id="@+id/item_info2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone">
+
+                        <!--point 1-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1."
+                                android:textSize="18sp"/>
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:textSize="18sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Hadiah yang telah di redeem, akan kami proses max 7x24 jam."
+                                android:maxLines="15"/>
+                        </LinearLayout>
+                        <!--point 2-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2."
+                                android:textSize="18sp"/>
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:textSize="18sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Team GPT dapat membatalkan proses redeem jikalau ada kecurangan dari pihak customer."
+                                android:maxLines="15"/>
+                        </LinearLayout>
+                        <!--point 3-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3."
+                                android:textSize="18sp"/>
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:textSize="18sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Apabila hadiah yang telah di redeem ternyata stoknya habis, maka akan dikirim hadiah lain dengan value yang sama."
+                                android:maxLines="15"/>
+                        </LinearLayout>
+                        <!--point 4.-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4."
+                                android:textSize="18sp"/>
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:textSize="18sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Jika data customer belum legkap atau tidak benar (No. telepon dan alamat), maka akan kami konfirmasi langsung. Jika tidak ada jawaban maka akan dinyatakan gugur."
+                                android:maxLines="15"/>
+                        </LinearLayout>
+                        </LinearLayout>
+
+<!--                        <ImageView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="200dp"-->
+<!--                            android:layout_marginHorizontal="5dp"-->
+<!--                            android:layout_marginVertical="10dp"-->
+<!--                            android:src="@drawable/ext_label_sn" />-->
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
 
         <ImageButton
             android:id="@+id/btn_wa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@drawable/ic_btn_wa"
             android:clickable="true"
-            android:onClick="openWa"
-            android:background="@drawable/ic_btn_wa"/>
+            android:onClick="openWa" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Kirim Whatsapp support kami"
             android:textColor="@color/abu_muda"
-            android:textSize="14sp"
-            android:layout_gravity="center"/>
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="0811 22 9090 8"
-            android:textColor="@color/abu"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"/>
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,6 +48,12 @@ class EditProfilActivity : AppCompatActivity() {
         btnSave.setOnClickListener {
             simpanData()
         }
+
+        //set Tollbar
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Edit Data Pribadi"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     fun setData(){
@@ -133,5 +139,10 @@ class EditProfilActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

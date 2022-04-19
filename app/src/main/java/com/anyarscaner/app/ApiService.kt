@@ -38,10 +38,10 @@ interface ApiService {
     ) : Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("create_his")
-    fun create_his(
-        @Field("sn") sn:String,
-        @Field("user") user:String
+    @POST("redPoin")
+    fun create_redPoin(
+        @Field("email") email: String,
+        @Field("name") name:String
     ) : Call<ResponModel>
 
     @FormUrlEncoded
@@ -70,8 +70,28 @@ interface ApiService {
         @Field("email") email:String,
     ) : Call<ResponModel>
 
+
+    @FormUrlEncoded
+    @POST("totalRedPoin")
+    fun jmlHadiah(
+        @Field("email") email:String,
+    ) : Call<ResponModel>
+
+
     @POST("hadiahs")
     fun getHadiah() : Call<ResponModel>
 
+    @FormUrlEncoded
+    @POST("create_his")
+    fun create_his(
+        @Field("sn") sn:String,
+        @Field("user") user:String
+    ) : Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("riwred")
+    fun riwred(
+        @Field("email") email: String
+    ) : Call<ResponModel>
 
 }

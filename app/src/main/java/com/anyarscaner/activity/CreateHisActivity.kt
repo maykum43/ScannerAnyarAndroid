@@ -19,6 +19,8 @@ class CreateHisActivity : AppCompatActivity(){
     private lateinit var tv_sn : TextView
     private lateinit var tv_id : TextView
     private lateinit var tv_email : TextView
+    lateinit var tv_poin_user : TextView
+
     private lateinit var btn_proses : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +45,24 @@ class CreateHisActivity : AppCompatActivity(){
         tv_email = findViewById(R.id.txt_email)
         tv_email.text = s.getString(s.email)
 
+        tv_poin_user = findViewById(R.id.tv_totalPoin)
+        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
+            Callback<ResponModel> {
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                if(respon.success == 1){
+                    tv_poin_user.setText(respon.TotalPoin)
+                }else{
+                    Toast.makeText(this@CreateHisActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@CreateHisActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        }).toString()
+
 
         val sn = intent.getStringExtra("sn")
         tv_sn = findViewById(R.id.tv_sn)
@@ -58,7 +78,6 @@ class CreateHisActivity : AppCompatActivity(){
 
                     pb.visibility = View.GONE
                     val respon = response.body()!!
-
                     if(respon.success == 1){
                         val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
                         startActivity(intent)
