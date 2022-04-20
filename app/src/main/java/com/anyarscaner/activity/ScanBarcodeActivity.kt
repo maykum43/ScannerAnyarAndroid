@@ -135,7 +135,6 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
     private fun setupPermissions() {
         val permission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
-
         if (permission != PackageManager.PERMISSION_GRANTED) {
             makeRequest()
         }

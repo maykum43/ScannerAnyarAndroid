@@ -37,7 +37,7 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
 
     override fun onBindViewHolder(holder: AdapterVoucher.Holder, position: Int) {
 //        holder.ivHadiah.setImageResource(data[position].foto)
-        val image = "http://192.168.1.235/WebAdminScanner2/public/storage/Hadiah/FotoHadiah/" + data[position].foto
+        val image = "https://gpt.poin.cctvbandung.co.id/public/storage/Hadiah/FotoHadiah/" + data[position].foto
         Picasso.get()
             .load(image)
             .placeholder(R.drawable.hadiah_default)

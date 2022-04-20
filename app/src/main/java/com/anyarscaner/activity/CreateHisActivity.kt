@@ -91,7 +91,7 @@ class CreateHisActivity : AppCompatActivity(){
                 }
 
                 override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                    val intent = Intent(this@CreateHisActivity, ScannerActivity::class.java)
+                    val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
                     startActivity(intent)
                     pb.visibility = View.GONE
 //                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()

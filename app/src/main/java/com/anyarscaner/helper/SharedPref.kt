@@ -13,13 +13,13 @@ class SharedPref(activity: Activity) {
     var id = "id"
     val nama = "nama"
     val email = "email"
-
     val phone = "phone"
     val norek = "norek"
     val nama_bank = "nama_bank"
     val atas_nama = "atas_nama"
     val akun_ol ="nama_akun_ol"
     val pasword = "password"
+    val alamat = "alamat"
 
     var poin = "poin"
 
@@ -64,7 +64,7 @@ class SharedPref(activity: Activity) {
         sp.edit().putString(user, data).apply()
     }
 }
-
-private fun Any.putInt(i: Int, value: Int): SharedPreferences.Editor? {
-    TODO("Not yet implemented")
-}
+//
+//private fun Any.putInt(i: Int, value: Int): SharedPreferences.Editor? {
+//    TODO("Not yet implemented")
+//}

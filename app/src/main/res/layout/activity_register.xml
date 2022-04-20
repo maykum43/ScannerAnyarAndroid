@@ -93,6 +93,73 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+            <!--     Field Password -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_key_24"
+                    android:background="@color/putih_teal"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/tv_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <!--     Field Alamat -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp"
+                    app:boxStrokeColor="@color/Biru"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/ic_baseline_person_pin_circle_24"
+                    android:background="@color/putih_teal">
+
+                    <EditText
+                        android:id="@+id/tv_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Alamat Lengkap"
+                        android:minHeight="60dp"
+                        android:maxLines="5"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
             <!--     Field Tlp -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -256,40 +323,6 @@
                         android:inputType="text"
                         android:maxLines="1"
                         android:singleLine="true" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-            <!--     Field Password -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:boxCornerRadiusBottomEnd="30dp"
-                    app:boxCornerRadiusBottomStart="30dp"
-                    app:boxCornerRadiusTopEnd="30dp"
-                    app:boxCornerRadiusTopStart="30dp"
-                    app:boxStrokeColor="@color/Biru"
-                    app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_key_24"
-                    android:background="@color/putih_teal"
-                    app:passwordToggleEnabled="true">
-
-                    <EditText
-                        android:id="@+id/tv_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:hint="Password"
-                        android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

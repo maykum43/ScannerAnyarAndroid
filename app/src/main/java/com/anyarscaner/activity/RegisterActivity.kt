@@ -42,6 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         val edt_atas_nama = findViewById<EditText>(R.id.tv_atas_nama)
         val edt_akun_ol = findViewById<EditText>(R.id.tv_nama_akun_ol)
         val edt_pass = findViewById<EditText>(R.id.tv_password)
+        val edt_alamat = findViewById<EditText>(R.id.tv_alamat)
 
 
         if(edt_nama.text.isEmpty()){
@@ -51,6 +52,14 @@ class RegisterActivity : AppCompatActivity() {
         } else if(edt_email.text.isEmpty()){
             edt_email.error = "Kolom email tidak boleh kosong!"
             edt_email.requestFocus()
+            return
+        } else if(edt_pass.text.isEmpty()){
+            edt_pass.error = "Kolom password tidak boleh kosong!"
+            edt_pass.requestFocus()
+            return
+        }else if(edt_alamat.text.isEmpty()){
+            edt_alamat.error = "Kolom Alamat tidak boleh kosong!"
+            edt_alamat.requestFocus()
             return
         }else if(edt_notlp.text.isEmpty()){
             edt_notlp.error = "Kolom No. Telepon tidak boleh kosong!"
@@ -68,15 +77,12 @@ class RegisterActivity : AppCompatActivity() {
             edt_atas_nama.error = "Kolom nama pemilik rekening tidak boleh kosong!"
             edt_atas_nama.requestFocus()
             return
-        } else if(edt_akun_ol.text.isEmpty()){
+        } else if(edt_akun_ol.text.isEmpty()) {
             edt_akun_ol.error = "Kolom Username Akun Online Shop tidak boleh kosong!"
             edt_akun_ol.requestFocus()
             return
-        } else if(edt_pass.text.isEmpty()){
-            edt_pass.error = "Kolom password tidak boleh kosong!"
-            edt_pass.requestFocus()
-            return
         }
+
 
         val pb = findViewById<ProgressBar>(R.id.pb_regist)
 
@@ -84,12 +90,13 @@ class RegisterActivity : AppCompatActivity() {
         ApiConfig.instanceRetrofit.register(
             edt_nama.text.toString(),
             edt_email.text.toString(),
+            edt_pass.text.toString(),
+            edt_alamat.text.toString(),
             edt_notlp.text.toString(),
             edt_norek.text.toString(),
             edt_bank.text.toString(),
             edt_atas_nama.text.toString(),
             edt_akun_ol.text.toString(),
-            edt_pass.text.toString(),
         ).enqueue(object :
             Callback<ResponModel> {
 

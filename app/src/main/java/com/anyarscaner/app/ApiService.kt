@@ -10,12 +10,14 @@ interface ApiService {
     fun register(
         @Field("name") name:String,
         @Field("email") email:String,
+        @Field("password") password:String,
+        @Field("alamat") alamat:String,
         @Field("phone") nomortlp:String,
         @Field("norek") norek:String,
         @Field("nama_bank") bank:String,
         @Field("atas_nama") atas_nama:String,
-        @Field("nama_akun_ol") akun_ol:String,
-        @Field("password") password:String
+        @Field("nama_akun_ol") akun_ol:String
+//        @Field("foto") foto:String
     ): Call<ResponModel>
 
     @FormUrlEncoded
