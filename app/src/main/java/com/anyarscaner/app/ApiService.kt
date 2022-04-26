@@ -74,8 +74,8 @@ interface ApiService {
 
 
     @FormUrlEncoded
-    @POST("totalRedPoin")
-    fun jmlHadiah(
+    @POST("riwred")
+    fun jumlah(
         @Field("email") email:String,
     ) : Call<ResponModel>
 

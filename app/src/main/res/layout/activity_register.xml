@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,14 +8,15 @@
     android:background="@color/putih_teal">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="start"
             android:layout_marginVertical="0dp"
+            android:gravity="start"
             android:orientation="vertical">
 
             <TextView
@@ -40,14 +41,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_person_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_person_24">
 
                     <EditText
                         android:id="@+id/tv_namaUser"
@@ -105,15 +106,15 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_key_24"
-                    android:background="@color/putih_teal"
-                    app:passwordToggleEnabled="true">
+                    app:passwordToggleEnabled="true"
+                    app:startIconDrawable="@drawable/ic_key_24">
 
                     <EditText
                         android:id="@+id/tv_password"
@@ -122,7 +123,7 @@
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:singleLine="true"/>
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -139,14 +140,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_baseline_person_pin_circle_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_baseline_person_pin_circle_24">
 
                     <EditText
                         android:id="@+id/tv_alamat"
@@ -154,8 +155,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:hint="Alamat Lengkap"
-                        android:minHeight="60dp"
-                        android:maxLines="5"/>
+                        android:maxLines="5"
+                        android:minHeight="60dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -172,6 +173,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
@@ -180,8 +182,7 @@
                     app:boxStrokeWidth="2dp"
                     app:prefixText="+62 "
                     app:prefixTextColor="@color/Biru"
-                    app:startIconDrawable="@drawable/ic_tlp_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_tlp_24">
 
                     <EditText
                         android:id="@+id/tv_notlp"
@@ -207,14 +208,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_baseline_monetization_on_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_baseline_monetization_on_24">
 
                     <EditText
                         android:id="@+id/tv_norek"
@@ -240,14 +241,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_baseline_account_balance_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_baseline_account_balance_24">
 
                     <EditText
                         android:id="@+id/tv_nama_bank"
@@ -273,14 +274,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_person_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_person_24">
 
                     <EditText
                         android:id="@+id/tv_atas_nama"
@@ -306,14 +307,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/putih_teal"
                     app:boxCornerRadiusBottomEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxStrokeColor="@color/Biru"
                     app:boxStrokeWidth="2dp"
-                    app:startIconDrawable="@drawable/ic_person_24"
-                    android:background="@color/putih_teal">
+                    app:startIconDrawable="@drawable/ic_person_24">
 
                     <EditText
                         android:id="@+id/tv_nama_akun_ol"
@@ -330,15 +331,15 @@
 
             <Button
                 android:id="@+id/btn_daftar"
-                android:layout_marginTop="40dp"
-                android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_btn_primary"
                 android:text="DAFTAR"
-                android:textStyle="bold"
-                android:textSize="20sp"
                 android:textColor="@color/white"
-                android:background="@drawable/bg_btn_primary" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -368,11 +369,16 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-        <ProgressBar
-            android:id="@+id/pb_regist"
-            android:layout_centerInParent="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:visibility="gone"/>
 
-</RelativeLayout>
+    <ProgressBar
+        android:id="@+id/pb_regist"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toBottomOf="parent "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

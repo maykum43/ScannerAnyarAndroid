@@ -3,6 +3,7 @@ package com.anyarscaner.helper
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import com.anyarscaner.model.PoinModel
 import com.anyarscaner.model.User
 import com.google.gson.Gson
 
@@ -21,7 +22,8 @@ class SharedPref(activity: Activity) {
     val pasword = "password"
     val alamat = "alamat"
 
-    var poin = "poin"
+    val total_poin = "total_poin"
+    val jumlah = "jumlah"
 
     val sn = "sn"
 
@@ -59,12 +61,23 @@ class SharedPref(activity: Activity) {
         return sp.getInt(key,0)
     }
 
-    fun setUser(value: String) {
+    fun setUser(value: User) {
         val data: String = Gson().toJson(value, User::class.java)
         sp.edit().putString(user, data).apply()
     }
+
+    fun getUser(): User?{
+        val data:String = sp.getString(user, null) ?: return null
+        return Gson().fromJson<User>(data, User::class.java)
+    }
+
+    fun setPoin(value: PoinModel){
+        val data : String = Gson().toJson(value, PoinModel::class.java)
+        sp.edit().putString(total_poin, data).apply()
+    }
+
+    fun getPoin(): PoinModel?{
+        val data:String = sp.getString(total_poin, null) ?: return null
+        return Gson().fromJson<PoinModel>(data, PoinModel::class.java)
+    }
 }
-//
-//private fun Any.putInt(i: Int, value: Int): SharedPreferences.Editor? {
-//    TODO("Not yet implemented")
-//}

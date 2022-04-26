@@ -23,10 +23,10 @@ class ProfilFragment : Fragment() {
     private lateinit var user : User
 
 
-    lateinit var txt_nama: TextView
-    lateinit var txt_email: TextView
-    lateinit var txt_poin: TextView
-    lateinit var txt_jml_hadiah: TextView
+    lateinit var tv_nama: TextView
+    lateinit var tv_email: TextView
+    lateinit var tv_poin: TextView
+    lateinit var tv_jml_hadiah: TextView
 
     lateinit var btn_editprofil : ImageView
     lateinit var btn_riwayat : RelativeLayout
@@ -41,7 +41,7 @@ class ProfilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_profil, container, false)
 
@@ -91,12 +91,12 @@ class ProfilFragment : Fragment() {
             startActivity(inData)
         }
 
-        txt_poin.setOnClickListener {
+        tv_poin.setOnClickListener {
             val inData = Intent(activity, RiwayatActivity::class.java)
             startActivity(inData)
         }
 
-        txt_jml_hadiah.setOnClickListener {
+        tv_jml_hadiah.setOnClickListener {
             val inData = Intent(activity, RiwayatRedeem::class.java)
             startActivity(inData)
         }
@@ -104,59 +104,83 @@ class ProfilFragment : Fragment() {
     }
 
     private fun init(view: View) {
-        txt_nama = view.findViewById(R.id.txt_nama)
-        txt_email = view.findViewById(R.id.txt_email)
-        txt_poin = view.findViewById(R.id.tv_totalPoin)
-        txt_jml_hadiah = view.findViewById(R.id.tv_jml_redem)
+        tv_nama = view.findViewById(R.id.txt_nama)
+        tv_email = view.findViewById(R.id.txt_email)
+        tv_poin = view.findViewById(R.id.tv_totalPoin)
+        tv_jml_hadiah = view.findViewById(R.id.tv_jml_redeem)
         pbPoin = view.findViewById(R.id.pb_totalPoin)
         pbJmlRed = view.findViewById(R.id.pb_jmlRedeem)
     }
 
     fun setData(){
-        txt_nama.text = s.getString(s.nama)
-        txt_email.text = s.getString(s.email)
+
+        if (s.getUser() == null){
+            val intent = Intent(activity, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            return
+        }
+
+        val user = s.getUser()!!
+
+
+        tv_nama.text = user.name
+        tv_email.text = user.email
 
         pbPoin.visibility = View.VISIBLE
-        txt_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
+        ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
-                if (respon.success == 1){
-                    pbPoin.visibility = View.GONE
-                    txt_poin.setText(respon.TotalPoin)
-                }else{
-                    Toast.makeText(activity,"Error : "+respon.message, Toast.LENGTH_LONG).show()
+                s.setString(s.total_poin, respon.total_poin).toString()
+
+                pbPoin.visibility = View.GONE
+
+                if (respon.success == 1) {
+//                    respon.totalPoin =
+
+                    val getPoin = s.getString(s.total_poin)
+//                    respon.totalPoin = s.getString(s.total_poin)
+//                    s.setString(s.total_poin, respon.totalPoin)
+
+                    tv_poin.text = getPoin
                 }
+                Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//
+//
+//                    if (poin != null) {
+//                        poin.TotalPoins = respon.poin.toString()
+//                        tv_poin.text = poin.TotalPoins
+//                    }
+////                    s.setPoin(respon.poin)
+//
+////                    if (s.getPoin() == null){
+////                        tv_poin.text = "0"
+////                    }
+////                    val poin = s.getPoin()!!
+////                    tv_poin.text = poin.TotalPoins
+
+//                }
+
             }
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(activity,"Terjadi Kesalahan : "+t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
             }
 
-        }).toString()
-//        txt_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
-//            Callback<ResponModel> {
-//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-//                val respon = response.body()!!
-//                if(respon.success == 1){
-//                    txt_poin.setText(respon.TotalPoin)
-//                }else{
-//                    Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-//                Toast.makeText(activity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-//            }
-//
-//        }).toString()
+        })
+        
 
         pbJmlRed.visibility = View.VISIBLE
-        txt_jml_hadiah.text = ApiConfig.instanceRetrofit.jmlHadiah(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+        tv_jml_hadiah.text = ApiConfig.instanceRetrofit.jumlah(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
+                s.setString(s.jumlah, respon.jumlah).toString()
+
                 pbJmlRed.visibility = View.GONE
                 if(respon.success == 1){
-                    txt_jml_hadiah.setText(respon.jmlRedPoin.toString())
+                    val getJumlah = s.getString(s.jumlah)
+
+                    tv_jml_hadiah.text = getJumlah
                 }else{
                     Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
                 }

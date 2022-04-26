@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 //                    callFragment(1,fragmentScanner)
 //                }
                 R.id.navigation_scanner ->{
-                    val intent = Intent(this@MainActivity, ScanBarcodeActivity::class.java)
+                    val intent = Intent(this, ScanBarcodeActivity::class.java)
 //            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
@@ -86,7 +86,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_support ->{
                     callFragment(2,fragmentSupport)
                 }
-
             }
 
             false
@@ -99,12 +98,4 @@ class MainActivity : AppCompatActivity() {
         fm.beginTransaction().hide(active).show(fragment).commit()
         active = fragment
     }
-
-//    fun fub(){
-//        val fab_scan = findViewById<FloatingActionButton>(R.id.fab_scan)
-//
-//        fab_scan.setOnClickListener{
-//            startActivity(Intent(this,ScannerActivity::class.java))
-//        }
-//    }
 }

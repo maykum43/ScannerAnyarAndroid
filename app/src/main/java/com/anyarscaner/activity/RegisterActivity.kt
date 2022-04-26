@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
@@ -31,6 +32,12 @@ class RegisterActivity : AppCompatActivity() {
         btnDaftar.setOnClickListener{
             register()
         }
+
+        //set Tollbar
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Registrasi"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     fun register(){
@@ -125,5 +132,14 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+//        onBackPressed()
+        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

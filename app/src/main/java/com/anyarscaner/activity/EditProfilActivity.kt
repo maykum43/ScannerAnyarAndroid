@@ -57,14 +57,18 @@ class EditProfilActivity : AppCompatActivity() {
     }
 
     fun setData(){
+        val user = s.getUser()!!
 
-        name.text = s.getString(s.nama)
-        email.text = s.getString(s.email)
-        phone.text = s.getString(s.phone)
-        norek.text = s.getString(s.norek)
-        nama_bank.text = s.getString(s.nama_bank)
-        atas_nama.text = s.getString(s.atas_nama)
-        akun_ol.text = s.getString(s.akun_ol)
+//        txt_nama.text = user.name
+//        txt_email.text = user.email
+
+        name.text = user.name
+        email.text = user.email
+        phone.text = user.phone
+        norek.text = user.norek
+        nama_bank.text = user.nama_bank
+        atas_nama.text = user.atas_nama
+        akun_ol.text = user.nama_akun_ol
     }
 
     fun simpanData() {

@@ -32,36 +32,18 @@ class RiwayatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_riwayat)
 
         s = SharedPref(this)
-
         tv_user = findViewById(R.id.txt_nama)
-        tv_user.text = s.getString(s.nama)
         tv_poin_user = findViewById(R.id.tv_totalPoin)
-
         tv_email= findViewById(R.id.txt_email)
-        tv_email.text = s.getString(s.email)
-        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
-            Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                if(respon.success == 1){
-                    tv_poin_user.setText(respon.TotalPoin)
-                }else{
-                    Toast.makeText(this@RiwayatActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
 
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@RiwayatActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-
-        }).toString()
+        header()
 
         val pb = findViewById<ProgressBar>(R.id.pb_riwayat)
 
         pb.visibility = View.VISIBLE
 
 
-        ApiConfig.instanceRetrofit.his_sn(tv_user.text.toString()).enqueue(object :
+        ApiConfig.instanceRetrofit.his_sn(s.getString(s.nama)).enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
 
@@ -69,11 +51,8 @@ class RiwayatActivity : AppCompatActivity() {
                 val respon = response.body()!!
 
                 if(respon.success == 1){
-
                     listRiws = respon.riws
                     displayData()
-//                        finish()
-                    //finish()
                 }else{
                     //gagal
                     Toast.makeText(this@RiwayatActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
@@ -94,9 +73,31 @@ class RiwayatActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
     }
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
+
+    private fun header() {
+        val user = s.getUser()!!
+        tv_user.text = user.name
+        tv_email.text = user.email
+
+        ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                s.setString(s.total_poin, respon.total_poin).toString()
+
+                if (respon.success == 1) {
+
+                    val getPoin = s.getString(s.total_poin)
+
+                    tv_poin_user.text = getPoin
+                }
+//                Toast.makeText(this@RiwayatActivity, "Success: "+respon.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@RiwayatActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     private var listRiws: ArrayList<RiwayatModel> = ArrayList()
@@ -110,5 +111,10 @@ class RiwayatActivity : AppCompatActivity() {
 
         rvRiw.adapter = AdapterHis(this, listRiws)
         rvRiw.layoutManager = layoutManager
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

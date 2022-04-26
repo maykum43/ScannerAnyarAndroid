@@ -167,7 +167,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_jml_redem"
+                        android:id="@+id/tv_jml_redeem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"

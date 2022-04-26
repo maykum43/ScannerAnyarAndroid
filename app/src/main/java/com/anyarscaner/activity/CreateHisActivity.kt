@@ -46,22 +46,7 @@ class CreateHisActivity : AppCompatActivity(){
         tv_email.text = s.getString(s.email)
 
         tv_poin_user = findViewById(R.id.tv_totalPoin)
-        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
-            Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                if(respon.success == 1){
-                    tv_poin_user.setText(respon.TotalPoin)
-                }else{
-                    Toast.makeText(this@CreateHisActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
 
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@CreateHisActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-
-        }).toString()
 
 
         val sn = intent.getStringExtra("sn")
@@ -75,28 +60,28 @@ class CreateHisActivity : AppCompatActivity(){
             ApiConfig.instanceRetrofit.create_his(tv_sn.text.toString(),tv_id.text.toString()).enqueue(object :
                 Callback<ResponModel> {
                 override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-
                     pb.visibility = View.GONE
                     val respon = response.body()!!
                     if(respon.success == 1){
                         val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
                         startActivity(intent)
 //                        finish()
-                        Toast.makeText(this@CreateHisActivity, "Success: "+respon.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@CreateHisActivity, " "+respon.message, Toast.LENGTH_LONG).show()
                         //finish()
                     }else{
                         //gagal
                         Toast.makeText(this@CreateHisActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
                     }
                 }
-
                 override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                     val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
                     startActivity(intent)
                     pb.visibility = View.GONE
-//                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-                    Toast.makeText(this@CreateHisActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@CreateHisActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@CreateHisActivity, "Mohon maaf. SN bukan dari kami", Toast.LENGTH_SHORT).show()
                 }
+
             })
         }
 

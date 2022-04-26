@@ -26,7 +26,7 @@ class User {
 
     @JvmName("getEmail1")
     fun getEmail(): String? {
-        return email
+        return  email
     }
 
     @JvmName("setEmail1")

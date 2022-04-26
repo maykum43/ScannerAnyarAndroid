@@ -60,22 +60,7 @@ class DetailHadiahActivity : AppCompatActivity() {
 ////        Set Data User
         tv_user.text = s.getString(s.nama)
         tv_email.text = s.getString(s.email)
-        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object :
-            Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                if(respon.success == 1){
-                    tv_poin_user.setText(respon.TotalPoin)
-                }else{
-                    Toast.makeText(this@DetailHadiahActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@DetailHadiahActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-
-        }).toString()
+//        tv_poin_user
     }
 
     fun getInfo(){
@@ -89,7 +74,7 @@ class DetailHadiahActivity : AppCompatActivity() {
         tv_poin.text = req_poin
         tv_stok.text = stok
 
-        val img = "http://192.168.1.235/WebAdminScanner2/public/storage/Hadiah/FotoHadiah/" + foto
+        val img = "https://gpt.poin.cctvbandung.co.id/public/storage/Hadiah/FotoHadiah/" + foto
         Picasso.get()
             .load(img)
             .placeholder(R.drawable.hadiah_default)
@@ -120,7 +105,7 @@ class DetailHadiahActivity : AppCompatActivity() {
                         val intent = Intent(this@DetailHadiahActivity, PoinMallActivity::class.java)
                         startActivity(intent)
 //                        finish()
-                        Toast.makeText(this@DetailHadiahActivity, "Success: "+respon.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@DetailHadiahActivity, ""+respon.message, Toast.LENGTH_LONG).show()
                         //finish()
                     }else{
                         //gagal
@@ -132,8 +117,8 @@ class DetailHadiahActivity : AppCompatActivity() {
                     val intent = Intent(this@DetailHadiahActivity, PoinMallActivity::class.java)
                     startActivity(intent)
                     pb.visibility = View.GONE
-//                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-                    Toast.makeText(this@DetailHadiahActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DetailHadiahActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@DetailHadiahActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
                 }
             })
         }

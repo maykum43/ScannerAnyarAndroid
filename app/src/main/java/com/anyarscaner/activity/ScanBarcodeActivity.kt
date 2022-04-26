@@ -103,7 +103,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
                 if(respon.success == 1){
 //                    pb.visibility = View.GONE
-                    Toast.makeText(this@ScanBarcodeActivity, "Barcode Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ScanBarcodeActivity, "Barcode Berhasil Ditemukan", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@ScanBarcodeActivity, CreateHisActivity::class.java)
                     intent.putExtra("sn",tvHasil.text)
                     startActivity(intent)
@@ -117,7 +117,8 @@ class ScanBarcodeActivity : AppCompatActivity() {
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 //Response Gagal
 //                pb.visibility = View.GONE
-                Toast.makeText(this@ScanBarcodeActivity, "Voucher Sudah digunakan atau SN Bukan dari kami. ", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@ScanBarcodeActivity, "Voucher Sudah digunakan atau SN Bukan dari kami. ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ScanBarcodeActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
             }
 
         })

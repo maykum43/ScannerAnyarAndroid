@@ -93,21 +93,22 @@ class PoinMallActivity : AppCompatActivity() {
         tv_poin = findViewById(R.id.tv_totalPoin)
 
         pbJmlPoin.visibility = View.VISIBLE
-        tv_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                pbJmlPoin.visibility = View.GONE
-                if(respon.success == 1){
-                    tv_poin.setText(respon.TotalPoin)
-                }else{
-                    Toast.makeText(this@PoinMallActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@PoinMallActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-        }).toString()
+//        tv_poin.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                pbJmlPoin.visibility = View.GONE
+//                if(respon.success == 1){
+//                    tv_poin.setText(respon.totalPoin)
+////                    tv_poin.setText(s.setString(s.poin, respon.poin.poin.toString()).toString())
+//                }else{
+//                    Toast.makeText(this@PoinMallActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                Toast.makeText(this@PoinMallActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+//            }
+//        }).toString()
     }
 
     override fun onSupportNavigateUp(): Boolean {
