@@ -97,7 +97,7 @@ class ProfilFragment : Fragment() {
         }
 
         tv_jml_hadiah.setOnClickListener {
-            val inData = Intent(activity, RiwayatRedeem::class.java)
+            val inData = Intent(activity, RiwayatRedeemActivity::class.java)
             startActivity(inData)
         }
 

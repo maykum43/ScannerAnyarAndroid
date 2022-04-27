@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layoutItem_riwred"
+    android:id="@+id/layoutItem_riwayatRedeem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="20dp"
     android:elevation="6dp"
@@ -19,50 +19,72 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="5dp">
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="5dp">
 
             <TextView
-                android:id="@+id/tv_createdat_riwred"
+                android:id="@+id/tv_createdat_redeem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="12-Juni-1999"
-                android:textStyle="normal"
+                android:text="DD-MM-YYYY"
                 android:textSize="14sp"
+                android:textStyle="normal"
                 android:paddingLeft="10dp"/>
 
             <TextView
                 android:id="@+id/tv_nama_hadiah"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Nama Hadiah dhkajhskjdh"
-                android:textSize="20dp"
+                android:text="Xxxxxxxxxxxxxxxxxxxxx"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:maxLines="3"/>
 
             <TextView
                 android:id="@+id/tv_status"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Ezviz - C6N "
+                android:text="Diproses"
                 android:textSize="14sp"
+                android:textStyle="bold"
                 android:paddingLeft="10dp"/>
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_jml_poin"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="0.5"
             android:layout_height="match_parent"
-            android:text="79"
-            android:textStyle="bold"
-            android:textSize="40sp"
+            android:layout_weight="0.5"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="vertical"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingRight="10dp"/>
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_poinHadiah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xxx.xxx"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Poin"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="normal"/>
+
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

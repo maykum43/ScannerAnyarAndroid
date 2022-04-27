@@ -12,5 +12,5 @@ class ResponModel {
     var sns : ArrayList<SnModel> = ArrayList()
     var riws : ArrayList<RiwayatModel> = ArrayList()
     var hadiahs: ArrayList<HadiahModel> = ArrayList()
-    var riwred: ArrayList<RiwRedModel> = ArrayList()
+    var riwred : ArrayList<RiwayatRedeemModel> = ArrayList()
 }

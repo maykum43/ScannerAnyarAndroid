@@ -92,7 +92,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("riwred")
-    fun riwred(
+    fun getRiwRed(
         @Field("email") email: String
     ) : Call<ResponModel>
 
