@@ -1,6 +1,10 @@
 package com.anyarscaner.model
 
-class User {
+import com.google.gson.annotations.JsonAdapter
+import java.io.Serializable
+
+class User : Serializable{
+
     lateinit var email:String
     lateinit var name:String
     lateinit var phone:String
@@ -10,22 +14,22 @@ class User {
     lateinit var nama_akun_ol:String
     lateinit var alamat:String
     var poin:Int = 0
-    var id : Int = 0
+    var user_id : Int = 0
 
     @JvmName("getId1")
     fun getId() : Int {
-        return id
+        return user_id
     }
 
     @JvmName("setId1")
     fun setId(id : Int?){
         if (id != null) {
-            this.id= id
+            this.user_id= id
         }
     }
 
     @JvmName("getEmail1")
-    fun getEmail(): String? {
+    fun getEmail(): String {
         return  email
     }
 

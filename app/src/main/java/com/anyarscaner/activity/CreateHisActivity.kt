@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
 import com.anyarscaner.helper.SharedPref
@@ -29,6 +30,11 @@ class CreateHisActivity : AppCompatActivity(){
         btn_proses = findViewById(R.id.btn_proses)
         getData()
 
+        setSupportActionBar(findViewById(R.id.tollbar))
+        supportActionBar!!.title = "Cek Serial Number"
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
 
 //        tv_sn = findViewById(R.id.tv_sn)
 //
@@ -47,7 +53,23 @@ class CreateHisActivity : AppCompatActivity(){
 
         tv_poin_user = findViewById(R.id.tv_totalPoin)
 
+        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                s.setString(s.total_poin, respon.total_poin).toString()
 
+//                pb_totalPoin.visibility = View.GONE
+
+                if (respon.success == 1) {
+                    val getPoin = s.getString(s.total_poin)
+                    tv_poin_user.text = getPoin
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@CreateHisActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+        }).toString()
 
         val sn = intent.getStringExtra("sn")
         tv_sn = findViewById(R.id.tv_sn)
@@ -64,6 +86,8 @@ class CreateHisActivity : AppCompatActivity(){
                     val respon = response.body()!!
                     if(respon.success == 1){
                         val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent)
 //                        finish()
                         Toast.makeText(this@CreateHisActivity, " "+respon.message, Toast.LENGTH_LONG).show()
@@ -75,6 +99,8 @@ class CreateHisActivity : AppCompatActivity(){
                 }
                 override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                     val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent)
                     pb.visibility = View.GONE
                     Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
@@ -114,5 +140,13 @@ class CreateHisActivity : AppCompatActivity(){
         })
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+//        onBackPressed()
+        val intent = Intent(this@CreateHisActivity, ScanBarcodeActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+//        finish()
+        return super.onSupportNavigateUp()
+    }
 
 }

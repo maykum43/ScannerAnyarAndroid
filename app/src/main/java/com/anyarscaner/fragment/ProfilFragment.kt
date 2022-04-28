@@ -128,7 +128,8 @@ class ProfilFragment : Fragment() {
         tv_email.text = user.email
 
         pbPoin.visibility = View.VISIBLE
-        ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
+
+        ApiConfig.instanceRetrofit.totalPoin(tv_nama.text.toString()).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
                 s.setString(s.total_poin, respon.total_poin).toString()
@@ -136,31 +137,9 @@ class ProfilFragment : Fragment() {
                 pbPoin.visibility = View.GONE
 
                 if (respon.success == 1) {
-//                    respon.totalPoin =
-
                     val getPoin = s.getString(s.total_poin)
-//                    respon.totalPoin = s.getString(s.total_poin)
-//                    s.setString(s.total_poin, respon.totalPoin)
-
                     tv_poin.text = getPoin
                 }
-                Toast.makeText(activity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-//
-//
-//                    if (poin != null) {
-//                        poin.TotalPoins = respon.poin.toString()
-//                        tv_poin.text = poin.TotalPoins
-//                    }
-////                    s.setPoin(respon.poin)
-//
-////                    if (s.getPoin() == null){
-////                        tv_poin.text = "0"
-////                    }
-////                    val poin = s.getPoin()!!
-////                    tv_poin.text = poin.TotalPoins
-
-//                }
-
             }
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
@@ -171,7 +150,7 @@ class ProfilFragment : Fragment() {
         
 
         pbJmlRed.visibility = View.VISIBLE
-        tv_jml_hadiah.text = ApiConfig.instanceRetrofit.jumlah(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+        tv_jml_hadiah.text = ApiConfig.instanceRetrofit.jumlah(tv_nama.text.toString()).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
                 s.setString(s.jumlah, respon.jumlah).toString()

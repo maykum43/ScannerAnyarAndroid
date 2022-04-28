@@ -1,6 +1,7 @@
 package com.anyarscaner.activity
 
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -51,8 +52,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun login() {
-        email = findViewById<EditText>(R.id.tv_email)
-        password = findViewById<EditText>(R.id.tv_password)
+        email = findViewById(R.id.tv_email)
+        password = findViewById(R.id.tv_password)
 
         if (email.text.isEmpty()) {
             email.error = "Kolom email tidak boleh kosong!"
@@ -67,32 +68,32 @@ class LoginActivity : AppCompatActivity() {
 
         pb.visibility = View.VISIBLE
 
+        ApiConfig.instanceRetrofit.login(email.text.toString(),password.text.toString())
+            .enqueue(object : Callback<ResponModel>{
+                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                    pb.visibility = View.GONE
 
-        ApiConfig.instanceRetrofit.login(email.text.toString(),password.text.toString()).enqueue(object : Callback<ResponModel>{
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                pb.visibility = View.GONE
+                    val respon = response.body()!!
+                    if(respon.success == 1){
+                        s.setStatusLogin(true)
+                        s.setUser(respon.user)
 
-                val respon = response.body()!!
-                if(respon.success == 1){
-                    //berhasil
-                    s.setStatusLogin(true)
-                    s.setUser(respon.user)
-
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    finish()
-                    Toast.makeText(this@LoginActivity, "Success: "+respon.message, Toast.LENGTH_LONG).show()
-                }else {
-                    //gagal
-                    Toast.makeText(this@LoginActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(intent)
+                        finish()
+                        Toast.makeText(this@LoginActivity, "Success: "+respon.message, Toast.LENGTH_LONG).show()
+                    }else {
+                        //gagal
+                        Toast.makeText(this@LoginActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-            }
+                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                    Toast.makeText(this@LoginActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+                }
 
-        })
+            })
+
     }
 }

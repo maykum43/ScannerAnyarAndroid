@@ -1,5 +1,6 @@
 package com.anyarscaner.activity
 
+//import com.anyarscaner.databinding.ActivityScannerBinding
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -12,11 +13,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doOnTextChanged
 import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.app.ApiConfig
-//import com.anyarscaner.databinding.ActivityScannerBinding
 import com.anyarscaner.model.ResponModel
 import com.budiyev.android.codescanner.*
 import retrofit2.Call
@@ -107,7 +106,9 @@ class ScanBarcodeActivity : AppCompatActivity() {
                     val intent = Intent(this@ScanBarcodeActivity, CreateHisActivity::class.java)
                     intent.putExtra("sn",tvHasil.text)
                     startActivity(intent)
-                    finish()
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    finish()
                 }else{
                     //gagal
                     Toast.makeText(this@ScanBarcodeActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
@@ -169,12 +170,24 @@ class ScanBarcodeActivity : AppCompatActivity() {
         }
 
     }
+
     override fun onSupportNavigateUp(): Boolean {
 //        onBackPressed()
         val intent = Intent(this@ScanBarcodeActivity, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
-        finish()
+//        finish()
         return super.onSupportNavigateUp()
+    }
+
+    private var exitTime: Long = 0
+    override fun onBackPressed() {
+        if ((System.currentTimeMillis() - exitTime) > 8000) {
+            Toast.makeText(this, "Klik kembali untuk keluar", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
+//        super.onBackPressed()
     }
 }

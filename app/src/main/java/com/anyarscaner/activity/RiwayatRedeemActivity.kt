@@ -42,7 +42,7 @@ class RiwayatRedeemActivity:AppCompatActivity() {
 
         pb.visibility = View.VISIBLE
 
-        ApiConfig.instanceRetrofit.getRiwRed(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.getRiwRed(tv_user.text.toString()).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
                 val respon = response.body()!!
@@ -95,14 +95,13 @@ class RiwayatRedeemActivity:AppCompatActivity() {
         tv_user.text = user.name
         tv_email.text = user.email
 
-        tv_jmlHadiah.text = ApiConfig.instanceRetrofit.jumlah(s.getString(s.nama)).enqueue(object : Callback<ResponModel> {
+        tv_jmlHadiah.text = ApiConfig.instanceRetrofit.jumlah(tv_user.text.toString()).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
                 s.setString(s.jumlah, respon.jumlah).toString()
 
                 if(respon.success == 1){
                     val getJumlah = s.getString(s.jumlah)
-
                     tv_jmlHadiah.text = getJumlah
                 }else{
                     Toast.makeText(this@RiwayatRedeemActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()

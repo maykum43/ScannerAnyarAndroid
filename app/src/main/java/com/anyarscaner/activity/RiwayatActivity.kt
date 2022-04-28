@@ -83,7 +83,7 @@ class RiwayatActivity : AppCompatActivity() {
         tv_user.text = user.name
         tv_email.text = user.email
 
-        ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
+        ApiConfig.instanceRetrofit.totalPoin(tv_user.text.toString()).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
                 s.setString(s.total_poin, respon.total_poin).toString()

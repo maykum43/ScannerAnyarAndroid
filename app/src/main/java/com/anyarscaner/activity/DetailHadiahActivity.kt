@@ -33,6 +33,8 @@ class DetailHadiahActivity : AppCompatActivity() {
     lateinit var toolbar : Toolbar
     lateinit var btn_redeem : Button
 
+    lateinit var pb_totalPoin : ProgressBar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,12 +57,36 @@ class DetailHadiahActivity : AppCompatActivity() {
 //        Data User
         tv_user = findViewById(R.id.txt_nama)
         tv_email = findViewById(R.id.txt_email)
-        tv_poin_user = findViewById(R.id.tv_totalPoinUser)
+        tv_poin_user = findViewById(R.id.tv_totalPoin)
+        pb_totalPoin = findViewById(R.id.pb_totalPoin)
 //
 ////        Set Data User
-        tv_user.text = s.getString(s.nama)
-        tv_email.text = s.getString(s.email)
-//        tv_poin_user
+        val user = s.getUser()!!
+        tv_user.text = user.name
+        tv_email.text = user.email
+
+        pb_totalPoin.visibility = View.VISIBLE
+        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(tv_user.text.toString()).enqueue(object : Callback<ResponModel>{
+            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                val respon = response.body()!!
+                s.setString(s.total_poin, respon.total_poin).toString()
+
+                pb_totalPoin.visibility = View.GONE
+
+                if (respon.success == 1) {
+                    val getPoin = s.getString(s.total_poin)
+                    tv_poin_user.text = getPoin
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@DetailHadiahActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+        }).toString()
+
+        if (tv_poin.toString() > tv_poin_user.toString()){
+            btn_redeem.setEnabled(false)
+        }
     }
 
     fun getInfo(){
