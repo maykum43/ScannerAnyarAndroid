@@ -13,8 +13,8 @@ import com.anyarscaner.MainActivity
 import com.anyarscaner.R
 import com.anyarscaner.activity.ScanBarcodeActivity
 import com.anyarscaner.adapter.AdapterCariSn
-import com.anyarscaner.app.ApiConfig
-import com.anyarscaner.app.ApiService
+import com.anyarscaner.api.ApiConfig
+import com.anyarscaner.api.ApiService
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.SnModel
@@ -78,7 +78,7 @@ class ScannerFragment: Fragment() {
 
     private fun setData(view: View) {
         tv_user = view.findViewById(R.id.tv_user)
-        tv_user.text = s.getString(s.nama)
+        tv_user.text = s.getUser()?.name
     }
 
     fun displayData(view: View) {
@@ -134,40 +134,40 @@ class ScannerFragment: Fragment() {
 
             pb.visibility = View.VISIBLE
 
-            ApiConfig.instanceRetrofit.cari_sn(edt_sn.text.toString()).enqueue(object :
-                Callback<ResponModel> {
-                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                    //Response Berhasil
-                    pb.visibility = View.GONE
-                    val respon = response.body()!!
-
-                    if (respon.success == 1) {
+//            ApiConfig.instanceRetrofit.cari_sn(edt_sn.text.toString()).enqueue(object :
+//                Callback<ResponModel> {
+//                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                    //Response Berhasil
 //                    pb.visibility = View.GONE
-//                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
-                        listSn = respon.sns
-                        displayData(view)
-                        //finish()
-                    } else {
-                        //gagal
-                        Toast.makeText(
-                            requireActivity(),
-                            "Error: " + respon.message,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                    //Response Gagal
-                    pb.visibility = View.GONE
-                    Toast.makeText(
-                        requireActivity(),
-                        "Terjadi Kesalahan: " + t.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-            })
+//                    val respon = response.body()!!
+//
+//                    if (respon.success == 1) {
+////                    pb.visibility = View.GONE
+////                    Toast.makeText(this@ScannerActivity, "Data Berhasil Ditemukan ", Toast.LENGTH_SHORT).show()
+//                        listSn = respon.sns
+//                        displayData(view)
+//                        //finish()
+//                    } else {
+//                        //gagal
+//                        Toast.makeText(
+//                            requireActivity(),
+//                            "Error: " + respon.message,
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                    //Response Gagal
+//                    pb.visibility = View.GONE
+//                    Toast.makeText(
+//                        requireActivity(),
+//                        "Terjadi Kesalahan: " + t.message,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//
+//            })
 
 //        saveriwayat()
         }

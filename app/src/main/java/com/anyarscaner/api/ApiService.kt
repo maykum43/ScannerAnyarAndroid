@@ -1,6 +1,7 @@
-package com.anyarscaner.app
+package com.anyarscaner.api
 
 import com.anyarscaner.model.ResponModel
+import com.anyarscaner.responseModel.ResponseLogin
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -35,8 +36,8 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("rwt_sn")
-    fun his_sn(
-        @Field("his_sn") user: String
+    fun getRiws(
+        @Field("email") name: String
     ) : Call<ResponModel>
 
     @FormUrlEncoded

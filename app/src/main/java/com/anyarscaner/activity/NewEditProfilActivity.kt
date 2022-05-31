@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.anyarscaner.MainActivity
 import com.anyarscaner.R
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.User
@@ -59,41 +59,41 @@ class NewEditProfilActivity : AppCompatActivity() {
         atas_nama = findViewById<EditText>(R.id.tv_atas_nama)
         akun_ol = findViewById<EditText>(R.id.tv_nama_akun_ol)
 
-        name1.text = s.getString(s.nama)
-        email1.text = s.getString(s.email)
+        name1.text = s.getUser()?.name
+        email1.text = s.getUser()?.email
 
-        val id = user.getId()
-
-        ApiConfig.instanceRetrofit.cari_pelangan(id).enqueue(object :
-            Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                if(respon.success == 1){
-                    //berhasil
-//                      s.setUser(respon.user)
-                    s.setString(s.nama, respon.user.name)
-                    s.setString(s.email, respon.user.email)
-                    s.setString(s.phone, respon.user.phone)
-                    s.setString(s.norek, respon.user.norek)
-                    s.setString(s.nama_bank, respon.user.nama_bank)
-                    s.setString(s.atas_nama, respon.user.atas_nama)
-                    s.setString(s.akun_ol, respon.user.nama_akun_ol)
-
-                    val intent = Intent(this@NewEditProfilActivity, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    finish()
-                }else {
-                    //gagal
-                    Toast.makeText(this@NewEditProfilActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@NewEditProfilActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-
-        })
+//        val id = user.getId()
+//instanceRetrofit
+//        ApiConfig.instanceRetrofit.cari_pelangan(id).enqueue(object :
+//            Callback<ResponModel> {
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                if(respon.success == 1){
+//                    //berhasil
+////                      s.setUser(respon.user)
+//                    s.setString(s.nama, respon.user.name)
+//                    s.setString(s.email, respon.user.email)
+//                    s.setString(s.phone, respon.user.phone)
+//                    s.setString(s.norek, respon.user.norek)
+//                    s.setString(s.nama_bank, respon.user.nama_bank)
+//                    s.setString(s.atas_nama, respon.user.atas_nama)
+//                    s.setString(s.akun_ol, respon.user.nama_akun_ol)
+//
+//                    val intent = Intent(this@NewEditProfilActivity, MainActivity::class.java)
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intent)
+//                    finish()
+//                }else {
+//                    //gagal
+//                    Toast.makeText(this@NewEditProfilActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                Toast.makeText(this@NewEditProfilActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+//            }
+//
+//        })
     }
 
     private fun simpanData() {

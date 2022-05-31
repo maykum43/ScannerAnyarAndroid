@@ -56,8 +56,10 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
             activiti.putExtra("req_poin", data[position].req_poin)
             activiti.putExtra("foto", data[position].foto)
             activiti.putExtra("stok", data[position].stok.toString())
+            activiti.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             activity.startActivity(activiti)
         }
+
         holder.tvTittle.setOnClickListener {
             val activiti = Intent(activity, DetailHadiahActivity::class.java)
             activiti.putExtra("name", data[position].name)

@@ -8,9 +8,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.anyarscaner.MainActivity
 import com.anyarscaner.R
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import retrofit2.Call
@@ -103,16 +102,7 @@ class RegisterActivity : AppCompatActivity() {
             edt_norek.text.toString(),
             edt_bank.text.toString(),
             edt_atas_nama.text.toString(),
-            edt_akun_ol.text.toString(),
-        ).enqueue(object :
-            Callback<ResponModel> {
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                //Response Gagal
-                pb.visibility = View.GONE
-                Toast.makeText(this@RegisterActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-
+            edt_akun_ol.text.toString()).enqueue(object : Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
 
@@ -131,6 +121,11 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this@RegisterActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
                 }
             }
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                pb.visibility = View.GONE
+                Toast.makeText(this@RegisterActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+            }
+//
         })
     }
 

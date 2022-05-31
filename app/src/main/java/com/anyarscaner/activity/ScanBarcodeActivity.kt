@@ -15,7 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.anyarscaner.MainActivity
 import com.anyarscaner.R
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.model.ResponModel
 import com.budiyev.android.codescanner.*
 import retrofit2.Call
@@ -26,12 +26,14 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
     lateinit var codeScanner : CodeScanner
     lateinit var btnProses : Button
+    lateinit var tvHasil : TextView
 
     lateinit var pbScan : ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan_barcode)
+        tvHasil = findViewById(R.id.tv_hasil)
 
         setupPermissions()
         codeScanner()
@@ -52,7 +54,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
         codeScanner = CodeScanner(this,scn)
 
-        val tvHasil = findViewById<TextView>(R.id.tv_hasil)
+//        val tvHasil = findViewById<TextView>(R.id.tv_hasil)
         pbScan = findViewById(R.id.pb_scan)
         pbScan.visibility = View.VISIBLE
 
@@ -91,7 +93,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
     }
 
     private fun apiCari() {
-        val tvHasil = findViewById<TextView>(R.id.tv_hasil)
+//        val tvHasil = findViewById<TextView>(R.id.tv_hasil)
 
         ApiConfig.instanceRetrofit.cari_sn(tvHasil.text.toString()).enqueue(object :
             Callback<ResponModel> {

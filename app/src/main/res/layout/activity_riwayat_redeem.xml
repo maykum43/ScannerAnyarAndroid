@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/putih_teal">
 
     <ImageView
@@ -52,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="0dp" />
+                    android:paddingHorizontal="0dp"
+                    tools:listitem="@layout/item_riwayat_redeem"/>
 
             </LinearLayout>
 

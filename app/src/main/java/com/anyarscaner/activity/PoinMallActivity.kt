@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
 import com.anyarscaner.adapter.AdapterVoucher
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.HadiahModel
 import com.anyarscaner.model.ResponModel
@@ -54,6 +54,7 @@ class PoinMallActivity : AppCompatActivity() {
 
     fun  getHadiah(){
         pbHadiah.visibility = View.VISIBLE
+//list hadiah
         ApiConfig.instanceRetrofit.getHadiah().enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
@@ -84,37 +85,52 @@ class PoinMallActivity : AppCompatActivity() {
     }
 
     fun setData(){
-        val user = s.getUser()!!
+//        val user = s.getUser()!!
 
         tv_user = findViewById(R.id.txt_nama)
-        tv_user.text = user.name
+        tv_user.text = s.getString(s.name)
 
         tv_email= findViewById(R.id.txt_email)
-        tv_email.text = user.email
+        tv_email.text = s.getString(s.email)
 
         tv_poin = findViewById(R.id.tv_totalPoin)
+        tv_poin.text = s.getString(s.total_poin)
 
-        pbJmlPoin.visibility = View.VISIBLE
-        ApiConfig.instanceRetrofit.totalPoin(tv_user.text.toString()).enqueue(object : Callback<ResponModel>{
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                s.setString(s.total_poin, respon.total_poin).toString()
+//        pbJmlPoin.visibility = View.VISIBLE
+//        Total Poin
+//        ApiConfig.instanceRetrofit.totalPoin(s.getUser()!!.name).enqueue(object : Callback<ResponModel>{
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                s.setString(s.total_poin,respon.total_poin)
+//                pbJmlPoin.visibility = View.GONE
+//                if (respon.success == 1){
+//                    val getPoint = s.getString(s.total_poin)
+//                    tv_poin.text=getPoint
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                Toast.makeText(this@PoinMallActivity,"Terjadi Kesalahan saat mengambil data poin",Toast.LENGTH_SHORT).show()
+//            }
+//
+//        })
+//        ApiConfig.instanceRetrofit.totalPoin(s.getUser()!!.name).enqueue(object : Callback<ResponModel> {
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                s.setString(s.total_poin,respon.total_poin)
+//                pbJmlPoin.visibility = View.GONE
+//                if (respon.success == 1){
+//                    val getPoint = s.getString(s.total_poin)
+//                    tv_poin.text=getPoint
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                Toast.makeText(this@PoinMallActivity,"Terjadi Kesalahan saat mengambil data poin",Toast.LENGTH_SHORT).show()
+//            }
+//
+//        })
 
-                pbJmlPoin.visibility = View.GONE
-
-                if (respon.success == 1) {
-
-                    val getPoin = s.getString(s.total_poin)
-
-                    tv_poin.text = getPoin
-                }
-
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@PoinMallActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 
     override fun onSupportNavigateUp(): Boolean {

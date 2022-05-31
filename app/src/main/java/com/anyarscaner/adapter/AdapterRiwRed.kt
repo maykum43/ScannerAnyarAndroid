@@ -1,6 +1,7 @@
 package com.anyarscaner.adapter
 
 import android.app.Activity
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
+import com.anyarscaner.activity.ContentActivity
+import com.anyarscaner.activity.DetailItemReedemActivity
 import com.anyarscaner.model.RiwayatRedeemModel
 
 class AdapterRiwRed(var activity: Activity, var data: ArrayList<RiwayatRedeemModel>):
@@ -34,6 +37,16 @@ class AdapterRiwRed(var activity: Activity, var data: ArrayList<RiwayatRedeemMod
         holder.nama_hadiah.text = data[position].nama_hadiah
         holder.status.text = data[position].status
         holder.jml_poin.text = data[position].jml_poin
+
+        holder.layoutRed.setOnClickListener {
+            val activiti = Intent(activity, DetailItemReedemActivity::class.java)
+            activiti.putExtra("nama_hadiah", data[position].nama_hadiah)
+            activiti.putExtra("created_at", data[position].created_at)
+            activiti.putExtra("jml_poin", data[position].jml_poin)
+            activiti.putExtra("status", data[position].status)
+            activiti.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            activity.startActivity(activiti)
+        }
 
         if (holder.status.text == "Diproses"){
             holder.status.setTextColor(Color.parseColor("#1A60BC"))

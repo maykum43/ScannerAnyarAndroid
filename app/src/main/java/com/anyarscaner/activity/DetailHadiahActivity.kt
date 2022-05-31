@@ -6,11 +6,9 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.anyarscaner.R
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
-import com.anyarscaner.model.HadiahModel
 import com.anyarscaner.model.ResponModel
-import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -61,32 +59,10 @@ class DetailHadiahActivity : AppCompatActivity() {
         pb_totalPoin = findViewById(R.id.pb_totalPoin)
 //
 ////        Set Data User
-        val user = s.getUser()!!
-        tv_user.text = user.name
-        tv_email.text = user.email
-
-        pb_totalPoin.visibility = View.VISIBLE
-        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(tv_user.text.toString()).enqueue(object : Callback<ResponModel>{
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                s.setString(s.total_poin, respon.total_poin).toString()
-
-                pb_totalPoin.visibility = View.GONE
-
-                if (respon.success == 1) {
-                    val getPoin = s.getString(s.total_poin)
-                    tv_poin_user.text = getPoin
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@DetailHadiahActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-        }).toString()
-
-        if (tv_poin.toString() > tv_poin_user.toString()){
-            btn_redeem.setEnabled(false)
-        }
+//        val user = s.getUser()!!
+        tv_user.text = s.getString(s.name)
+        tv_email.text = s.getString(s.email)
+        tv_poin_user.text = s.getString(s.total_poin)
     }
 
     fun getInfo(){
@@ -121,9 +97,7 @@ class DetailHadiahActivity : AppCompatActivity() {
         btn_redeem.setOnClickListener {
             val pb = findViewById<ProgressBar>(R.id.pb_createRed)
             pb.visibility = View.GONE
-
-            ApiConfig.instanceRetrofit.create_redPoin(s.getString(s.nama),tv_title.text.toString()).enqueue(object :
-                Callback<ResponModel> {
+            ApiConfig.instanceRetrofit.create_redPoin(s.getString(s.name),tv_title.text.toString()).enqueue(object : Callback<ResponModel>{
                 override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                     pb.visibility = View.GONE
                     val respon = response.body()!!
@@ -146,7 +120,34 @@ class DetailHadiahActivity : AppCompatActivity() {
                     Toast.makeText(this@DetailHadiahActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
 //                    Toast.makeText(this@DetailHadiahActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
                 }
+
             })
+
+//            ApiConfig.instanceRetrofit.create_redPoin(s.getString(s.nama),tv_title.text.toString()).enqueue(object :
+//                Callback<ResponModel> {
+//                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                    pb.visibility = View.GONE
+//                    val respon = response.body()!!
+//                    if(respon.success == 1){
+//                        val intent = Intent(this@DetailHadiahActivity, PoinMallActivity::class.java)
+//                        startActivity(intent)
+////                        finish()
+//                        Toast.makeText(this@DetailHadiahActivity, ""+respon.message, Toast.LENGTH_LONG).show()
+//                        //finish()
+//                    }else{
+//                        //gagal
+//                        Toast.makeText(this@DetailHadiahActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                    val intent = Intent(this@DetailHadiahActivity, PoinMallActivity::class.java)
+//                    startActivity(intent)
+//                    pb.visibility = View.GONE
+//                    Toast.makeText(this@DetailHadiahActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+////                    Toast.makeText(this@DetailHadiahActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
+//                }
+//            })
         }
     }
 

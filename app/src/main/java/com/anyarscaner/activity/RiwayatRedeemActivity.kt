@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.anyarscaner.R
 import com.anyarscaner.adapter.AdapterRiwRed
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import com.anyarscaner.model.RiwayatRedeemModel
@@ -41,8 +41,7 @@ class RiwayatRedeemActivity:AppCompatActivity() {
         val pb = findViewById<ProgressBar>(R.id.pb_riwayat_redeem)
 
         pb.visibility = View.VISIBLE
-
-        ApiConfig.instanceRetrofit.getRiwRed(tv_user.text.toString()).enqueue(object : Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.getRiwRed(s.getString(s.name)).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
                 val respon = response.body()!!
@@ -60,7 +59,6 @@ class RiwayatRedeemActivity:AppCompatActivity() {
                 pb.visibility = View.GONE
                 Toast.makeText(this@RiwayatRedeemActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
             }
-
 
         })
 
@@ -91,27 +89,28 @@ class RiwayatRedeemActivity:AppCompatActivity() {
     private var listRiwRed: ArrayList<RiwayatRedeemModel> = ArrayList()
 
     private fun header() {
-        val user = s.getUser()!!
-        tv_user.text = user.name
-        tv_email.text = user.email
+//        val user = s.getUser()!!
+        tv_user.text = s.getString(s.name)
+        tv_email.text = s.getString(s.email)
+        tv_jmlHadiah.text = s.getString(s.jumlah)
 
-        tv_jmlHadiah.text = ApiConfig.instanceRetrofit.jumlah(tv_user.text.toString()).enqueue(object : Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                s.setString(s.jumlah, respon.jumlah).toString()
-
-                if(respon.success == 1){
-                    val getJumlah = s.getString(s.jumlah)
-                    tv_jmlHadiah.text = getJumlah
-                }else{
-                    Toast.makeText(this@RiwayatRedeemActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@RiwayatRedeemActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-        }).toString()
+//        tv_jmlHadiah.text = ApiConfig.instanceRetrofit.jumlah(tv_user.text.toString()).enqueue(object : Callback<ResponModel> {
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                s.setString(s.jumlah, respon.jumlah).toString()
+//
+//                if(respon.success == 1){
+//                    val getJumlah = s.getString(s.jumlah)
+//                    tv_jmlHadiah.text = getJumlah
+//                }else{
+//                    Toast.makeText(this@RiwayatRedeemActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//                Toast.makeText(this@RiwayatRedeemActivity, "Error: "+t.message, Toast.LENGTH_SHORT).show()
+//            }
+//        }).toString()
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -7,7 +7,7 @@
     tools:context=".activity.LoginActivity"
     android:background="@color/putih_teal">
 
-<!--    Header-->
+    <!--    Header-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    Body-->
+    <!--    Body-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

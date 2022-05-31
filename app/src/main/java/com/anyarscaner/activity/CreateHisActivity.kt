@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.anyarscaner.MainActivity
 import com.anyarscaner.R
-import com.anyarscaner.app.ApiConfig
+import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
 import retrofit2.Call
@@ -27,6 +26,7 @@ class CreateHisActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_his)
+        s = SharedPref(this)
         btn_proses = findViewById(R.id.btn_proses)
         getData()
 
@@ -43,33 +43,15 @@ class CreateHisActivity : AppCompatActivity(){
     }
 
     fun getData(){
-        s = SharedPref(this)
 
         tv_id = findViewById(R.id.txt_nama)
-        tv_id.text = s.getString(s.nama)
+        tv_id.setText(s.getString(s.name))
 
         tv_email = findViewById(R.id.txt_email)
-        tv_email.text = s.getString(s.email)
+        tv_email.setText(s.getString(s.email))
 
         tv_poin_user = findViewById(R.id.tv_totalPoin)
-
-        tv_poin_user.text = ApiConfig.instanceRetrofit.totalPoin(s.getString(s.nama)).enqueue(object : Callback<ResponModel>{
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                s.setString(s.total_poin, respon.total_poin).toString()
-
-//                pb_totalPoin.visibility = View.GONE
-
-                if (respon.success == 1) {
-                    val getPoin = s.getString(s.total_poin)
-                    tv_poin_user.text = getPoin
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@CreateHisActivity, "Terjadi Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-            }
-        }).toString()
+        tv_poin_user.setText(s.getString(s.total_poin))
 
         val sn = intent.getStringExtra("sn")
         tv_sn = findViewById(R.id.tv_sn)
@@ -79,7 +61,7 @@ class CreateHisActivity : AppCompatActivity(){
             val pb = findViewById<ProgressBar>(R.id.pb_createHis)
 
             pb.visibility = View.VISIBLE
-            ApiConfig.instanceRetrofit.create_his(tv_sn.text.toString(),tv_id.text.toString()).enqueue(object :
+            ApiConfig.instanceRetrofit.create_his(tv_sn.text.toString(),tv_email.text.toString()).enqueue(object :
                 Callback<ResponModel> {
                 override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                     pb.visibility = View.GONE
@@ -118,26 +100,26 @@ class CreateHisActivity : AppCompatActivity(){
         val edt_sn = findViewById<EditText>(R.id.tv_sn)
         val edt_email = findViewById<EditText>(R.id.tv_namaUser)
 
-        ApiConfig.instanceRetrofit.create_his(edt_sn.text.toString(),edt_email.text.toString()).enqueue(object :
-            Callback<ResponModel> {
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                val respon = response.body()!!
-                if(respon.success == 1){
-                    val intent = Intent(this@CreateHisActivity, ScannerActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(this@CreateHisActivity,"Sukses : "+respon.message,Toast.LENGTH_LONG).show()
-                    finish()
-                    //finish()
-                }else{
-                    //gagal
-//                    Toast.makeText(this@CreateHisActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-
-            }
-        })
+//        ApiConfig.instanceRetrofit.create_his(edt_sn.text.toString(),edt_email.text.toString()).enqueue(object :
+//            Callback<ResponModel> {
+//            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+//                val respon = response.body()!!
+//                if(respon.success == 1){
+//                    val intent = Intent(this@CreateHisActivity, ScannerActivity::class.java)
+//                    startActivity(intent)
+//                    Toast.makeText(this@CreateHisActivity,"Sukses : "+respon.message,Toast.LENGTH_LONG).show()
+//                    finish()
+//                    //finish()
+//                }else{
+//                    //gagal
+////                    Toast.makeText(this@CreateHisActivity, "Error: "+respon.message, Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+//
+//            }
+//        })
     }
 
     override fun onSupportNavigateUp(): Boolean {
