@@ -70,7 +70,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginVertical="10dp"
-                    android:src="@drawable/logo_gpt" />
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/new_vision_logo" />
 
             </androidx.cardview.widget.CardView>
 
@@ -79,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:maxLines="20"
-                android:text="CV. GLOBAL PRIMA TEKNOLOGI adalah Authorized distributor untuk semua merk CCTV ternama di dunia. Produk yang kami berikan adalah produk resmi dan bergaransi resmi.Kami memiliki team Sales dan Support yang siap melayani seluruh partner-partner yang ingin mendistribusikan produk dari kami."
+                android:text="Kami adalah Authorized distributor untuk semua merk CCTV ternama di dunia. Produk yang kami berikan adalah produk resmi dan bergaransi resmi.Kami memiliki team Sales dan Support yang siap melayani seluruh partner-partner yang ingin mendistribusikan produk dari kami."
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
@@ -105,32 +106,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2">
 
-        <ImageButton
-            android:id="@+id/btn_gmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_icon_mail"
-            android:clickable="true"
-            android:onClick="openGmail" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_gmail"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:background="@drawable/ic_icon_mail"-->
+<!--            android:clickable="true"-->
+<!--            android:onClick="openGmail" />-->
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Kirim email ke kami"
-            android:textColor="@color/abu_muda"
-            android:textSize="14sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Kirim email ke kami"-->
+<!--            android:textColor="@color/abu_muda"-->
+<!--            android:textSize="14sp" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="support01@cctvbandung.co.id"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="support01@cctvbandung.co.id"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold" />-->
 
     </LinearLayout>
 

@@ -41,7 +41,7 @@ class RiwayatRedeemActivity:AppCompatActivity() {
         val pb = findViewById<ProgressBar>(R.id.pb_riwayat_redeem)
 
         pb.visibility = View.VISIBLE
-        ApiConfig.instanceRetrofit.getRiwRed(s.getString(s.name)).enqueue(object : Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.getRiwRed(s.getString(s.email)).enqueue(object : Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
                 val respon = response.body()!!

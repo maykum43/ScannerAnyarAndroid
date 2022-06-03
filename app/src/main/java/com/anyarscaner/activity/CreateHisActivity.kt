@@ -85,8 +85,8 @@ class CreateHisActivity : AppCompatActivity(){
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent)
                     pb.visibility = View.GONE
-                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
-//                    Toast.makeText(this@CreateHisActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@CreateHisActivity, "Ditemukan Kesalahan: "+t.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@CreateHisActivity, "Selamat Voucher Cashback: Diproses ", Toast.LENGTH_SHORT).show()
 //                    Toast.makeText(this@CreateHisActivity, "Mohon maaf. SN bukan dari kami", Toast.LENGTH_SHORT).show()
                 }
 

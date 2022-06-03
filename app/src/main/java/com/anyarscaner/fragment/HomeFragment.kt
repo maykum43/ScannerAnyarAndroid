@@ -115,9 +115,61 @@ class HomeFragment : Fragment() {
     }
 
     private fun dataContent() {
-        dataContent.add(ContentData("Voucher 100K",R.drawable.content2,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."))
-        dataContent.add(ContentData("Voucher 50K",R.drawable.content1,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."))
-        dataContent.add(ContentData("Voucher 25K",R.drawable.content3,"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."))
+        dataContent.add(ContentData("DH-HAC-T1A29P & DH-HAC-B1A29P",R.drawable.content2,"DH-HAC-T1A29P\n" +
+                "2MP General HDCVI White Light Eyeball Camera\n" +
+                "\n" +
+                "EAN:\n" +
+                "· Full-color starlight\n" +
+                "· 20 m illumination distance\n" +
+                "· Max. 30fps@1080P\n" +
+                "· CVI/CVBS/AHD/TVI switchable\n" +
+                "· Fixed lens (2.8 mm;3.6 mm optional)\n" +
+                "· IP67, 12V±30% DC\n" +
+                "\n" +
+                "DH-HAC-B1A29P\n" +
+                "2MP General HDCVI White Light IR-Bullet Box Camera\n" +
+                "\n" +
+                "EAN:\n" +
+                "· Full-color starlight\n" +
+                "· 20 m illumination distance\n" +
+                "· Max. 30fps@1080P\n" +
+                "· CVI/CVBS/AHD/TVI switchable\n" +
+                "· Fixed lens (2.8 mm;3.6 mm optional)\n" +
+                "· IP67, 12V±30% DC\n" +
+                "Garansi 2 Tahun Resmi Dahua."))
+        dataContent.add(ContentData("NVR Uniarch 8 Channel 2MP NVR-108B",R.drawable.content1,"NVR Uniarch 8 Channel 2MP NVR-108B Metal case\n" +
+                "\n" +
+                "Key Features\n" +
+                ". Support Ultra 265/H.265/H.264 video formats\n" +
+                ". 4/8-channel input\n" +
+                ". Third-party IP cameras supported with ONVIF conformance: Profile S, Profile G, Profile T\n" +
+                ". Support 1-ch HDMI, 1-ch VGA\n" +
+                ". HDMI and VGA simultaneous output\n" +
+                ". Up to 2MP resolution recording\n" +
+                ". 1 SATA HDD up to 10 TB\n" +
+                ". Support cloud upgrade\n"))
+        dataContent.add(ContentData("IMOU IPC-S42FP / IMOU CRUISER 4MP",R.drawable.content3,"1/2.7” 4 Megapixel Progressive CMOS\n" +
+                "4MP(2650 x 1440)\n" +
+                "Night Vision: 30m(98ft) Distance\n" +
+                "3.6mm/6mm Fixed Lens\n" +
+                "Field of View :\n" +
+                "3.6mm: 3.6mm: 88°(H), 46°(V), 107°(D)\n" +
+                "6mm: 54°(H), 30°(V), 64°(D)\n" +
+                "1 x 100Mbps Ethernet Port\n" +
+                "Wi-Fi: IEEE802.11b/g/n, Dual Antenna\n" +
+                "Imou App: iOS, Android\n" +
+                "Onvif\n" +
+                "Micro SD Card Slot (up to 256GB)\n" +
+                "Reset Button\n"+"Video Compression : H.265/H.264\n" +
+                "Up to 25/30fps Frame Rate\n" +
+                "16x Digital Zoom\n" +
+                "Built-in Mic & Speaker, 110dB Siren\n" +
+                "Two-way Audio\n"+"DC 12V1A Power Supply\n" +
+                "Power Consumption: ＜ 5.32W\n" +
+                "Material: Plastic\n" +
+                "Working Environment:-30°C~+60°C, Less Than 95%RH\n" +
+                "Dimensions: 138.4 × 121.7× 257.5mm (5.45× 4.79 × 10.14 inch)\n" +
+                "Weight: 565g (1.25lb)\n"))
     }
 
     private fun url_img_slider() {
@@ -172,18 +224,37 @@ class HomeFragment : Fragment() {
         btn_support = view.findViewById(R.id.btn_support)
 
         btn_riwayat.setOnClickListener {
-            val inData = Intent(activity, RiwayatActivity::class.java)
-            startActivity(inData)
+            if (s.getStatusLogin()){
+                val inData = Intent(activity, RiwayatActivity::class.java)
+                startActivity(inData)
+            } else {
+                val inData = Intent(activity, LoginActivity::class.java)
+                startActivity(inData)
+                inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+
         }
 
         btn_poinMall.setOnClickListener {
-            val inData = Intent(activity, PoinMallActivity::class.java)
-            startActivity(inData)
+            if (s.getStatusLogin()){
+                val inData = Intent(activity, PoinMallActivity::class.java)
+                startActivity(inData)
+            } else {
+                val inData = Intent(activity, LoginActivity::class.java)
+                startActivity(inData)
+                inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
         }
 
         btn_editprofil.setOnClickListener {
-            val inData =Intent(activity, EditProfilActivity::class.java)
-            startActivity(inData)
+            if (s.getStatusLogin()){
+                val inData =Intent(activity, EditProfilActivity::class.java)
+                startActivity(inData)
+            } else {
+                val inData = Intent(activity, LoginActivity::class.java)
+                startActivity(inData)
+                inData.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
         }
 
         btn_about.setOnClickListener {

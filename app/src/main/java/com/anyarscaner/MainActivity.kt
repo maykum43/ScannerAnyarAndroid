@@ -64,10 +64,16 @@ class MainActivity : AppCompatActivity() {
                     callFragment(0, fragmentHome)
                 }
                 R.id.navigation_scanner ->{
-                    val intent = Intent(this, ScanBarcodeActivity::class.java)
+                    if (s.getStatusLogin()){
+                        val intent = Intent(this, ScanBarcodeActivity::class.java)
 //            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    finish()
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+
                 }
 
                 R.id.navigation_profile -> {
@@ -102,7 +108,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setPoin(){
-        ApiConfig.instanceRetrofit.totalPoin(s.getString(s.name)).enqueue(object :
+        ApiConfig.instanceRetrofit.totalPoin(s.getString(s.email)).enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!
@@ -117,7 +123,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setJmlRedeem(){
-        ApiConfig.instanceRetrofit.jumlah(s.getString(s.name)).enqueue(object :
+        ApiConfig.instanceRetrofit.jumlah(s.getString(s.email)).enqueue(object :
             Callback<ResponModel> {
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 val respon = response.body()!!

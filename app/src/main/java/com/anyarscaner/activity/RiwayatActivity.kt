@@ -40,7 +40,7 @@ class RiwayatActivity : AppCompatActivity() {
         val pb = findViewById<ProgressBar>(R.id.pb_riwayat)
 
         pb.visibility = View.VISIBLE
-        ApiConfig.instanceRetrofit.getRiws(tv_user.text.toString()).enqueue(object :Callback<ResponModel>{
+        ApiConfig.instanceRetrofit.getRiws(tv_email.text.toString()).enqueue(object :Callback<ResponModel>{
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                 pb.visibility = View.GONE
                 val respon = response.body()!!

@@ -372,7 +372,7 @@
                                 android:textSize="18sp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Team GPT dapat membatalkan proses redeem jikalau ada kecurangan dari pihak customer."
+                                android:text="Team Global Vision dapat membatalkan proses redeem jikalau ada kecurangan dari pihak customer."
                                 android:maxLines="15"/>
                         </LinearLayout>
                         <!--point 3-->

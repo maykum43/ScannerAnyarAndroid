@@ -97,7 +97,7 @@ class DetailHadiahActivity : AppCompatActivity() {
         btn_redeem.setOnClickListener {
             val pb = findViewById<ProgressBar>(R.id.pb_createRed)
             pb.visibility = View.GONE
-            ApiConfig.instanceRetrofit.create_redPoin(s.getString(s.name),tv_title.text.toString()).enqueue(object : Callback<ResponModel>{
+            ApiConfig.instanceRetrofit.create_redPoin(s.getString(s.email),tv_title.text.toString()).enqueue(object : Callback<ResponModel>{
                 override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
                     pb.visibility = View.GONE
                     val respon = response.body()!!

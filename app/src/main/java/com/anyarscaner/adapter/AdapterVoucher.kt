@@ -26,7 +26,7 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
         var ivHadiah = view.findViewById<ImageView>(R.id.iv_itemHadiah2)
         val tvTittle = view.findViewById<TextView>(R.id.tv_titleVoucher2)
         val tvPoin = view.findViewById<TextView>(R.id.tv_poinVoucher2)
-        val tvStok = view.findViewById<TextView>(R.id.tv_stok)
+//        val tvStok = view.findViewById<TextView>(R.id.tv_stok)
         val layout = view.findViewById<ImageView>(R.id.iv_bgVoucher2)
     }
 
@@ -46,7 +46,7 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
 
         holder.tvTittle.text = data[position].name
         holder.tvPoin.text = data[position].req_poin
-        holder.tvStok.text = data[position].stok.toString()
+//        holder.tvStok.text = data[position].stok.toString()
         //format harga indo
     // NumberFormat.getCurrencyInstance(Locale("in", "ID")).format(Integer.valueOf(data[position].req_poin))
 
@@ -55,7 +55,7 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
             activiti.putExtra("name", data[position].name)
             activiti.putExtra("req_poin", data[position].req_poin)
             activiti.putExtra("foto", data[position].foto)
-            activiti.putExtra("stok", data[position].stok.toString())
+//            activiti.putExtra("stok", data[position].stok.toString())
             activiti.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             activity.startActivity(activiti)
         }
@@ -76,14 +76,14 @@ class AdapterVoucher (var activity: Activity, var data: ArrayList<HadiahModel>):
             activiti.putExtra("stok", data[position].stok.toString())
             activity.startActivity(activiti)
         }
-        holder.tvStok.setOnClickListener {
-            val activiti = Intent(activity, DetailHadiahActivity::class.java)
-            activiti.putExtra("name", data[position].name)
-            activiti.putExtra("req_poin", data[position].req_poin)
-            activiti.putExtra("foto", data[position].foto)
-            activiti.putExtra("stok", data[position].stok.toString())
-            activity.startActivity(activiti)
-        }
+//        holder.tvStok.setOnClickListener {
+//            val activiti = Intent(activity, DetailHadiahActivity::class.java)
+//            activiti.putExtra("name", data[position].name)
+//            activiti.putExtra("req_poin", data[position].req_poin)
+//            activiti.putExtra("foto", data[position].foto)
+//            activiti.putExtra("stok", data[position].stok.toString())
+//            activity.startActivity(activiti)
+//        }
         holder.layout.setOnClickListener {
             val activiti = Intent(activity, DetailHadiahActivity::class.java)
             activiti.putExtra("name", data[position].name)
