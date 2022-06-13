@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit
 object ApiConfig {
     //    private const val BASE_URL = "http://vouchercashback.cctvbandung.co.id/public/api/"
 //    private const val BASE_URL = "http://192.168.68.95/WebAdminScanner2/public/api/"
-//    private const val BASE_URL = "http://192.168.1.235/WebAdminScanner2/public/api/" //Url Wifi GPT
+    private const val BASE_URL = "http://192.168.1.235/WebAdminScanner2/public/api/" //Url Wifi GPT
 //        private const val BASE_URL = "http://192.168.100.38/WebAdminScanner2/public/api/" //Url Wifi Dela
-    const val BASE_URL = "https://gpt.poin.cctvbandung.co.id/public/api/"  //Link Online
+//    const val BASE_URL = "https://gpt.poin.cctvbandung.co.id/public/api/"  //Link Online
     //    private const val BASE_URL = "http://192.168.100.38/WebAdminScanner2/public/api/"
 //    private val client: Retrofit
 //        get(){
@@ -38,8 +38,8 @@ object ApiConfig {
 //        get() = client.create(ApiService::class.java)
 
 //    #################API 2#################
-const val baseUrl = "https://gpt.poin.cctvbandung.co.id/public/api/"
-
+//const val baseUrl = "https://gpt.poin.cctvbandung.co.id/public/api/"
+const val baseUrl = "http://192.168.1.235/WebAdminScanner2/public/api/"
     private val client : Retrofit
 
     get() {

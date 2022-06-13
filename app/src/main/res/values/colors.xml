@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="Primary">#1A60BC</color>
+    <color name="Secondary">#1A60BC</color>
     <color name="Biru">#1A60BC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="abu">#474747</color>

@@ -1,6 +1,7 @@
 package com.anyarscaner.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -10,8 +11,6 @@ import com.anyarscaner.R
 import com.anyarscaner.api.ApiConfig
 import com.anyarscaner.helper.SharedPref
 import com.anyarscaner.model.ResponModel
-import com.anyarscaner.model.User
-import com.anyarscaner.responseModel.ResponseLogin
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +22,7 @@ class LoginActivity: AppCompatActivity() {
 
     private lateinit var email: EditText
     private lateinit var password:EditText
+    private lateinit var btn_lupass: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +34,7 @@ class LoginActivity: AppCompatActivity() {
         //Inisialisasi ID (Button)
         val btnLogin2 = findViewById<TextView>(R.id.btn_login)
         val btnDaftar = findViewById<TextView>(R.id.btn_daftar)
+        btn_lupass = findViewById(R.id.tv_lupass)
 
         btnLogin2.setOnClickListener {
 //            s.setStatusLogin(true)
@@ -43,6 +44,18 @@ class LoginActivity: AppCompatActivity() {
         btnDaftar.setOnClickListener {
             regist()
         }
+
+        btn_lupass.setOnClickListener {
+//            lupass()
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.1.235/WebAdminScanner2/public/password/reset"))
+            startActivity(browserIntent)
+        }
+    }
+
+    private fun lupass() {
+        val intent= Intent(this@LoginActivity, LupassActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 
     private fun regist() {

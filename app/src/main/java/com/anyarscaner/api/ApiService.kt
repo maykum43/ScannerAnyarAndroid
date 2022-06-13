@@ -29,6 +29,12 @@ interface ApiService {
     ) : Call<ResponModel>
 
     @FormUrlEncoded
+    @POST("for_pass")
+    fun lupass(
+        @Field("email") email:String
+    ) : Call<ResponModel>
+
+    @FormUrlEncoded
     @POST("cari_sn")
     fun  cari_sn(
         @Field("cari_sn") sn:String

@@ -56,7 +56,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
 //        val tvHasil = findViewById<TextView>(R.id.tv_hasil)
         pbScan = findViewById(R.id.pb_scan)
-        pbScan.visibility = View.VISIBLE
+//        pbScan.visibility = View.VISIBLE
 
         codeScanner.apply {
             camera = CodeScanner.CAMERA_BACK
@@ -70,7 +70,7 @@ class ScanBarcodeActivity : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
-                    pbScan.visibility = View.GONE
+//                    pbScan.visibility = View.GONE
                     tvHasil.text = it.text
                 }
             }
