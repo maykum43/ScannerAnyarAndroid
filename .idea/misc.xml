@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/drawable-anydpi-v24/ic_notif_1.xml" value="0.105" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/activity_aboutus.xml" value="0.18229166666666666" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/activity_bantuan.xml" value="0.18229166666666666" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/activity_login.xml" value="0.18229166666666666" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/activity_poin_mall.xml" value="0.18229166666666666" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/activity_support.xml" value="0.18229166666666666" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/fragment_profil.xml" value="0.22" />
+        <entry key="..\:/Self/Fm/kerja/AnyarOffline/app/src/main/res/layout/lay_mini_header.xml" value="0.33" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_body_login.xml" value="0.1645" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_btn_primary.xml" value="0.1" />
         <entry key="..\:/Users/FIKBEE/AndroidStudioProjects/AnyarScaner/app/src/main/res/drawable/bg_btn_regist.xml" value="0.16" />

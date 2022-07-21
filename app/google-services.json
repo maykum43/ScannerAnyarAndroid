@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "951767016193",
+    "project_id": "anyarscanner",
+    "storage_bucket": "anyarscanner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951767016193:android:772971c36547c3c12cb100",
+        "android_client_info": {
+          "package_name": "com.anyarscaner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951767016193-7u7b8chpi6tnafjndf7pgo3gi050mddk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqXYg2r41Q5gNeu5QY-0wiYYRwtgH5uU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951767016193-7u7b8chpi6tnafjndf7pgo3gi050mddk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951767016193:android:28c613c40a3d03fb2cb100",
+        "android_client_info": {
+          "package_name": "com.anyarscaneroffline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951767016193-7u7b8chpi6tnafjndf7pgo3gi050mddk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqXYg2r41Q5gNeu5QY-0wiYYRwtgH5uU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951767016193-7u7b8chpi6tnafjndf7pgo3gi050mddk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

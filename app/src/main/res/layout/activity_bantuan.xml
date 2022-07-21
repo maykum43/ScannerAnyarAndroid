@@ -447,7 +447,8 @@
             android:layout_gravity="center"
             android:background="@drawable/ic_btn_wa"
             android:clickable="true"
-            android:onClick="openWa" />
+             />
+<!--        android:onClick="openWa"-->
 
         <TextView
             android:id="@+id/textView"
